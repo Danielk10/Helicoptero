@@ -1,0 +1,48 @@
+
+platilloDeLuz.png
+size: 1024, 64
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+platillo
+  rotate: false
+  xy: 2, 2
+  size: 100, 48
+  orig: 100, 48
+  offset: 0, 0
+  index: 5
+platillo
+  rotate: false
+  xy: 104, 2
+  size: 100, 48
+  orig: 100, 48
+  offset: 0, 0
+  index: 2
+platillo
+  rotate: false
+  xy: 206, 2
+  size: 100, 48
+  orig: 100, 48
+  offset: 0, 0
+  index: 4
+platillo
+  rotate: false
+  xy: 308, 2
+  size: 100, 48
+  orig: 100, 48
+  offset: 0, 0
+  index: 1
+platillo
+  rotate: false
+  xy: 410, 2
+  size: 100, 48
+  orig: 100, 48
+  offset: 0, 0
+  index: 6
+platillo
+  rotate: false
+  xy: 512, 2
+  size: 100, 48
+  orig: 100, 48
+  offset: 0, 0
+  index: 3

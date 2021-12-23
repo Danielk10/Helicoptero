@@ -1,0 +1,27 @@
+
+misil.png
+size: 512, 64
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+misil1
+  rotate: false
+  xy: 2, 2
+  size: 134, 36
+  orig: 134, 36
+  offset: 0, 0
+  index: -1
+misil2
+  rotate: false
+  xy: 274, 2
+  size: 134, 36
+  orig: 134, 36
+  offset: 0, 0
+  index: -1
+misil3
+  rotate: false
+  xy: 138, 2
+  size: 134, 36
+  orig: 134, 36
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,49 @@
+package com.diamon.personaje;
+
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Array;
+import com.diamon.nucleo.Juego;
+import com.diamon.nucleo.Pantalla;
+import com.diamon.nucleo.Personaje;
+
+public class Fuego extends Personaje {
+
+	public Fuego(Texture textura, Pantalla pantalla) {
+		super(textura, pantalla);
+
+	}
+
+	public Fuego(TextureRegion texturaRegion, Pantalla pantalla) {
+		super(texturaRegion, pantalla);
+
+	}
+
+	public Fuego(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, Animation.PlayMode modo, Pantalla pantalla) {
+		super(texturaRegion, tiempoAnimacion, modo, pantalla);
+
+	}
+
+	@Override
+	public void actualizar(float delta) {
+
+		if (x <= camara.position.x + Juego.ANCHO_PANTALLA / 2) {
+
+			super.actualizar(delta);
+
+		}
+
+		if (x <= camara.position.x - (Juego.ANCHO_PANTALLA / 2 + getWidth())) {
+
+			remover = true;
+
+		}
+
+	}
+
+	@Override
+	public void colision(Personaje actor) {
+	}
+}
