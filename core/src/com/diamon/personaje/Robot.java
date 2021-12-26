@@ -85,11 +85,11 @@ public class Robot extends Personaje {
 			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
 
 			{
+				animacion = animacion2;
 
 				if (tiempoCuadro / duracionDisparo >= 1) {
 
-					animacion = animacion2;
-
+					
 					disparar(BalaEnemigo.IZQUIERDO);
 
 					tiempoCuadro = 0;

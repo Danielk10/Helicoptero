@@ -44,13 +44,13 @@ public class MaquinaParedIzquierda extends Personaje {
 			Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
-		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(0));
+		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(1));
 
 		animacion1.setPlayMode(PlayMode.NORMAL);
 
 		animacion = animacion1;
 
-		animacion2 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(1));
+		animacion2 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(0));
 
 		animacion2.setPlayMode(PlayMode.NORMAL);
 
@@ -96,11 +96,11 @@ public class MaquinaParedIzquierda extends Personaje {
 					tiempoCuadro = 0;
 				}
 
+			} else {
+
+				animacion = animacion2;
+
 			}
-
-		} else {
-
-			animacion = animacion2;
 
 		}
 

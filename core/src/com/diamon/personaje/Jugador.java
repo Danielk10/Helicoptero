@@ -281,44 +281,44 @@ public class Jugador extends Personaje {
 		dispararMisil = false;
 
 		dispararBomba = false;
-		
+
 		deltaToque = false;
 
 		dedos = -1;
 
 		if (tipo == Jugador.HELICOPTERO_NORMAL) {
 
-			dureza = 1;
+			dureza = 3;
 
 		}
 
 		if (tipo == Jugador.HELICOPTERO_REDONDO) {
 
-			dureza = 2;
+			dureza = 6;
 
 		}
 
 		if (tipo == Jugador.HELICOPTERO_NEGRO) {
 
-			dureza = 3;
+			dureza = 9;
 
 		}
 
 		if (tipo == Jugador.HELICOPTERO_MEDICO) {
 
-			dureza = 4;
+			dureza = 12;
 
 		}
 
 		if (tipo == Jugador.HELICOPTERO_VERDE) {
 
-			dureza = 5;
+			dureza = 15;
 
 		}
 
 		if (tipo == Jugador.HELICOPTERO_SATELITAL) {
 
-			dureza = 6;
+			dureza = 18;
 
 		}
 
@@ -589,7 +589,7 @@ public class Jugador extends Personaje {
 				if (dedos == 0) {
 
 					if (deltaToque) {
-						
+
 						x1 = this.getX();
 
 						y1 = this.getY();
@@ -894,7 +894,7 @@ public class Jugador extends Personaje {
 					if (velocidadCamaraItem == 2) {
 
 						velocidadCamaraItem = 0;
-						
+
 						itemVelocidad = false;
 
 					}
@@ -923,7 +923,7 @@ public class Jugador extends Personaje {
 			if (actorSatelite != null) {
 
 				if (actorSatelite.isRemover()) {
-					
+
 					numeroDeSatelites = 0;
 
 					actorSatelite.setRemover(false);
@@ -1036,7 +1036,7 @@ public class Jugador extends Personaje {
 
 					tiempoCuadroDisparoBalaExplosiva += delta;
 
-					if (tiempoCuadroDisparoBalaExplosiva / 0.5f >= 1) {
+					if (tiempoCuadroDisparoBalaExplosiva / 0.20f >= 1) {
 
 						disparar();
 
@@ -1293,7 +1293,6 @@ public class Jugador extends Personaje {
 
 		this.finNivel = finNivel;
 	}
-	
 
 	public boolean isDispararBomba() {
 		return dispararBomba;
@@ -1324,76 +1323,6 @@ public class Jugador extends Personaje {
 		if (actor instanceof BalaExplosivaEnemiga || actor instanceof BalaEnemigo || actor instanceof BolaPlasma) {
 
 			if (tipo == Jugador.HELICOPTERO_NORMAL) {
-
-				if (!inmune) {
-
-					if (dato.isSonido())
-
-					{
-
-						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
-
-					}
-
-					explosion();
-
-					choque = true;
-
-					--vida;
-
-					if (vida <= 0) {
-
-						explosionHelicoptero();
-
-					}
-
-				}
-
-				inmune = true;
-
-			}
-
-			if (tipo == Jugador.HELICOPTERO_REDONDO) {
-
-				if (!inmune) {
-
-					dureza--;
-
-					if (dato.isSonido())
-
-					{
-
-						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
-
-					}
-
-					explosion();
-
-				}
-
-				if (dureza <= 0) {
-
-					if (!inmune) {
-
-						choque = true;
-
-						dureza = 2;
-
-						--vida;
-
-						if (vida <= 0) {
-
-							explosionHelicoptero();
-
-						}
-
-					}
-					inmune = true;
-				}
-
-			}
-
-			if (tipo == Jugador.HELICOPTERO_NEGRO) {
 
 				if (!inmune) {
 
@@ -1433,87 +1362,7 @@ public class Jugador extends Personaje {
 
 			}
 
-			if (tipo == Jugador.HELICOPTERO_MEDICO) {
-
-				if (!inmune) {
-
-					dureza--;
-
-					if (dato.isSonido())
-
-					{
-
-						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
-
-					}
-
-					explosion();
-
-				}
-
-				if (dureza <= 0) {
-
-					if (!inmune) {
-
-						choque = true;
-
-						dureza = 4;
-
-						--vida;
-
-						if (vida <= 0) {
-
-							explosionHelicoptero();
-
-						}
-
-					}
-					inmune = true;
-				}
-
-			}
-
-			if (tipo == Jugador.HELICOPTERO_VERDE) {
-
-				if (!inmune) {
-
-					dureza--;
-
-					if (dato.isSonido())
-
-					{
-
-						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
-
-					}
-
-					explosion();
-
-				}
-
-				if (dureza <= 0) {
-
-					if (!inmune) {
-
-						choque = true;
-
-						dureza = 5;
-
-						--vida;
-
-						if (vida <= 0) {
-
-							explosionHelicoptero();
-
-						}
-
-					}
-					inmune = true;
-				}
-
-			}
-
-			if (tipo == Jugador.HELICOPTERO_SATELITAL) {
+			if (tipo == Jugador.HELICOPTERO_REDONDO) {
 
 				if (!inmune) {
 
@@ -1553,6 +1402,166 @@ public class Jugador extends Personaje {
 
 			}
 
+			if (tipo == Jugador.HELICOPTERO_NEGRO) {
+
+				if (!inmune) {
+
+					dureza--;
+
+					if (dato.isSonido())
+
+					{
+
+						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
+
+					}
+
+					explosion();
+
+				}
+
+				if (dureza <= 0) {
+
+					if (!inmune) {
+
+						choque = true;
+
+						dureza = 9;
+
+						--vida;
+
+						if (vida <= 0) {
+
+							explosionHelicoptero();
+
+						}
+
+					}
+					inmune = true;
+				}
+
+			}
+
+			if (tipo == Jugador.HELICOPTERO_MEDICO) {
+
+				if (!inmune) {
+
+					dureza--;
+
+					if (dato.isSonido())
+
+					{
+
+						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
+
+					}
+
+					explosion();
+
+				}
+
+				if (dureza <= 0) {
+
+					if (!inmune) {
+
+						choque = true;
+
+						dureza = 12;
+
+						--vida;
+
+						if (vida <= 0) {
+
+							explosionHelicoptero();
+
+						}
+
+					}
+					inmune = true;
+				}
+
+			}
+
+			if (tipo == Jugador.HELICOPTERO_VERDE) {
+
+				if (!inmune) {
+
+					dureza--;
+
+					if (dato.isSonido())
+
+					{
+
+						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
+
+					}
+
+					explosion();
+
+				}
+
+				if (dureza <= 0) {
+
+					if (!inmune) {
+
+						choque = true;
+
+						dureza = 15;
+
+						--vida;
+
+						if (vida <= 0) {
+
+							explosionHelicoptero();
+
+						}
+
+					}
+					inmune = true;
+				}
+
+			}
+
+			if (tipo == Jugador.HELICOPTERO_SATELITAL) {
+
+				if (!inmune) {
+
+					dureza--;
+
+					if (dato.isSonido())
+
+					{
+
+						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
+
+					}
+
+					explosion();
+
+				}
+
+				if (dureza <= 0) {
+
+					if (!inmune) {
+
+						choque = true;
+
+						dureza = 18;
+
+						--vida;
+
+						if (vida <= 0) {
+
+							explosionHelicoptero();
+
+						}
+
+					}
+					inmune = true;
+				}
+
+			}
+
 		}
 
 		if (actor instanceof JefeUno || actor instanceof JefeDos || actor instanceof JefeTres
@@ -1562,7 +1571,7 @@ public class Jugador extends Personaje {
 
 				int durezaJefe = actor.getDureza();
 
-				durezaJefe--;
+				durezaJefe -= 5;
 
 				actor.setDureza(durezaJefe);
 
@@ -1735,7 +1744,7 @@ public class Jugador extends Personaje {
 
 			tipo = Jugador.HELICOPTERO_NORMAL;
 
-			dureza = 1;
+			dureza = 3;
 
 			this.animacion = new Animation<TextureRegion>(0.01f,
 					recurso.get("textura/helicoptero.atlas", TextureAtlas.class).getRegions());
@@ -1752,7 +1761,7 @@ public class Jugador extends Personaje {
 
 			tipo = Jugador.HELICOPTERO_REDONDO;
 
-			dureza = 2;
+			dureza = 6;
 
 			this.animacion = new Animation<TextureRegion>(0.01f,
 					recurso.get("textura/helicopteroRedondo.atlas", TextureAtlas.class).getRegions());
@@ -1769,7 +1778,7 @@ public class Jugador extends Personaje {
 
 			tipo = Jugador.HELICOPTERO_NEGRO;
 
-			dureza = 3;
+			dureza = 9;
 
 			this.animacion = new Animation<TextureRegion>(0.01f,
 					recurso.get("textura/helicopteroNegro.atlas", TextureAtlas.class).getRegions());
@@ -1786,7 +1795,7 @@ public class Jugador extends Personaje {
 
 			tipo = Jugador.HELICOPTERO_MEDICO;
 
-			dureza = 4;
+			dureza = 12;
 
 			this.animacion = new Animation<TextureRegion>(0.01f,
 					recurso.get("textura/helicopteroMedico.atlas", TextureAtlas.class).getRegions());
@@ -1803,7 +1812,7 @@ public class Jugador extends Personaje {
 
 			tipo = Jugador.HELICOPTERO_VERDE;
 
-			dureza = 5;
+			dureza = 15;
 
 			this.animacion = new Animation<TextureRegion>(0.01f,
 					recurso.get("textura/helicopteroVerde.atlas", TextureAtlas.class).getRegions());
@@ -1820,7 +1829,7 @@ public class Jugador extends Personaje {
 
 			tipo = Jugador.HELICOPTERO_SATELITAL;
 
-			dureza = 6;
+			dureza = 18;
 
 			this.animacion = new Animation<TextureRegion>(0.01f,
 					recurso.get("textura/elicoptero1.atlas", TextureAtlas.class).getRegions());

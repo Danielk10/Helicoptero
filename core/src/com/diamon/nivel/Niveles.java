@@ -76,6 +76,7 @@ import com.diamon.personaje.PlatilloVolador;
 import com.diamon.personaje.Robot;
 import com.diamon.personaje.Sierra;
 import com.diamon.personaje.Terreno;
+import com.diamon.utilidad.ConstantesDeJuego;
 
 public class Niveles extends Nivel {
 
@@ -724,9 +725,9 @@ public class Niveles extends Nivel {
 		for (Vector2 posicion : dato.getPosicionActores(Dato.ANTI_AEREO, numeroNivel)) {
 
 			AntiAereo actor = new AntiAereo(recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getRegions(),
-					0.2f, Animation.PlayMode.LOOP, pantalla);
+					0.2f, Animation.PlayMode.NORMAL, pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(ConstantesDeJuego.ANCHO_ANTIAEREO, ConstantesDeJuego.ALTO_ANTIAEREO);
 
 			actor.setDureza(7);
 
@@ -740,7 +741,7 @@ public class Niveles extends Nivel {
 
 		for (Vector2 posicion : dato.getPosicionActores(Dato.SIERRA, numeroNivel)) {
 
-			Sierra actor = new Sierra(recurso.get("textura/sierra.atlas", TextureAtlas.class).getRegions(), 0.3f,
+			Sierra actor = new Sierra(recurso.get("textura/sierra.atlas", TextureAtlas.class).getRegions(), 0.05f,
 					Animation.PlayMode.LOOP, pantalla);
 
 			actor.setSize(42, 42);
@@ -840,7 +841,7 @@ public class Niveles extends Nivel {
 
 			actor.setDureza(12);
 
-			actor.setDuracionDisparo(1.3f);
+			actor.setDuracionDisparo(1f);
 
 			personajes.add(actor);
 
@@ -858,7 +859,7 @@ public class Niveles extends Nivel {
 
 			actor.setDureza(8);
 
-			actor.setDuracionDisparo(1f);
+			actor.setDuracionDisparo(0.5f);
 
 			personajes.add(actor);
 
@@ -876,7 +877,7 @@ public class Niveles extends Nivel {
 
 			actor.setDureza(8);
 
-			actor.setDuracionDisparo(1f);
+			actor.setDuracionDisparo(0.5f);
 
 			personajes.add(actor);
 

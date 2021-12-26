@@ -639,7 +639,6 @@ public class PantallaJuego extends Pantalla {
 		} else {
 			nivel.addAction(Actions.sequence(Actions.delay(duration), Actions.run(new Runnable() {
 
-				@SuppressWarnings("static-access")
 				public void run() {
 
 					if (Gdx.app.getType() == Gdx.app.getType().Android) {

@@ -1347,7 +1347,7 @@ public class EditorNivel {
 
 					recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(ConstantesDeJuego.ANCHO_ANTIAEREO, ConstantesDeJuego.ALTO_ANTIAEREO);
 
 			actor.setPosition(x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2)),
 					y + (camara.position.y - (Juego.ALTO_PANTALLA / 2)));
@@ -2053,7 +2053,7 @@ public class EditorNivel {
 
 					recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(ConstantesDeJuego.ANCHO_ANTIAEREO, ConstantesDeJuego.ALTO_ANTIAEREO);
 
 			actor.setPosition(x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2)),
 					y + (camara.position.y - (Juego.ALTO_PANTALLA / 2)));
