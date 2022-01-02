@@ -9,7 +9,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle plugin 4.0+'
+         classpath 'com.android.tools.build:gradle:3.5.4'
         
 
     }
