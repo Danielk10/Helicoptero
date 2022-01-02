@@ -12,6 +12,10 @@ import com.diamon.pantalla.PantallaCompleta;
 import android.content.*;
 import android.view.*;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 public class AndroidLauncher extends AndroidApplication {
 
 	private WakeLock wakeLock;
@@ -21,6 +25,9 @@ public class AndroidLauncher extends AndroidApplication {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		AppCenter.start(getApplication(), "4056bf0a-2d00-48f5-a6af-2db87ba43c88",
+                  Analytics.class, Crashes.class);
 
 		pantallaCompleta = new PantallaCompleta(this);
 
