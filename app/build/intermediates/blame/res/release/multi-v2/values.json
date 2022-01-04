@@ -1,0 +1,79 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Milka\\eclipse-workspace\\Helicoptero\\android\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Milka\\.gradle\\caches\\transforms-2\\files-2.1\\7a6853e54cbcb8fa4473b710561e4d39\\inapp-sdk-4.8.11\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "52",
+                        "endOffsets": "103"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "109",
+                        "endColumns": "52",
+                        "endOffsets": "157"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Milka\\eclipse-workspace\\Helicoptero\\android\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "56",
+                        "endColumns": "48",
+                        "endOffsets": "100"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "162",
+                        "endColumns": "48",
+                        "endOffsets": "206"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Milka\\eclipse-workspace\\Helicoptero\\android\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "475"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "211",
+                        "endLines": "12",
+                        "endColumns": "12",
+                        "endOffsets": "669"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Milka\\eclipse-workspace\\Helicoptero\\android\\res\\values\\color.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "5",
+                        "startOffsets": "56",
+                        "endColumns": "54",
+                        "endOffsets": "105"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "53",
+                        "endOffsets": "104"
+                    }
+                }
+            ]
+        }
+    ]
+}

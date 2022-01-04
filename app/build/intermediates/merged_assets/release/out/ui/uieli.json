@@ -1,0 +1,69 @@
+{
+com.badlogic.gdx.graphics.g2d.BitmapFont: {
+	letras: {
+		file: letras.fnt
+	}
+	letras2: {
+		file: letras2.fnt
+	}
+}
+com.badlogic.gdx.graphics.Color: {
+	RGBA_0_0_0_255: {
+		r: 0
+		g: 0
+		b: 0
+		a: 1
+	}
+	RGBA_0_255_39_171: {
+		r: 0
+		g: 1
+		b: 0.15400004
+		a: 0.67333335
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
+	Luz3: {
+		name: Luz1
+		color: {
+			r: 0.20666666
+			g: 0.17911111
+			b: 0.17911111
+			a: 1
+		}
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
+	default: {
+		imageUp: Luz1
+		imageDown: Luz2
+		imageOver: Luz2
+		imageDisabled: Candado1
+		font: letras
+		disabledFontColor: RGBA_0_0_0_255
+		up: Boton 1
+		down: Boton 2
+		over: Boton 4
+		disabled: Boton 3
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+	default: {
+		font: letras2
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
+	default: {
+		font: letras
+		disabledFontColor: RGBA_0_0_0_255
+		up: Boton 1
+		down: Boton 2
+		over: Boton 4
+		disabled: Boton 3
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
+	default: {
+		label: default
+	}
+}
+}

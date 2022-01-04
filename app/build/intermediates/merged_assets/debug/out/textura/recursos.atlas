@@ -1,0 +1,69 @@
+
+recursos.png
+size: 1024, 256
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+barra1
+  rotate: false
+  xy: 324, 2
+  size: 389, 45
+  orig: 389, 45
+  offset: 0, 0
+  index: -1
+barra2
+  rotate: false
+  xy: 761, 199
+  size: 260, 46
+  orig: 260, 46
+  offset: 0, 0
+  index: -1
+caja1
+  rotate: false
+  xy: 439, 115
+  size: 320, 64
+  orig: 320, 64
+  offset: 0, 0
+  index: -1
+caja2
+  rotate: false
+  xy: 2, 17
+  size: 320, 64
+  orig: 320, 64
+  offset: 0, 0
+  index: -1
+caja3
+  rotate: false
+  xy: 439, 49
+  size: 320, 64
+  orig: 320, 64
+  offset: 0, 0
+  index: -1
+caja4
+  rotate: false
+  xy: 439, 181
+  size: 320, 64
+  orig: 320, 64
+  offset: 0, 0
+  index: -1
+corazon
+  rotate: false
+  xy: 827, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+titulo
+  rotate: false
+  xy: 2, 83
+  size: 435, 162
+  orig: 435, 162
+  offset: 0, 0
+  index: -1
+tuerca
+  rotate: false
+  xy: 761, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
