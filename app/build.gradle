@@ -28,6 +28,16 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        
+        appcenter {
+			applicationVariants.all { variant ->
+				variant.outputs.all {
+					def currentFile = new File(outputFileName)
+					def filename = currentFile.getName()
+					outputFileName = "../../../../../Application/Application/build/outputs/apk/${filename}"
+				}
+			}
+		}
     }
 }
 
