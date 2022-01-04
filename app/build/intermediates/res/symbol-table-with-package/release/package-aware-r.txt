@@ -1,0 +1,8 @@
+com.diamon.helicoptero
+color ic_background_color
+drawable ic_launcher
+drawable ic_launcher_adaptive_fore
+drawable ic_launcher_foreground
+integer com_startapp_sdk_aar
+string app_name
+style GdxTheme
