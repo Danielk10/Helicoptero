@@ -23,10 +23,7 @@ android {
         versionCode 1
         versionName "1.0.0"
         
-          buildConfigField("String", "APPCENTER_APP_SECRET", "\"\"")
-        if (System.getenv("APPCENTER_APP_SECRET") != null) {
-            buildConfigField("String", "APPCENTER_APP_SECRET", "\"${System.getenv("APPCENTER_APP_SECRET")}\"")
-        }
+    
     }
     buildTypes {
         release {
