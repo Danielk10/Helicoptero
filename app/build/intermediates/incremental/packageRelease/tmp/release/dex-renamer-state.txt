@@ -1,4 +1,0 @@
-#Sat Dec 25 20:48:35 VET 2021
-base.0=C\:\\Users\\Milka\\eclipse-workspace\\Helicoptero\\android\\build\\intermediates\\transforms\\r8\\release\\0\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
