@@ -18,17 +18,17 @@ www-test/
 .gwt-tmp/
 
 ## Android Studio and Intellij and Android in general
-/android/libs/armeabi/
-/android/libs/armeabi-v7a/
-/android/libs/arm64-v8a/
-/android/libs/x86/
-/android/libs/x86_64/
-/android/gen/
+/app/libs/armeabi/
+/app/libs/armeabi-v7a/
+/app/libs/arm64-v8a/
+/app/libs/x86/
+/app/libs/x86_64/
+/app/gen/
 .idea/
 *.ipr
 *.iws
 *.iml
-/android/out/
+/app/out/
 com_crashlytics_export_strings.xml
 
 ## Eclipse
@@ -36,7 +36,7 @@ com_crashlytics_export_strings.xml
 .classpath
 .project
 .metadata/
-/android/bin/
+/app/bin/
 /core/bin/
 /desktop/bin/
 /html/bin/
@@ -53,35 +53,35 @@ com_crashlytics_export_strings.xml
 ## NetBeans
 
 /nbproject/private/
-/android/nbproject/private/
+/app/nbproject/private/
 /core/nbproject/private/
 /desktop/nbproject/private/
 /html/nbproject/private/
 /ios/nbproject/private/
 
 /build/
-/android/build/
+/app/build/
 /core/build/
 /desktop/build/
 /html/build/
 /ios/build/
 
 /nbbuild/
-/android/nbbuild/
+/app/nbbuild/
 /core/nbbuild/
 /desktop/nbbuild/
 /html/nbbuild/
 /ios/nbbuild/
 
 /dist/
-/android/dist/
+/app/dist/
 /core/dist/
 /desktop/dist/
 /html/dist/
 /ios/dist/
 
 /nbdist/
-/android/nbdist/
+/app/nbdist/
 /core/nbdist/
 /desktop/nbdist/
 /html/nbdist/
@@ -96,7 +96,7 @@ nb-configuration.xml
 .gradle/
 gradle-app.setting
 /build/
-/android/build/
+/app/build/
 /core/build/
 /desktop/build/
 /html/build/
