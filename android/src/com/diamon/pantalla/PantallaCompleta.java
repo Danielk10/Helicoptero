@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+
 public class PantallaCompleta {
 
 	private Activity actividad;
@@ -14,6 +15,7 @@ public class PantallaCompleta {
 	public PantallaCompleta(Activity actividad) {
 
 		this.actividad = actividad;
+	
 	}
 
 	public void pantallaCompleta() {
