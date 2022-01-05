@@ -113,6 +113,8 @@ public class Dato {
 
 	private boolean leerDatosAsset;
 
+	private boolean editor;
+
 	private int[] puntuaciones;
 
 	private String[] estadoPuntuaciones;
@@ -157,6 +159,8 @@ public class Dato {
 		sonido = true;
 
 		mostrarFPS = false;
+
+		editor = false;
 
 		prueba = false;
 
@@ -226,6 +230,14 @@ public class Dato {
 
 	public int getMisiles() {
 		return misiles;
+	}
+
+	public boolean isEditor() {
+		return editor;
+	}
+
+	public void setEditor(boolean editor) {
+		this.editor = editor;
 	}
 
 	public void setMisiles(int misiles) {
