@@ -4,17 +4,17 @@ size: 64, 256
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
-maquinaParedD1
+enemigoParedD1
   rotate: false
   xy: 2, 2
-  size: 52, 64
-  orig: 52, 64
+  size: 32, 64
+  orig: 32, 64
   offset: 0, 0
   index: -1
-maquinaParedD2
+enemigoParedD2
   rotate: false
   xy: 2, 68
-  size: 52, 64
-  orig: 52, 64
+  size: 32, 64
+  orig: 32, 64
   offset: 0, 0
   index: -1

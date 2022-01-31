@@ -95,7 +95,7 @@ public class CajaVelocidad extends Personaje {
 	private void agregarItem() {
 
 		ItemDeJuego item = new ItemDeJuego(
-				recurso.get("textura/elirecursos.atlas", TextureAtlas.class).getRegions().get(12), pantalla);
+				recurso.get("textura/item.atlas", TextureAtlas.class).findRegion("velocidad"), pantalla);
 
 		item.setSize(24, 24);
 

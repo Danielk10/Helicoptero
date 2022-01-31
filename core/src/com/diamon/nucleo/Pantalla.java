@@ -96,10 +96,6 @@ public abstract class Pantalla implements Screen {
 
 		ScreenUtils.clear(0.0F, 0.0F, 1.0F, 1.0F, true);
 
-		// Gdx.gl20.glClearColor(0f, 0, 1f, 1);
-
-		// Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-
 		pincel.setProjectionMatrix(camara.combined);
 
 		pincelPrueba.setProjectionMatrix(camara.combined);

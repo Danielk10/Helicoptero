@@ -127,8 +127,6 @@ public class EditorNivel {
 
 	private Label mundo;
 
-	private Label posicionActores;
-
 	private TextButton zoomCamaraMas;
 
 	private TextButton zoomCamaraMenos;
@@ -333,10 +331,6 @@ public class EditorNivel {
 
 		zoomCamaraMas.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
-		posicionActores = new Label("", recurso.get("ui/uiskin.json", Skin.class), "default-font", Color.GREEN);
-
-		posicionActores.setColor(1.0F, 1.0F, 1.0F, 0.7F);
-
 		zoomCamaraMenos = new TextButton("-", recurso.get("ui/uiskin.json", Skin.class));
 
 		zoomCamaraMenos.setSize(32, 32);
@@ -455,8 +449,6 @@ public class EditorNivel {
 		izquierda.remove();
 
 		actualizarActores.remove();
-
-		posicionActores.remove();
 
 		agregar = false;
 
@@ -624,13 +616,6 @@ public class EditorNivel {
 				personajes.get(personajes.size - 1).setPosition(x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2)),
 						y + (camara.position.y - (Juego.ALTO_PANTALLA / 2)));
 
-				float xt = x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2));
-				float yt = y + (camara.position.y - (Juego.ALTO_PANTALLA / 2));
-
-				posicionActores.setPosition(x + 12, y - 10);
-
-				posicionActores.setText("x      " + (int) xt + " y      " + ((int) yt));
-
 			}
 
 			if (!agregar) {
@@ -721,8 +706,6 @@ public class EditorNivel {
 		} else
 
 		{
-
-			posicionActores.remove();
 
 			toque = false;
 
@@ -1081,10 +1064,6 @@ public class EditorNivel {
 
 				agregar = true;
 
-				posicionActores.setText("");
-
-				nivel.addActor(posicionActores);
-
 				moverEsenario.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
 				moverEsenarioEnY.setColor(1.0F, 1.0F, 1.0F, 0.7F);
@@ -1345,7 +1324,7 @@ public class EditorNivel {
 
 			AntiAereo actor = new AntiAereo(
 
-					recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
+					recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getRegions().get(2), pantalla);
 
 			actor.setSize(ConstantesDeJuego.ANCHO_ANTIAEREO, ConstantesDeJuego.ALTO_ANTIAEREO);
 
@@ -1641,7 +1620,7 @@ public class EditorNivel {
 			MaquinaParedIzquierda actor = new MaquinaParedIzquierda(
 					recurso.get("textura/maquinaPared.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(32, 64);
 
 			actor.setPosition(x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2)),
 					y + (camara.position.y - (Juego.ALTO_PANTALLA / 2)));
@@ -1655,7 +1634,7 @@ public class EditorNivel {
 			MaquinaParedDerecha actor = new MaquinaParedDerecha(
 					recurso.get("textura/maquinaParedD.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(32, 64);
 
 			actor.setPosition(x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2)),
 					y + (camara.position.y - (Juego.ALTO_PANTALLA / 2)));
@@ -2051,7 +2030,7 @@ public class EditorNivel {
 
 			AntiAereo actor = new AntiAereo(
 
-					recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
+					recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getRegions().get(2), pantalla);
 
 			actor.setSize(ConstantesDeJuego.ANCHO_ANTIAEREO, ConstantesDeJuego.ALTO_ANTIAEREO);
 
@@ -2347,7 +2326,7 @@ public class EditorNivel {
 			MaquinaParedIzquierda actor = new MaquinaParedIzquierda(
 					recurso.get("textura/maquinaPared.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(32, 64);
 
 			actor.setPosition(x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2)),
 					y + (camara.position.y - (Juego.ALTO_PANTALLA / 2)));
@@ -2361,7 +2340,7 @@ public class EditorNivel {
 			MaquinaParedDerecha actor = new MaquinaParedDerecha(
 					recurso.get("textura/maquinaParedD.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(32, 64);
 
 			actor.setPosition(x + (camara.position.x - (Juego.ANCHO_PANTALLA / 2)),
 					y + (camara.position.y - (Juego.ALTO_PANTALLA / 2)));

@@ -95,8 +95,8 @@ public class CajaBomba extends Personaje {
 
 	private void agregarItem() {
 
-		ItemDeJuego item = new ItemDeJuego(
-				recurso.get("textura/elirecursos.atlas", TextureAtlas.class).getRegions().get(3), pantalla);
+		ItemDeJuego item = new ItemDeJuego(recurso.get("textura/item.atlas", TextureAtlas.class).findRegion("bomba"),
+				pantalla);
 
 		item.setSize(24, 24);
 

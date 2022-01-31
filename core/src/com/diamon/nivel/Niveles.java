@@ -724,7 +724,7 @@ public class Niveles extends Nivel {
 
 		for (Vector2 posicion : dato.getPosicionActores(Dato.ANTI_AEREO, numeroNivel)) {
 
-			AntiAereo actor = new AntiAereo(recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getRegions(),
+			AntiAereo actor = new AntiAereo(recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getRegions(),
 					0.2f, Animation.PlayMode.NORMAL, pantalla);
 
 			actor.setSize(ConstantesDeJuego.ANCHO_ANTIAEREO, ConstantesDeJuego.ALTO_ANTIAEREO);
@@ -853,7 +853,7 @@ public class Niveles extends Nivel {
 					recurso.get("textura/maquinaPared.atlas", TextureAtlas.class).getRegions(), 0.3f,
 					Animation.PlayMode.NORMAL, pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(32, 64);
 
 			actor.setPosition(posicion.x, posicion.y);
 
@@ -871,7 +871,7 @@ public class Niveles extends Nivel {
 					recurso.get("textura/maquinaParedD.atlas", TextureAtlas.class).getRegions(), 0.3f,
 					Animation.PlayMode.NORMAL, pantalla);
 
-			actor.setSize(32, 32);
+			actor.setSize(32, 64);
 
 			actor.setPosition(posicion.x, posicion.y);
 

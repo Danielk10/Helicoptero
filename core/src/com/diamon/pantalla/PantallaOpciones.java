@@ -194,7 +194,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoPausaJuego.setPosition(Juego.ANCHO_PANTALLA / 4, 320);
 
-		pausaJuego = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("escape"));
+		pausaJuego = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlEscape"));
 
 		pausaJuego.setSize(128, 24);
 
@@ -204,7 +204,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoArriba.setPosition(Juego.ANCHO_PANTALLA / 4, 288);
 
-		arriba = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("arriba"));
+		arriba = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlArriba"));
 
 		arriba.setSize(128, 24);
 
@@ -214,7 +214,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoAbajo.setPosition(Juego.ANCHO_PANTALLA / 4, 256);
 
-		abajo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("abajo"));
+		abajo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlAbajo"));
 
 		abajo.setSize(128, 24);
 
@@ -224,7 +224,8 @@ public class PantallaOpciones extends Pantalla {
 
 		textoIzquierda.setPosition(Juego.ANCHO_PANTALLA / 4, 224);
 
-		izquierda = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("izquierda"));
+		izquierda = new Image(
+				recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlIzquierdo"));
 
 		izquierda.setSize(128, 24);
 
@@ -234,7 +235,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoDerecha.setPosition(Juego.ANCHO_PANTALLA / 4, 192);
 
-		derecha = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("derecha"));
+		derecha = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlDerecho"));
 
 		derecha.setSize(128, 24);
 
@@ -244,7 +245,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoDisparo.setPosition(Juego.ANCHO_PANTALLA / 4, 160);
 
-		disparo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("x"));
+		disparo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlX"));
 
 		disparo.setSize(128, 24);
 
@@ -254,7 +255,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoDisparoMisil.setPosition(Juego.ANCHO_PANTALLA / 4, 128);
 
-		disparoMisil = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("z"));
+		disparoMisil = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlZ"));
 
 		disparoMisil.setSize(128, 24);
 
@@ -264,19 +265,21 @@ public class PantallaOpciones extends Pantalla {
 
 		textoDisparoBomba.setPosition(Juego.ANCHO_PANTALLA / 4, 96);
 
-		disparoBomba = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("espacio"));
+		disparoBomba = new Image(
+				recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlEspacio"));
 
 		disparoBomba.setSize(128, 24);
 
 		disparoBomba.setPosition(Juego.ANCHO_PANTALLA / 2, 96);
 
-		clicIzquierdo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("clic1"));
+		clicIzquierdo = new Image(
+				recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("clicIzquierdo"));
 
 		clicIzquierdo.setSize(128, 24);
 
 		clicIzquierdo.setPosition(Juego.ANCHO_PANTALLA / 2 + 160, 160);
 
-		clicDerecho = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("clic2"));
+		clicDerecho = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("clicDerecho"));
 
 		clicDerecho.setSize(128, 24);
 
@@ -1431,6 +1434,8 @@ public class PantallaOpciones extends Pantalla {
 
 		if (dato.isFiltradoBilineal()) {
 
+			recurso.get("textura/balaExplosiva.png", Texture.class).setFilter(TextureFilter.Linear,
+					TextureFilter.Linear);
 			recurso.get("textura/pausa.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 			recurso.get("textura/invisible.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 			recurso.get("textura/nube.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -1455,6 +1460,24 @@ public class PantallaOpciones extends Pantalla {
 
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Linear,
 					TextureFilter.Linear);
+
+			for (Texture tetura : recurso.get("textura/item.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/satelite.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
 
 			for (Texture tetura : recurso.get("textura/maquinaParedD.atlas", TextureAtlas.class).getTextures()) {
 
@@ -1498,7 +1521,7 @@ public class PantallaOpciones extends Pantalla {
 
 			}
 
-			for (Texture tetura : recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getTextures()) {
+			for (Texture tetura : recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
@@ -1736,6 +1759,8 @@ public class PantallaOpciones extends Pantalla {
 
 		if (!dato.isFiltradoBilineal()) {
 
+			recurso.get("textura/balaExplosiva.png", Texture.class).setFilter(TextureFilter.Nearest,
+					TextureFilter.Nearest);
 			recurso.get("textura/pausa.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 			recurso.get("textura/invisible.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 			recurso.get("textura/nube.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -1765,6 +1790,18 @@ public class PantallaOpciones extends Pantalla {
 
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
+
+			for (Texture tetura : recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/satelite.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
 
 			for (Texture tetura : recurso.get("textura/maquinaParedD.atlas", TextureAtlas.class).getTextures()) {
 
@@ -1808,7 +1845,7 @@ public class PantallaOpciones extends Pantalla {
 
 			}
 
-			for (Texture tetura : recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getTextures()) {
+			for (Texture tetura : recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 
@@ -2037,6 +2074,12 @@ public class PantallaOpciones extends Pantalla {
 			}
 
 			for (Texture tetura : recurso.get("textura/nubes.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/item.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 

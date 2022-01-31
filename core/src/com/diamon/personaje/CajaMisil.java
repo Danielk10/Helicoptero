@@ -95,8 +95,8 @@ public class CajaMisil extends Personaje {
 
 	private void agregarItem() {
 
-		ItemDeJuego item = new ItemDeJuego(
-				recurso.get("textura/elirecursos.atlas", TextureAtlas.class).getRegions().get(0), pantalla);
+		ItemDeJuego item = new ItemDeJuego(recurso.get("textura/item.atlas", TextureAtlas.class).findRegion("misil"),
+				pantalla);
 
 		item.setSize(24, 24);
 

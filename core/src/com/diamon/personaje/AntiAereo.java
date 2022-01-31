@@ -45,25 +45,25 @@ public class AntiAereo extends Personaje {
 	public AntiAereo(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
-		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(2));
+		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(6), texturaRegion.get(0));
 
 		animacion1.setPlayMode(PlayMode.NORMAL);
 
 		animacion = animacion1;
 
-		animacion2 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(3));
+		animacion2 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(2), texturaRegion.get(7));
 
 		animacion2.setPlayMode(PlayMode.NORMAL);
 
-		animacion3 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(4));
+		animacion3 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(4), texturaRegion.get(3));
 
 		animacion3.setPlayMode(PlayMode.NORMAL);
 
-		animacion4 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(0));
+		animacion4 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(7), texturaRegion.get(2));
 
 		animacion4.setPlayMode(PlayMode.NORMAL);
 
-		animacion5 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(1));
+		animacion5 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(1), texturaRegion.get(3));
 
 		animacion5.setPlayMode(PlayMode.NORMAL);
 
@@ -97,6 +97,8 @@ public class AntiAereo extends Personaje {
 
 				animacion = animacion1;
 
+				animacion.setPlayMode(PlayMode.LOOP);
+
 				tiempoCuadro += delta;
 
 				if (tiempoCuadro / duracionDisparo >= 1) {
@@ -104,6 +106,9 @@ public class AntiAereo extends Personaje {
 					tiempoCuadro = 0;
 				}
 
+			} else {
+
+				animacion.setPlayMode(PlayMode.NORMAL);
 			}
 
 			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
@@ -144,6 +149,8 @@ public class AntiAereo extends Personaje {
 
 				animacion = animacion4;
 
+				animacion.setPlayMode(PlayMode.LOOP);
+
 				tiempoCuadro += delta;
 
 				if (tiempoCuadro / duracionDisparo >= 1) {
@@ -153,6 +160,9 @@ public class AntiAereo extends Personaje {
 					tiempoCuadro = 0;
 				}
 
+			} else {
+
+				animacion.setPlayMode(PlayMode.NORMAL);
 			}
 
 			if (jugador.getY() >= y + getHeight() && jugador.getX() >= x + this.getWidth())

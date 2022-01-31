@@ -1864,11 +1864,12 @@ public class Jugador extends Personaje {
 
 	private void agregarSateliteNuevo() {
 
-		actorSatelite = new Satelite(recurso.get("textura/cursor.png", Texture.class), pantalla);
+		actorSatelite = new Satelite(recurso.get("textura/satelite.atlas", TextureAtlas.class).getRegions(), 0.01f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		actorSatelite.setJugador(this);
 
-		actorSatelite.setSize(16, 16);
+		actorSatelite.setSize(24, 24);
 
 		actorSatelite.setVelocidadY(400);
 

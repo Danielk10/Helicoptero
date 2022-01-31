@@ -106,7 +106,8 @@ public class PantallaCarga extends Pantalla {
 	private void filtradoBilineal() {
 
 		if (dato.isFiltradoBilineal()) {
-
+			recurso.get("textura/balaExplosiva.png", Texture.class).setFilter(TextureFilter.Linear,
+					TextureFilter.Linear);
 			recurso.get("textura/pausa.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 			recurso.get("textura/invisible.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 			recurso.get("textura/nube.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -134,6 +135,24 @@ public class PantallaCarga extends Pantalla {
 
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Linear,
 					TextureFilter.Linear);
+
+			for (Texture tetura : recurso.get("textura/item.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/satelite.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
 
 			for (Texture tetura : recurso.get("textura/maquinaParedD.atlas", TextureAtlas.class).getTextures()) {
 
@@ -177,7 +196,7 @@ public class PantallaCarga extends Pantalla {
 
 			}
 
-			for (Texture tetura : recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getTextures()) {
+			for (Texture tetura : recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
@@ -414,7 +433,8 @@ public class PantallaCarga extends Pantalla {
 		}
 
 		if (!dato.isFiltradoBilineal()) {
-
+			recurso.get("textura/balaExplosiva.png", Texture.class).setFilter(TextureFilter.Nearest,
+					TextureFilter.Nearest);
 			recurso.get("textura/pausa.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 			recurso.get("textura/invisible.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 			recurso.get("textura/nube.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -445,7 +465,24 @@ public class PantallaCarga extends Pantalla {
 
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
-			
+
+			for (Texture tetura : recurso.get("textura/item.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
+
+			for (Texture tetura : recurso.get("textura/satelite.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
 
 			for (Texture tetura : recurso.get("textura/maquinaParedD.atlas", TextureAtlas.class).getTextures()) {
 
@@ -489,7 +526,7 @@ public class PantallaCarga extends Pantalla {
 
 			}
 
-			for (Texture tetura : recurso.get("textura/antiAreao.atlas", TextureAtlas.class).getTextures()) {
+			for (Texture tetura : recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 

@@ -94,7 +94,9 @@ public class CajaSatelite extends Personaje {
 
 	private void agregarItem() {
 
-		ItemDeJuego item = new ItemDeJuego(recurso.get("textura/cursor.png", Texture.class), pantalla);
+		ItemDeJuego item = new ItemDeJuego(
+				recurso.get("textura/satelite.atlas", TextureAtlas.class).findRegion("satelite1"),
+				pantalla);
 
 		item.setSize(24, 24);
 

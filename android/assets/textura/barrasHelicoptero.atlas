@@ -1,20 +1,20 @@
 
-maquinaPared.png
-size: 64, 256
+barrasHelicoptero.png
+size: 1024, 64
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
-enemigoPared1
+barra1
   rotate: false
-  xy: 2, 68
-  size: 32, 64
-  orig: 32, 64
+  xy: 2, 3
+  size: 389, 45
+  orig: 389, 45
   offset: 0, 0
   index: -1
-enemigoPared2
+barra2
   rotate: false
-  xy: 2, 2
-  size: 32, 64
-  orig: 32, 64
+  xy: 393, 2
+  size: 260, 46
+  orig: 260, 46
   offset: 0, 0
   index: -1

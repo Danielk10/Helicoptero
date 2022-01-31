@@ -60,6 +60,8 @@ public class Helicoptero extends Juego {
 
 		}
 
+		recurso.load("textura/balaExplosiva.png", Texture.class);
+
 		recurso.load("textura/pausa.png", Texture.class);
 
 		recurso.load("textura/invisible.png", Texture.class);
@@ -96,6 +98,12 @@ public class Helicoptero extends Juego {
 
 		recurso.load("textura/nube.png", Texture.class);
 		
+		recurso.load("textura/item.atlas", TextureAtlas.class);
+
+		recurso.load("textura/barrasHelicoptero.atlas", TextureAtlas.class);
+
+		recurso.load("textura/satelite.atlas", TextureAtlas.class);
+
 		recurso.load("textura/iconos.atlas", TextureAtlas.class);
 
 		recurso.load("textura/elirecursos.atlas", TextureAtlas.class);
@@ -108,7 +116,7 @@ public class Helicoptero extends Juego {
 
 		recurso.load("textura/sierra.atlas", TextureAtlas.class);
 
-		recurso.load("textura/antiAreao.atlas", TextureAtlas.class);
+		recurso.load("textura/antiAereo.atlas", TextureAtlas.class);
 
 		recurso.load("textura/robot.atlas", TextureAtlas.class);
 
@@ -173,7 +181,7 @@ public class Helicoptero extends Juego {
 		recurso.load("textura/bolaPlasma.atlas", TextureAtlas.class);
 
 		recurso.load("textura/maquinaPared.atlas", TextureAtlas.class);
-		
+
 		recurso.load("textura/maquinaParedD.atlas", TextureAtlas.class);
 
 		recurso.load("textura/misil.atlas", TextureAtlas.class);

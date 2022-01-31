@@ -176,7 +176,8 @@ public class PantallaJuego extends Pantalla {
 
 		numeroNivel = dato.getNumeroNivel();
 
-		barraDeItem = new Image(recurso.get("textura/elirecursos.atlas", TextureAtlas.class).findRegion("barra1"));
+		barraDeItem = new Image(
+				recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).findRegion("barra1"));
 
 		barraDeItem.setPosition(0, 450);
 
@@ -187,7 +188,7 @@ public class PantallaJuego extends Pantalla {
 		nivel.addActor(barraDeItem);
 
 		barraDeItemPuntaje = new Image(
-				recurso.get("textura/elirecursos.atlas", TextureAtlas.class).findRegion("barra2"));
+				recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).findRegion("barra2"));
 
 		barraDeItemPuntaje.setPosition(0, 0);
 
@@ -314,7 +315,7 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		vida = new Image(recurso.get("textura/elirecursos.atlas", TextureAtlas.class).findRegion("corazon"));
+		vida = new Image(recurso.get("textura/item.atlas", TextureAtlas.class).findRegion("vida"));
 
 		vida.setSize(32, 32);
 
@@ -322,7 +323,7 @@ public class PantallaJuego extends Pantalla {
 
 		nivel.addActor(vida);
 
-		bomba = new Image(recurso.get("textura/elirecursos.atlas", TextureAtlas.class).findRegion("bomba"));
+		bomba = new Image(recurso.get("textura/item.atlas", TextureAtlas.class).findRegion("bomba"));
 
 		bomba.setSize(32, 32);
 
@@ -330,7 +331,7 @@ public class PantallaJuego extends Pantalla {
 
 		nivel.addActor(bomba);
 
-		misil = new Image(recurso.get("textura/elirecursos.atlas", TextureAtlas.class).findRegion("misil"));
+		misil = new Image(recurso.get("textura/item.atlas", TextureAtlas.class).findRegion("misil"));
 
 		misil.setSize(32, 32);
 
