@@ -2,10 +2,10 @@ package com.diamon.personaje;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.diamon.nucleo.Juego;
@@ -45,17 +45,17 @@ public class AntiAereo extends Personaje {
 	public AntiAereo(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
-		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(6), texturaRegion.get(0));
+		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(0), texturaRegion.get(6));
 
 		animacion1.setPlayMode(PlayMode.NORMAL);
 
 		animacion = animacion1;
 
-		animacion2 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(2), texturaRegion.get(7));
+		animacion2 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(1), texturaRegion.get(5));
 
 		animacion2.setPlayMode(PlayMode.NORMAL);
 
-		animacion3 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(4), texturaRegion.get(3));
+		animacion3 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(8), texturaRegion.get(3));
 
 		animacion3.setPlayMode(PlayMode.NORMAL);
 
@@ -63,7 +63,7 @@ public class AntiAereo extends Personaje {
 
 		animacion4.setPlayMode(PlayMode.NORMAL);
 
-		animacion5 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(1), texturaRegion.get(3));
+		animacion5 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(4), texturaRegion.get(9));
 
 		animacion5.setPlayMode(PlayMode.NORMAL);
 
@@ -106,9 +106,6 @@ public class AntiAereo extends Personaje {
 					tiempoCuadro = 0;
 				}
 
-			} else {
-
-				animacion.setPlayMode(PlayMode.NORMAL);
 			}
 
 			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
@@ -116,6 +113,8 @@ public class AntiAereo extends Personaje {
 			{
 
 				animacion = animacion2;
+
+				animacion.setPlayMode(PlayMode.LOOP);
 
 				tiempoCuadro += delta;
 
@@ -133,6 +132,8 @@ public class AntiAereo extends Personaje {
 			{
 
 				animacion = animacion3;
+
+				animacion.setPlayMode(PlayMode.LOOP);
 
 				tiempoCuadro += delta;
 
@@ -160,16 +161,14 @@ public class AntiAereo extends Personaje {
 					tiempoCuadro = 0;
 				}
 
-			} else {
-
-				animacion.setPlayMode(PlayMode.NORMAL);
 			}
-
 			if (jugador.getY() >= y + getHeight() && jugador.getX() >= x + this.getWidth())
 
 			{
 
 				animacion = animacion5;
+
+				animacion.setPlayMode(PlayMode.LOOP);
 
 				tiempoCuadro += delta;
 

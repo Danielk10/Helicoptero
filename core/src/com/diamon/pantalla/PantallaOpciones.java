@@ -1491,12 +1491,6 @@ public class PantallaOpciones extends Pantalla {
 
 			}
 
-			for (Texture tetura : recurso.get("textura/elirecursos.atlas", TextureAtlas.class).getTextures()) {
-
-				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-
-			}
-
 			for (Texture tetura : recurso.get("textura/controles.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -1810,12 +1804,6 @@ public class PantallaOpciones extends Pantalla {
 			}
 
 			for (Texture tetura : recurso.get("textura/iconos.atlas", TextureAtlas.class).getTextures()) {
-
-				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
-
-			}
-
-			for (Texture tetura : recurso.get("textura/elirecursos.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 

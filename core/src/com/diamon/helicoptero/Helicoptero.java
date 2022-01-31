@@ -97,7 +97,7 @@ public class Helicoptero extends Juego {
 		recurso.load("textura/barcoVerde.png", Texture.class);
 
 		recurso.load("textura/nube.png", Texture.class);
-		
+
 		recurso.load("textura/item.atlas", TextureAtlas.class);
 
 		recurso.load("textura/barrasHelicoptero.atlas", TextureAtlas.class);
@@ -105,8 +105,6 @@ public class Helicoptero extends Juego {
 		recurso.load("textura/satelite.atlas", TextureAtlas.class);
 
 		recurso.load("textura/iconos.atlas", TextureAtlas.class);
-
-		recurso.load("textura/elirecursos.atlas", TextureAtlas.class);
 
 		recurso.load("textura/controles.atlas", TextureAtlas.class);
 

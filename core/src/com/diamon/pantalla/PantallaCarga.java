@@ -70,10 +70,6 @@ public class PantallaCarga extends Pantalla {
 
 					sonido();
 
-					recurso.get("textura/elirecursos.atlas", TextureAtlas.class).findRegion("barra1").flip(false, true);
-
-					recurso.get("textura/elirecursos.atlas", TextureAtlas.class).findRegion("barra2").flip(false, true);
-
 					juego.setScreen(new PantallaMenu(juego));
 
 				}
@@ -161,12 +157,6 @@ public class PantallaCarga extends Pantalla {
 			}
 
 			for (Texture tetura : recurso.get("textura/iconos.atlas", TextureAtlas.class).getTextures()) {
-
-				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-
-			}
-
-			for (Texture tetura : recurso.get("textura/elirecursos.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 
@@ -491,12 +481,6 @@ public class PantallaCarga extends Pantalla {
 			}
 
 			for (Texture tetura : recurso.get("textura/iconos.atlas", TextureAtlas.class).getTextures()) {
-
-				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
-
-			}
-
-			for (Texture tetura : recurso.get("textura/elirecursos.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 
