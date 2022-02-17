@@ -45,7 +45,9 @@ public class AntiAereo extends Personaje {
 	public AntiAereo(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
-		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(0), texturaRegion.get(6));
+		obtenerJugador();
+
+		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(6), texturaRegion.get(0));
 
 		animacion1.setPlayMode(PlayMode.NORMAL);
 
@@ -63,11 +65,10 @@ public class AntiAereo extends Personaje {
 
 		animacion4.setPlayMode(PlayMode.NORMAL);
 
-		animacion5 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(4), texturaRegion.get(9));
+		animacion5 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(9), texturaRegion.get(4));
 
 		animacion5.setPlayMode(PlayMode.NORMAL);
 
-		obtenerJugador();
 	}
 
 	private void obtenerJugador() {
@@ -95,15 +96,28 @@ public class AntiAereo extends Personaje {
 
 			{
 
-				animacion = animacion1;
+				if (animacion1 != null) {
 
-				animacion.setPlayMode(PlayMode.LOOP);
+					animacion1.setPlayMode(PlayMode.LOOP);
+
+					animacion = animacion1;
+				}
 
 				tiempoCuadro += delta;
 
 				if (tiempoCuadro / duracionDisparo >= 1) {
+
 					disparar(BalaEnemigo.IZQUIERDO);
+
 					tiempoCuadro = 0;
+				}
+
+			} else {
+
+				if (animacion1 != null) {
+
+					animacion1.setPlayMode(PlayMode.NORMAL);
+
 				}
 
 			}
@@ -112,9 +126,12 @@ public class AntiAereo extends Personaje {
 
 			{
 
-				animacion = animacion2;
+				if (animacion2 != null) {
 
-				animacion.setPlayMode(PlayMode.LOOP);
+					animacion2.setPlayMode(PlayMode.LOOP);
+
+					animacion = animacion2;
+				}
 
 				tiempoCuadro += delta;
 
@@ -125,15 +142,25 @@ public class AntiAereo extends Personaje {
 					tiempoCuadro = 0;
 				}
 
+			} else {
+
+				if (animacion2 != null) {
+
+					animacion2.setPlayMode(PlayMode.NORMAL);
+
+				}
 			}
 
 			if (jugador.getY() >= y + getHeight() && jugador.getX() >= x && jugador.getX() <= x + getWidth())
 
 			{
 
-				animacion = animacion3;
+				if (animacion3 != null) {
 
-				animacion.setPlayMode(PlayMode.LOOP);
+					animacion3.setPlayMode(PlayMode.LOOP);
+
+					animacion = animacion3;
+				}
 
 				tiempoCuadro += delta;
 
@@ -142,15 +169,26 @@ public class AntiAereo extends Personaje {
 					tiempoCuadro = 0;
 				}
 
+			} else {
+
+				if (animacion3 != null) {
+
+					animacion3.setPlayMode(PlayMode.NORMAL);
+
+				}
+
 			}
 
 			if (jugador.getY() >= y + getHeight() && jugador.getX() <= x)
 
 			{
 
-				animacion = animacion4;
+				if (animacion4 != null) {
 
-				animacion.setPlayMode(PlayMode.LOOP);
+					animacion4.setPlayMode(PlayMode.LOOP);
+
+					animacion = animacion4;
+				}
 
 				tiempoCuadro += delta;
 
@@ -162,13 +200,26 @@ public class AntiAereo extends Personaje {
 				}
 
 			}
+
+			else {
+
+				if (animacion4 != null) {
+
+					animacion4.setPlayMode(PlayMode.NORMAL);
+
+				}
+
+			}
 			if (jugador.getY() >= y + getHeight() && jugador.getX() >= x + this.getWidth())
 
 			{
 
-				animacion = animacion5;
+				if (animacion5 != null) {
 
-				animacion.setPlayMode(PlayMode.LOOP);
+					animacion5.setPlayMode(PlayMode.LOOP);
+
+					animacion = animacion5;
+				}
 
 				tiempoCuadro += delta;
 
@@ -177,6 +228,14 @@ public class AntiAereo extends Personaje {
 					disparar(BalaEnemigo.DERECHO_ARRIBA);
 					tiempoCuadro = 0;
 				}
+
+			}
+
+		} else {
+
+			if (animacion5 != null) {
+
+				animacion5.setPlayMode(PlayMode.NORMAL);
 
 			}
 

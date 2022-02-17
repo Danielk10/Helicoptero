@@ -94,26 +94,6 @@ public class NaveFUno extends Personaje {
 				}
 
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 
 			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
 
@@ -126,7 +106,7 @@ public class NaveFUno extends Personaje {
 					tiempoCuadro = 0;
 				}
 
-			} 
+			}
 
 			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
 
@@ -140,17 +120,7 @@ public class NaveFUno extends Personaje {
 					tiempoCuadro = 0;
 				}
 
-			} 
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			}
 
 		}
 

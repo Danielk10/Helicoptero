@@ -95,27 +95,31 @@ public class NaveFTres extends Personaje {
 
 			}
 
-			tiempoCuadro += delta;
+			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
 
-			if (tiempoCuadro / duracionDisparo >= 1) {
+			{
+				tiempoCuadro += delta;
 
-				if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
-
-				{
+				if (tiempoCuadro / duracionDisparo >= 1) {
 
 					disparar(BalaEnemigo.IZQUIERDO);
-
+					tiempoCuadro = 0;
 				}
 
-				if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
+			}
 
-				{
+			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
+
+			{
+
+				tiempoCuadro += delta;
+
+				if (tiempoCuadro / duracionDisparo >= 1) {
 
 					disparar(BalaEnemigo.DERECHO);
-
+					tiempoCuadro = 0;
 				}
 
-				tiempoCuadro = 0;
 			}
 
 		}

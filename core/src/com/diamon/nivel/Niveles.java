@@ -417,7 +417,7 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
-			actor.setDuracionDisparo(0.33f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 
@@ -438,7 +438,7 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
-			actor.setDuracionDisparo(0.33f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 
@@ -459,7 +459,7 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
-			actor.setDuracionDisparo(0.33f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 
@@ -480,7 +480,7 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
-			actor.setDuracionDisparo(0.33f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 
@@ -501,7 +501,7 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
-			actor.setDuracionDisparo(0.33f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 
@@ -523,7 +523,7 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
-			actor.setDuracionDisparo(0.33f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 
@@ -544,7 +544,7 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
-			actor.setDuracionDisparo(0.33f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 

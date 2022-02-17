@@ -27,21 +27,25 @@ public class Robot extends Personaje {
 	public Robot(Texture textura, Pantalla pantalla) {
 		super(textura, pantalla);
 
+		obtenerJugador();
+
 		duracionDisparo = Juego.DELTA_A_PIXEL;
 
-		obtenerJugador();
 	}
 
 	public Robot(TextureRegion texturaRegion, Pantalla pantalla) {
 		super(texturaRegion, pantalla);
 
+		obtenerJugador();
+
 		duracionDisparo = Juego.DELTA_A_PIXEL;
 
-		obtenerJugador();
 	}
 
 	public Robot(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
+
+		obtenerJugador();
 
 		animacion1 = new Animation<TextureRegion>(tiempoAnimacion, texturaRegion.get(0));
 
@@ -54,8 +58,6 @@ public class Robot extends Personaje {
 		animacion2.setPlayMode(modo);
 
 		duracionDisparo = Juego.DELTA_A_PIXEL;
-
-		obtenerJugador();
 
 	}
 
@@ -85,11 +87,14 @@ public class Robot extends Personaje {
 			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
 
 			{
-				animacion = animacion2;
+				if (animacion2 != null) {
+
+					animacion = animacion2;
+
+				}
 
 				if (tiempoCuadro / duracionDisparo >= 1) {
 
-					
 					disparar(BalaEnemigo.IZQUIERDO);
 
 					tiempoCuadro = 0;
@@ -100,7 +105,11 @@ public class Robot extends Personaje {
 
 			{
 
-				animacion = animacion1;
+				if (animacion1 != null) {
+
+					animacion = animacion1;
+
+				}
 
 			}
 
