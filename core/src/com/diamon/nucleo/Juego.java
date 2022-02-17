@@ -31,8 +31,6 @@ public abstract class Juego extends Game {
 
 	public static final float VELOCIDAD_CAMARA = 1;
 
-	public static final float VELOCIDAD_CAMARA_PRUEBA = 10;
-
 	public static final float DELTA_A_PIXEL = 0.0166666666666667F;
 
 	public static final int FPS = 60;
@@ -60,13 +58,13 @@ public abstract class Juego extends Game {
 
 		if (dato.isLeerDatosAsset()) {
 
-			Configuraciones configuracion = new Configuraciones();
+			Configuraciones configuracionInterna = new Configuraciones();
 
-			dato = configuracion.leerDatos(Configuraciones.INTERNO);
+			dato = configuracionInterna.leerDatos(Configuraciones.INTERNO);
 
 			dato.setLeerDatosAsset(false);
 
-			configuracion.escribirDatos(dato);
+			configuracionInterna.escribirDatos(dato);
 
 		}
 

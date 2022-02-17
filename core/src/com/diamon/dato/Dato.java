@@ -6,28 +6,14 @@ import com.diamon.nucleo.Personaje;
 
 public class Dato {
 
+	// item del juego
 	public final static String BALA = "com.diamon.personaje.Bala";
-	public final static String ANTI_AEREO = "com.diamon.personaje.AntiAereo";
-	public final static String MAQUINA_PARED_IZQUIERDA = "com.diamon.personaje.MaquinaParedIzquierda";
-	public final static String MAQUINA_PARED_DERECHA = "com.diamon.personaje.MaquinaParedDerecha";
 	public final static String BALA_ENEMIGO = "com.diamon.personaje.BalaEnemigo";
 	public final static String BOMBA = "com.diamon.personaje.Bomba";
 	public final static String BALA_EXPLOSIVA_ENEMIGA = "com.diamon.personaje.BalaExplosivaEnemiga";
-	public final static String EXPLOSION = "com.diamon.personaje.Explosion";
-	public final static String PLATILLO_VOLADOR = "com.diamon.personaje.PlatilloVolador";
-	public final static String PLATILLO_A = "com.diamon.personaje.PlatilloA";
-	public final static String PLATILLO_DE_LUZ = "com.diamon.personaje.PlatilloDeLuz";
-	public final static String FONDO = "com.diamon.personaje.Fondo";
-	public final static String TERRENO = "com.diamon.personaje.Terreno";
-	public final static String SIERRA = "com.diamon.personaje.Sierra";
-	public final static String HUMO = "com.diamon.personaje.Humo";
-	public final static String CURSOR = "com.diamon.personaje.Cursor";
-	public final static String EXPLOSION_TERRENO = "com.diamon.personaje.ExplosionTerreno";
-	public final static String JUGADOR = "com.diamon.personaje.Jugador";
+	public final static String BOLA_PLASMA = "com.diamon.personaje.BolaPlasma";
 	public final static String MISIL = "com.diamon.personaje.Misil";
 	public final static String SATELITE = "com.diamon.personaje.Satelite";
-	public final static String PARACAISDISTA = "com.diamon.personaje.Paracaidista";
-	public final static String ROBOT = "com.diamon.personaje.Robot";
 	public final static String BALA_EXPLOSIVA = "com.diamon.personaje.BalaExplosiva";
 	public final static String CAJA_VIDA = "com.diamon.personaje.CajaVida";
 	public final static String CAJA_MISIL = "com.diamon.personaje.CajaMisil";
@@ -40,8 +26,14 @@ public class Dato {
 	public final static String CAJA_HELICOPTERO_MEDICO = "com.diamon.personaje.CajaHelicopteroMedico";
 	public final static String CAJA_HELICOPTERO_VERDE = "com.diamon.personaje.CajaHelicopteroVerde";
 	public final static String CAJA_HELICOPTERO_SATELITAL = "com.diamon.personaje.CajaHelicopteroSatelital";
+	// efectos especiales del juego
+	public final static String EXPLOSION = "com.diamon.personaje.Explosion";
+	public final static String EXPLOSION_TERRENO = "com.diamon.personaje.ExplosionTerreno";
+	public final static String HUMO = "com.diamon.personaje.Humo";
 	public final static String FUEGO = "com.diamon.personaje.Fuego";
-	public final static String BOLA_PLASMA = "com.diamon.personaje.BolaPlasma";
+	// escenario del juego
+	public final static String FONDO = "com.diamon.personaje.Fondo";
+	public final static String TERRENO = "com.diamon.personaje.Terreno";
 	public final static String CARRO_GRIS = "com.diamon.personaje.CarroGris";
 	public final static String CARRO_AMARILLO = "com.diamon.personaje.CarroAmarillo";
 	public final static String CAMIONETA_CARGA = "com.diamon.personaje.CamionetaCarga";
@@ -56,6 +48,12 @@ public class Dato {
 	public final static String NUBE_CINCO = "com.diamon.personaje.NubeCinco";
 	public final static String NUBE_SEIS = "com.diamon.personaje.NubeSeis";
 	public final static String NUBE_SIETE = "com.diamon.personaje.NubeSiete";
+	// UI del juego
+	public final static String CURSOR = "com.diamon.personaje.Cursor";
+	// personajes del juego
+	public final static String JUGADOR = "com.diamon.personaje.Jugador";
+	public final static String PARACAISDISTA = "com.diamon.personaje.Paracaidista";
+	public final static String ROBOT = "com.diamon.personaje.Robot";
 	public final static String NAVE_F_UNO = "com.diamon.personaje.NaveFUno";
 	public final static String NAVE_F_DOS = "com.diamon.personaje.NaveFDos";
 	public final static String NAVE_F_TRES = "com.diamon.personaje.NaveFTres";
@@ -72,7 +70,15 @@ public class Dato {
 	public final static String NAVE_F_CATORCE = "com.diamon.personaje.NaveFCatorce";
 	public final static String NAVE_F_QUINCE = "com.diamon.personaje.NaveFQuince";
 	public final static String NAVE_F_DIESCICEIS = "com.diamon.personaje.NaveFDiesciceis";
+	public final static String ANTI_AEREO = "com.diamon.personaje.AntiAereo";
+	public final static String MAQUINA_PARED_IZQUIERDA = "com.diamon.personaje.MaquinaParedIzquierda";
+	public final static String MAQUINA_PARED_DERECHA = "com.diamon.personaje.MaquinaParedDerecha";
+	public final static String PLATILLO_VOLADOR = "com.diamon.personaje.PlatilloVolador";
+	public final static String PLATILLO_A = "com.diamon.personaje.PlatilloA";
+	public final static String PLATILLO_DE_LUZ = "com.diamon.personaje.PlatilloDeLuz";
+	public final static String SIERRA = "com.diamon.personaje.Sierra";
 
+	// helicopteros del juego
 	public final static int HELICOPTERO_NORMAL = 1;
 
 	public final static int HELICOPTERO_REDONDO = 2;
@@ -87,6 +93,7 @@ public class Dato {
 
 	private final static short NUMERO_NIVELES = 40;
 
+	// configuraciones del juego
 	private boolean sonido;
 
 	private boolean mostrarFPS;
@@ -477,15 +484,15 @@ public class Dato {
 
 		Array<Vector2> posicion = new Array<Vector2>();
 
-		String ni = "";
+		String nombreNivel = "";
 
-		int n = 1;
+		int numeroNivel = 1;
 
 		for (int i = 0; i < posicionActores.length; i++) {
 
-			ni = "Nivel " + n;
+			nombreNivel = "Nivel " + numeroNivel;
 
-			if (nivel.equals(ni)) {
+			if (nivel.equals(nombreNivel)) {
 
 				for (int j = 0; j < tipoActores[i].size; j++) {
 
@@ -499,7 +506,7 @@ public class Dato {
 
 			}
 
-			n++;
+			numeroNivel++;
 
 		}
 
@@ -511,15 +518,15 @@ public class Dato {
 
 		Array<Vector2> posicion = new Array<Vector2>();
 
-		String ni = "";
+		String nombreNivel = "";
 
-		int n = 1;
+		int numeroNivel = 1;
 
 		for (int i = 0; i < posicionActores.length; i++) {
 
-			ni = "Nivel " + n;
+			nombreNivel = "Nivel " + numeroNivel;
 
-			if (nivel.equals(ni)) {
+			if (nivel.equals(nombreNivel)) {
 
 				for (int j = 0; j < posicionActores[i].size; j++) {
 
@@ -529,7 +536,7 @@ public class Dato {
 
 			}
 
-			n++;
+			numeroNivel++;
 		}
 
 		return posicion;
@@ -538,15 +545,15 @@ public class Dato {
 
 	public void eliminarActores(String nivel) {
 
-		String ni = "";
+		String nombreNivel = "";
 
-		int n = 1;
+		int numeroNivel = 1;
 
 		for (int i = 0; i < posicionActores.length; i++) {
 
-			ni = "Nivel " + n;
+			nombreNivel = "Nivel " + numeroNivel;
 
-			if (nivel.equals(ni)) {
+			if (nivel.equals(nombreNivel)) {
 
 				posicionActores[i].clear();
 
@@ -554,7 +561,7 @@ public class Dato {
 
 			}
 
-			n++;
+			numeroNivel++;
 
 		}
 
@@ -562,15 +569,15 @@ public class Dato {
 
 	public void eliminarActor(String nivel, String tipoActor, int indice) {
 
-		String ni = "";
+		String nombreNivel = "";
 
-		int n = 1;
+		int numeroNivel = 1;
 
 		for (int i = 0; i < posicionActores.length; i++) {
 
-			ni = "Nivel " + n;
+			nombreNivel = "Nivel " + numeroNivel;
 
-			if (nivel.equals(ni)) {
+			if (nivel.equals(nombreNivel)) {
 
 				for (int j = 0; j < tipoActores[i].size; j++) {
 
@@ -590,7 +597,7 @@ public class Dato {
 
 			}
 
-			n++;
+			numeroNivel++;
 
 		}
 

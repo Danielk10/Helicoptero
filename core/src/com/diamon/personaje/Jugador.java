@@ -829,45 +829,17 @@ public class Jugador extends Personaje {
 
 		if (!finNivel) {
 
-			if (!dato.isPrueba()) {
-
-				if (intro) {
-
-					if (!gefe) {
-
-						if (itemVelocidad) {
-
-							deltaXTactil -= velocidadCamaraItem / Juego.DELTA_A_PIXEL * delta;
-
-						} else {
-
-							deltaXTactil -= Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
-
-						}
-
-					}
-
-				}
-
-			}
-
-			if (dato.isPrueba()) {
-
-				deltaXTactil -= Juego.VELOCIDAD_CAMARA_PRUEBA / Juego.DELTA_A_PIXEL * delta;
-
-			}
-
-			if (!dato.isPrueba()) {
+			if (intro) {
 
 				if (!gefe) {
 
 					if (itemVelocidad) {
 
-						x += velocidadCamaraItem / Juego.DELTA_A_PIXEL * delta;
+						deltaXTactil -= velocidadCamaraItem / Juego.DELTA_A_PIXEL * delta;
 
 					} else {
 
-						x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
+						deltaXTactil -= Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
 
 					}
 
@@ -875,9 +847,17 @@ public class Jugador extends Personaje {
 
 			}
 
-			if (dato.isPrueba()) {
+			if (!gefe) {
 
-				x += Juego.VELOCIDAD_CAMARA_PRUEBA / Juego.DELTA_A_PIXEL * delta;
+				if (itemVelocidad) {
+
+					x += velocidadCamaraItem / Juego.DELTA_A_PIXEL * delta;
+
+				} else {
+
+					x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
+
+				}
 
 			}
 
@@ -1229,17 +1209,7 @@ public class Jugador extends Personaje {
 
 		} else {
 
-			if (!dato.isPrueba()) {
-
-				x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
-
-			}
-
-			if (dato.isPrueba()) {
-
-				x += Juego.VELOCIDAD_CAMARA_PRUEBA / Juego.DELTA_A_PIXEL * delta;
-
-			}
+			x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
 
 			if (x >= camara.position.x + (Juego.ANCHO_PANTALLA / 2 - getWidth())) {
 

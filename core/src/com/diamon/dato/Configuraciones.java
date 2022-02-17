@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.Json;
 
 public class Configuraciones {
 
-	private static final String DATOS = ".helicoptero/datos.dat";
+	private static final String DATOS_DE_JUEGO = ".helicoptero/datos.dat";
 
 	private Dato datos;
 
@@ -26,13 +26,13 @@ public class Configuraciones {
 
 		if (tipoDato == Configuraciones.INTERNO) {
 
-			configuracionDato = Gdx.files.internal("datos/dato.dat");
+			configuracionDato = Gdx.files.internal("dato/datos.dat");
 
 		}
 
 		if (tipoDato == Configuraciones.LOCAL) {
 
-			configuracionDato = Gdx.files.local(Configuraciones.DATOS);
+			configuracionDato = Gdx.files.local(Configuraciones.DATOS_DE_JUEGO);
 
 		}
 
@@ -71,7 +71,7 @@ public class Configuraciones {
 
 		FileHandle configuracionDato = null;
 
-		configuracionDato = Gdx.files.local(Configuraciones.DATOS);
+		configuracionDato = Gdx.files.local(Configuraciones.DATOS_DE_JUEGO);
 
 		String archivoDecodifcado = json.toJson(dato);
 

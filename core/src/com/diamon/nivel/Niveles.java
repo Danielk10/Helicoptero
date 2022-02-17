@@ -40,13 +40,12 @@ import com.diamon.personaje.CarroGris;
 import com.diamon.personaje.Fondo;
 import com.diamon.personaje.Fuego;
 import com.diamon.personaje.JefeCuatro;
-import com.diamon.personaje.JefeUno;
 import com.diamon.personaje.JefeDos;
 import com.diamon.personaje.JefeTres;
+import com.diamon.personaje.JefeUno;
 import com.diamon.personaje.Jugador;
 import com.diamon.personaje.MaquinaParedDerecha;
 import com.diamon.personaje.MaquinaParedIzquierda;
-import com.diamon.personaje.NaveFUno;
 import com.diamon.personaje.NaveFCatorce;
 import com.diamon.personaje.NaveFCinco;
 import com.diamon.personaje.NaveFCuatro;
@@ -62,10 +61,11 @@ import com.diamon.personaje.NaveFSeis;
 import com.diamon.personaje.NaveFSiete;
 import com.diamon.personaje.NaveFTrece;
 import com.diamon.personaje.NaveFTres;
-import com.diamon.personaje.NubeLarga;
+import com.diamon.personaje.NaveFUno;
 import com.diamon.personaje.NubeCinco;
 import com.diamon.personaje.NubeCuatro;
 import com.diamon.personaje.NubeDos;
+import com.diamon.personaje.NubeLarga;
 import com.diamon.personaje.NubeSeis;
 import com.diamon.personaje.NubeSiete;
 import com.diamon.personaje.NubeTres;
@@ -76,7 +76,6 @@ import com.diamon.personaje.PlatilloVolador;
 import com.diamon.personaje.Robot;
 import com.diamon.personaje.Sierra;
 import com.diamon.personaje.Terreno;
-import com.diamon.utilidad.ConstantesDeJuego;
 
 public class Niveles extends Nivel {
 
@@ -727,7 +726,7 @@ public class Niveles extends Nivel {
 			AntiAereo actor = new AntiAereo(recurso.get("textura/antiAereo.atlas", TextureAtlas.class).getRegions(),
 					0.2f, Animation.PlayMode.NORMAL, pantalla);
 
-			actor.setSize(ConstantesDeJuego.ANCHO_ANTIAEREO, ConstantesDeJuego.ALTO_ANTIAEREO);
+			actor.setSize(48, 48);
 
 			actor.setDureza(7);
 
@@ -1480,28 +1479,16 @@ public class Niveles extends Nivel {
 			moverCamara = false;
 		}
 
-		if (!dato.isPrueba()) {
+		if (moverCamara) {
 
-			if (moverCamara) {
+			if (jugador.isItemVelocidad()) {
 
-				if (jugador.isItemVelocidad()) {
+				camara.position.x += jugador.getVelocidadCamaraItem() / Juego.DELTA_A_PIXEL * delta;
 
-					camara.position.x += jugador.getVelocidadCamaraItem() / Juego.DELTA_A_PIXEL * delta;
+			} else {
 
-				} else {
+				camara.position.x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
 
-					camara.position.x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
-
-				}
-
-			}
-		}
-
-		if (dato.isPrueba()) {
-
-			if (moverCamara) {
-
-				camara.position.x += Juego.VELOCIDAD_CAMARA_PRUEBA / Juego.DELTA_A_PIXEL * delta;
 			}
 
 		}
