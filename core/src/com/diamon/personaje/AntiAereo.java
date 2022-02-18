@@ -92,7 +92,7 @@ public class AntiAereo extends Personaje {
 
 			super.actualizar(delta);
 
-			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
+			if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y && jugador.getX() <= x)
 
 			{
 
@@ -122,7 +122,8 @@ public class AntiAereo extends Personaje {
 
 			}
 
-			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
+			if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+					&& jugador.getX() >= x + getWidth())
 
 			{
 

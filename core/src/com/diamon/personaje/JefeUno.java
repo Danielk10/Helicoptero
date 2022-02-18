@@ -66,7 +66,8 @@ public class JefeUno extends Personaje {
 
 			if (tiempoCuadro / duracionDisparo >= 1) {
 
-				if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
+				if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+						&& jugador.getX() <= x)
 
 				{
 
@@ -74,7 +75,8 @@ public class JefeUno extends Personaje {
 
 				}
 
-				if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
+				if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+						&& jugador.getX() >= x + getWidth())
 
 				{
 

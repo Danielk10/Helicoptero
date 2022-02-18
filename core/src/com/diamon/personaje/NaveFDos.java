@@ -95,7 +95,7 @@ public class NaveFDos extends Personaje {
 
 			}
 
-			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
+			if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y && jugador.getX() <= x)
 
 			{
 				tiempoCuadro += delta;
@@ -108,7 +108,8 @@ public class NaveFDos extends Personaje {
 
 			}
 
-			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() >= x + getWidth())
+			if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+					&& jugador.getX() >= x + getWidth())
 
 			{
 
@@ -135,7 +136,6 @@ public class NaveFDos extends Personaje {
 			}
 
 		}
-
 	}
 
 	public int getLado() {

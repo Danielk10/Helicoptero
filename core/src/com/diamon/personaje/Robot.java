@@ -84,7 +84,7 @@ public class Robot extends Personaje {
 
 			tiempoCuadro += delta;
 
-			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
+			if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y && jugador.getX() <= x)
 
 			{
 				if (animacion2 != null) {

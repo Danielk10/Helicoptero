@@ -81,11 +81,15 @@ public class MaquinaParedIzquierda extends Personaje {
 
 			super.actualizar(delta);
 
-			if (jugador.getY() <= y + getHeight() && jugador.getY() >= y && jugador.getX() <= x)
+			if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y && jugador.getX() <= x)
 
 			{
 
-				animacion = animacion1;
+				if (animacion1 != null) {
+					
+					animacion = animacion1;
+				}
+			
 
 				tiempoCuadro += delta;
 
@@ -97,8 +101,14 @@ public class MaquinaParedIzquierda extends Personaje {
 				}
 
 			} else {
+				
+				if (animacion2 != null) {
+					
+					animacion = animacion2;
+					
+				}
 
-				animacion = animacion2;
+				
 
 			}
 
