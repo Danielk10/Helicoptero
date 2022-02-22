@@ -101,7 +101,7 @@ public class PantallaJuego extends Pantalla {
 
 	private Label fps;
 
-	private Label textoPuntos;
+	private Label textoPuntos; 
 
 	private Label textoNumeroNivel;
 
