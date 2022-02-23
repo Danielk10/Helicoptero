@@ -207,7 +207,7 @@ public class EditorNivel {
 
 		borrarActores.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
-		derecha = new TextButton("Dereccha +", recurso.get("ui/uiskin.json", Skin.class));
+		derecha = new TextButton("Derecha +", recurso.get("ui/uiskin.json", Skin.class));
 
 		derecha.setSize(96, 32);
 
