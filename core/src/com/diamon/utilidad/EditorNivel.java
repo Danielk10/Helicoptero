@@ -267,7 +267,7 @@ public class EditorNivel {
 
 		agreagarActores.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
-		moverEsenario = new TextButton("Mover Esenario", recurso.get("ui/uiskin.json", Skin.class));
+		moverEsenario = new TextButton("Mover Escenario", recurso.get("ui/uiskin.json", Skin.class));
 
 		moverEsenario.setSize(144, 32);
 
@@ -275,7 +275,7 @@ public class EditorNivel {
 
 		moverEsenario.setColor(1, 0, 0, 1);
 
-		moverEsenarioEnY = new TextButton("Mover Esenario Y", recurso.get("ui/uiskin.json", Skin.class));
+		moverEsenarioEnY = new TextButton("Mover Escenario Y", recurso.get("ui/uiskin.json", Skin.class));
 
 		moverEsenarioEnY.setSize(144, 32);
 
