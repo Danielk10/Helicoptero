@@ -4,28 +4,159 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
+import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 import com.diamon.nucleo.Personaje;
 
 public class JefeDos extends Personaje {
 
+	private float duracionDisparo;
+
+	private float tiempoCuadro;
+
+	private float tiemo;
+
+	private float velocidadY;
+
+	private float velocidadX;
+
+	private float distanciaMovimientoY;
+
+	private float pocicionY;
+
+	private Jugador jugador;
+
 	public JefeDos(Texture textura, Pantalla pantalla) {
 		super(textura, pantalla);
-		// TODO Auto-generated constructor stub
+
+		obtenerJugador();
+
 	}
 
 	public JefeDos(TextureRegion texturaRegion, Pantalla pantalla) {
 		super(texturaRegion, pantalla);
-		// TODO Auto-generated constructor stub
+
+		obtenerJugador();
+
 	}
 
 	public JefeDos(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
-		// TODO Auto-generated constructor stub
+
+		obtenerJugador();
+
+	}
+
+	private void obtenerJugador() {
+
+		for (int i = 0; i < personajes.size; i++) {
+
+			if (personajes.get(i) instanceof Jugador) {
+
+				jugador = (Jugador) personajes.get(i);
+
+			}
+
+		}
+
+	}
+
+	@Override
+	public void actualizar(float delta) {
+
+		if (x <= camara.position.x + Juego.ANCHO_PANTALLA / 2) {
+
+			super.actualizar(delta);
+
+			tiemo += delta;
+
+			y = pocicionY + distanciaMovimientoY + (distanciaMovimientoY * MathUtils.sinDeg(tiemo * velocidadY));
+
+			x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
+
+			x += velocidadX / Juego.DELTA_A_PIXEL * delta;
+
+			if (x >= camara.position.x + (Juego.ANCHO_PANTALLA / 2 - getWidth())
+					|| x <= camara.position.x - (Juego.ANCHO_PANTALLA / 2 - 200)) {
+
+				velocidadX = -velocidadX;
+
+			}
+
+			tiempoCuadro += delta;
+
+			if (tiempoCuadro / duracionDisparo >= 1) {
+
+				if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+						&& jugador.getX() <= x)
+
+				{
+
+					disparar(BalaEnemigo.IZQUIERDO);
+
+				}
+
+				if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+						&& jugador.getX() >= x + getWidth())
+
+				{
+
+					disparar(BalaEnemigo.DERECHO);
+
+				}
+
+				tiempoCuadro = 0;
+			}
+
+		}
+
+		if (x <= camara.position.x - (Juego.ANCHO_PANTALLA / 2 + getWidth())) {
+
+			remover = true;
+
+		}
+
+	}
+
+	public void disparar(int lado) {
+
+		BolaPlasma plasma = new BolaPlasma(recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(),
+				0.05f, Animation.PlayMode.LOOP, pantalla);
+
+		plasma.setSize(64, 64);
+
+		if (BalaEnemigo.IZQUIERDO == lado) {
+
+			plasma.setPosition(x - 64, y + this.getHeight() / 2 - 32);
+
+		}
+
+		if (BalaEnemigo.DERECHO == lado) {
+
+			plasma.setPosition(x + this.getWidth(), y + this.getHeight() / 2 - 32);
+
+		}
+
+		plasma.setLado(lado);
+
+		plasma.setVelocidad(8);
+
+		personajes.add(plasma);
+
+		if (dato.isSonido())
+
+		{
+
+			recurso.get("audio/disparoEnemigo.ogg", Sound.class).play(dato.getVolumenSonido());
+
+		}
+
 	}
 
 	public void explosion() {
@@ -41,6 +172,22 @@ public class JefeDos extends Personaje {
 
 		personajes.add(explosion);
 
+	}
+
+	public float getDuracionDisparo() {
+		return duracionDisparo;
+	}
+
+	public void setDuracionDisparo(float duracionDisparo) {
+		this.duracionDisparo = duracionDisparo;
+	}
+
+	@Override
+	public Rectangle getBoundingRectangle() {
+
+		Rectangle r = super.getBoundingRectangle();
+
+		return r;
 	}
 
 	@Override
@@ -153,6 +300,38 @@ public class JefeDos extends Personaje {
 
 		}
 
+	}
+
+	@Override
+	public void setPosition(float x, float y) {
+
+		pocicionY = y;
+
+		super.setPosition(x, y);
+	}
+
+	public float getVelocidadY() {
+		return velocidadY;
+	}
+
+	public void setVelocidadY(float velocidadY) {
+		this.velocidadY = velocidadY;
+	}
+
+	public float getVelocidadX() {
+		return velocidadX;
+	}
+
+	public void setVelocidadX(float velocidadX) {
+		this.velocidadX = velocidadX;
+	}
+
+	public float getDistanciaMovimientoY() {
+		return distanciaMovimientoY;
+	}
+
+	public void setDistanciaMovimientoY(float distanciaMovimientoY) {
+		this.distanciaMovimientoY = distanciaMovimientoY;
 	}
 
 }

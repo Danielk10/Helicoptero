@@ -1236,6 +1236,12 @@ public class Niveles extends Nivel {
 
 			gefeUno.setPosition(13440 - gefeUno.getWidth(), 240);
 
+			gefeUno.setDistanciaMovimientoY(50);
+
+			gefeUno.setVelocidadX(2);
+
+			gefeUno.setVelocidadY(200);
+
 			gefeUno.setDureza(300);
 
 			gefeUno.setDuracionDisparo(0.33f);

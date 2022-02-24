@@ -131,9 +131,9 @@ public class MaquinaParedDerecha extends Personaje {
 
 		BalaEnemigo bala = new BalaEnemigo((Texture) recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
 
-		bala.setSize(12, 12);
+		bala.setSize(10, 10);
 
-		bala.setPosition(x + getWidth(), y + (getHeight() / 2 - 5));
+		bala.setPosition(x + getWidth(), y + (getHeight() / 2 - 4));
 
 		bala.setVelocidad(4);
 

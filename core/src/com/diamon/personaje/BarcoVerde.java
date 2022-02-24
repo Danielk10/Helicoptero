@@ -3,6 +3,7 @@ package com.diamon.personaje;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -113,6 +114,16 @@ public class BarcoVerde extends Personaje {
 
 		}
 
+	}
+
+	@Override
+	public Rectangle getBoundingRectangle() {
+
+		Rectangle r = super.getBoundingRectangle();
+
+		r.height = 45;
+
+		return r;
 	}
 
 }

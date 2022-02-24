@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
@@ -17,6 +19,16 @@ public class JefeUno extends Personaje {
 	private float duracionDisparo;
 
 	private float tiempoCuadro;
+
+	private float tiemo;
+
+	private float velocidadY;
+
+	private float velocidadX;
+
+	private float distanciaMovimientoY;
+
+	private float pocicionY;
 
 	private Jugador jugador;
 
@@ -62,6 +74,21 @@ public class JefeUno extends Personaje {
 
 			super.actualizar(delta);
 
+			tiemo += delta;
+
+			y = pocicionY + distanciaMovimientoY + (distanciaMovimientoY * MathUtils.sinDeg(tiemo * velocidadY));
+
+			x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
+
+			x += velocidadX / Juego.DELTA_A_PIXEL * delta;
+
+			if (x >= camara.position.x + (Juego.ANCHO_PANTALLA / 2 - getWidth())
+					|| x <= camara.position.x - (Juego.ANCHO_PANTALLA / 2 - 200)) {
+
+				velocidadX = -velocidadX;
+
+			}
+
 			tiempoCuadro += delta;
 
 			if (tiempoCuadro / duracionDisparo >= 1) {
@@ -106,13 +133,13 @@ public class JefeUno extends Personaje {
 
 		if (BalaEnemigo.IZQUIERDO == lado) {
 
-			plasma.setPosition(x, y + this.getHeight() / 2 - 32);
+			plasma.setPosition(x - 64, y + this.getHeight() / 2 - 32);
 
 		}
 
 		if (BalaEnemigo.DERECHO == lado) {
 
-			plasma.setPosition(x + this.getWidth(), y + this.getHeight() / 2);
+			plasma.setPosition(x + this.getWidth(), y + this.getHeight() / 2 - 32);
 
 		}
 
@@ -153,6 +180,14 @@ public class JefeUno extends Personaje {
 
 	public void setDuracionDisparo(float duracionDisparo) {
 		this.duracionDisparo = duracionDisparo;
+	}
+
+	@Override
+	public Rectangle getBoundingRectangle() {
+
+		Rectangle r = super.getBoundingRectangle();
+
+		return r;
 	}
 
 	@Override
@@ -265,6 +300,38 @@ public class JefeUno extends Personaje {
 
 		}
 
+	}
+
+	@Override
+	public void setPosition(float x, float y) {
+
+		pocicionY = y;
+
+		super.setPosition(x, y);
+	}
+
+	public float getVelocidadY() {
+		return velocidadY;
+	}
+
+	public void setVelocidadY(float velocidadY) {
+		this.velocidadY = velocidadY;
+	}
+
+	public float getVelocidadX() {
+		return velocidadX;
+	}
+
+	public void setVelocidadX(float velocidadX) {
+		this.velocidadX = velocidadX;
+	}
+
+	public float getDistanciaMovimientoY() {
+		return distanciaMovimientoY;
+	}
+
+	public void setDistanciaMovimientoY(float distanciaMovimientoY) {
+		this.distanciaMovimientoY = distanciaMovimientoY;
 	}
 
 }
