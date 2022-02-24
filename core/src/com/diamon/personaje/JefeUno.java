@@ -78,8 +78,6 @@ public class JefeUno extends Personaje {
 
 			y = pocicionY + distanciaMovimientoY + (distanciaMovimientoY * MathUtils.sinDeg(tiemo * velocidadY));
 
-			x += Juego.VELOCIDAD_CAMARA / Juego.DELTA_A_PIXEL * delta;
-
 			x += velocidadX / Juego.DELTA_A_PIXEL * delta;
 
 			if (x >= camara.position.x + (Juego.ANCHO_PANTALLA / 2 - getWidth())
