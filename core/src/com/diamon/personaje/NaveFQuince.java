@@ -36,11 +36,15 @@ public class NaveFQuince extends Personaje {
 	public static final int DERECHO = 1;
 
 	private Jugador jugador;
+	
+	private SateliteEnemigo satelite;
 
 	public NaveFQuince(Texture textura, Pantalla pantalla) {
 		super(textura, pantalla);
 
 		obtenerJugador();
+		
+		agregarSatelite();
 
 	}
 
@@ -48,6 +52,8 @@ public class NaveFQuince extends Personaje {
 		super(texturaRegion, pantalla);
 
 		obtenerJugador();
+		
+		agregarSatelite();
 
 	}
 
@@ -55,6 +61,24 @@ public class NaveFQuince extends Personaje {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
 		obtenerJugador();
+		
+		agregarSatelite();
+
+	}
+	
+	private void agregarSatelite() {
+
+		satelite = new SateliteEnemigo(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+
+		satelite.setPersonaje(this);
+
+		satelite.setSize(16, 16);
+
+		satelite.setVelocidadY(400);
+
+		satelite.setDistanciaMovimiento(70);
+
+		personajes.add(satelite);
 
 	}
 
@@ -291,6 +315,16 @@ public class NaveFQuince extends Personaje {
 			explosion();
 
 			remover = true;
+
+		}
+
+		if (actor instanceof ExplosionTerreno) {
+
+			if (actor.getWidth() >= 64) {
+
+				remover = true;
+
+			}
 
 		}
 	}

@@ -1,18 +1,18 @@
 package com.diamon.personaje;
 
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
+import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 import com.diamon.nucleo.Personaje;
 
-public class Satelite extends Personaje {
+public class SateliteEnemigo extends Personaje {
 
 	private float tiempoCuadro;
 
@@ -26,29 +26,21 @@ public class Satelite extends Personaje {
 
 	private int puntos;
 
-	private Jugador jugador;
+	private Personaje personaje;
 
-	public Satelite(Texture textura, Pantalla pantalla) {
+	public SateliteEnemigo(Texture textura, Pantalla pantalla) {
 		super(textura, pantalla);
 
 	}
 
-	public Satelite(TextureRegion texturaRegion, Pantalla pantalla) {
+	public SateliteEnemigo(TextureRegion texturaRegion, Pantalla pantalla) {
 		super(texturaRegion, pantalla);
 
 	}
 
-	public Satelite(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
+	public SateliteEnemigo(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
-	}
-
-	public Jugador getJugador() {
-		return jugador;
-	}
-
-	public void setJugador(Jugador jugador) {
-		this.jugador = jugador;
 	}
 
 	public int getPuntos() {
@@ -64,7 +56,7 @@ public class Satelite extends Personaje {
 
 		super.actualizar(delta);
 
-		if (jugador != null) {
+		if (personaje != null) {
 
 			tiempoCuadro += delta;
 
@@ -76,17 +68,23 @@ public class Satelite extends Personaje {
 
 			tiempo += delta;
 
-			x = (jugador.getX() + jugador.getWidth() / 2)
+			x = (personaje.getX() + personaje.getWidth() / 2)
 					+ (distanciaMovimiento * MathUtils.cosDeg(tiempo * velocidadY));
 
-			y = (jugador.getY() + jugador.getHeight() / 2)
+			y = (personaje.getY() + personaje.getHeight() / 2)
 					+ (distanciaMovimiento * MathUtils.sinDeg(tiempo * velocidadY));
 
-			if (!jugador.isVivo()) {
+			if (personaje.isRemover()) {
 
 				remover = true;
 
 			}
+
+		}
+
+		if (x <= camara.position.x - (Juego.ANCHO_PANTALLA / 2 + getWidth())) {
+
+			remover = true;
 
 		}
 
@@ -111,64 +109,32 @@ public class Satelite extends Personaje {
 	@Override
 	public void colision(Personaje actor) {
 
-		if (actor instanceof PlatilloVolador || actor instanceof NaveFUno || actor instanceof AntiAereo
-				|| actor instanceof PlatilloA || actor instanceof Robot || actor instanceof CajaHelicopteroRedondo
-				|| actor instanceof CajaBomba || actor instanceof CajaMisil || actor instanceof CajaSatelite
-				|| actor instanceof CajaVelocidad || actor instanceof CajaVida
-				|| actor instanceof CajaHelicopteroSatelital || actor instanceof CajaHelicopteroNormal) {
-
-			puntos = 5;
-
-		}
-
-		if (actor instanceof SateliteEnemigo) {
-
-			if (dato.isSonido())
-
-			{
-				recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
-
-			}
-
-			puntos = 5;
-
-		}
-
-		if (actor instanceof JefeUno || actor instanceof JefeDos || actor instanceof JefeTres
-				|| actor instanceof JefeCuatro) {
-
-			if (dato.isSonido())
-
-			{
-				recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
-
-			}
+		if (actor instanceof Jugador || actor instanceof Misil || actor instanceof Bomba || actor instanceof Satelite) {
 
 			explosion();
 
-			if (actor.getDureza() <= 0)
+			remover = true;
 
-			{
+		}
 
-				puntos = 1000;
+		if (actor instanceof ExplosionTerreno) {
 
-			} else {
+			if (actor.getWidth() >= 64) {
 
-				puntos = 5;
+				remover = true;
 
 			}
 
-			remover = true;
 		}
 
-		if (actor instanceof Sierra) {
+	}
 
-			puntos = 5;
+	public Personaje getPersonaje() {
+		return personaje;
+	}
 
-			remover = true;
-
-		}
-
+	public void setPersonaje(Personaje personaje) {
+		this.personaje = personaje;
 	}
 
 	public float getDuracionDisparo() {

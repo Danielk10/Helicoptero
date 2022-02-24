@@ -337,11 +337,11 @@ public class Niveles extends Nivel {
 
 			actor.setPosition(posicion.x, posicion.y);
 
-			actor.setVelocidadY(2);
+			actor.setVelocidadY(3.5f);
 
 			actor.setDistanciaDesplazamientoY(100);
 
-			actor.setDuracionDisparo(1.6f);
+			actor.setDuracionDisparo(0.2f);
 
 			personajes.add(actor);
 		}
@@ -353,11 +353,11 @@ public class Niveles extends Nivel {
 
 			actor.setSize(64, 24);
 
-			actor.setDureza(5);
+			actor.setDureza(7);
 
 			actor.setPosition(posicion.x, posicion.y);
 
-			actor.setDuracionDisparo(1.6f);
+			actor.setDuracionDisparo(0.5f);
 
 			personajes.add(actor);
 
@@ -565,6 +565,8 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
+			actor.setDureza(5);
+
 			actor.setDuracionDisparo(0.33f);
 
 			personajes.add(actor);
@@ -585,6 +587,8 @@ public class Niveles extends Nivel {
 			actor.setVelocidadX(2);
 
 			actor.setVelocidadY(200);
+
+			actor.setDureza(5);
 
 			actor.setDuracionDisparo(0.33f);
 
@@ -607,6 +611,8 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
+			actor.setDureza(5);
+
 			actor.setDuracionDisparo(0.33f);
 
 			personajes.add(actor);
@@ -628,6 +634,8 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
+			actor.setDureza(7);
+
 			actor.setDuracionDisparo(0.33f);
 
 			personajes.add(actor);
@@ -648,6 +656,8 @@ public class Niveles extends Nivel {
 			actor.setVelocidadX(2);
 
 			actor.setVelocidadY(200);
+
+			actor.setDureza(5);
 
 			actor.setDuracionDisparo(0.33f);
 
@@ -671,6 +681,8 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
+			actor.setDureza(5);
+
 			actor.setDuracionDisparo(0.33f);
 
 			personajes.add(actor);
@@ -693,6 +705,8 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(200);
 
+			actor.setDureza(7);
+
 			actor.setDuracionDisparo(0.33f);
 
 			personajes.add(actor);
@@ -714,6 +728,8 @@ public class Niveles extends Nivel {
 			actor.setVelocidadX(2);
 
 			actor.setVelocidadY(200);
+
+			actor.setDureza(5);
 
 			actor.setDuracionDisparo(0.33f);
 

@@ -83,9 +83,23 @@ public class ExplosionTerreno extends Personaje {
 	@Override
 	public void colision(Personaje actor) {
 
-		if (actor instanceof PlatilloVolador || actor instanceof NaveFUno || actor instanceof AntiAereo
-				|| actor instanceof PlatilloA || actor instanceof Sierra || actor instanceof Robot
-				|| actor instanceof CajaHelicopteroRedondo) {
+		if (actor instanceof PlatilloA || actor instanceof PlatilloDeLuz || actor instanceof PlatilloVolador
+				|| actor instanceof NaveFUno || actor instanceof NaveFDos || actor instanceof NaveFTres
+				|| actor instanceof NaveFCuatro || actor instanceof NaveFCinco || actor instanceof NaveFSeis
+				|| actor instanceof NaveFSiete || actor instanceof NaveFOcho || actor instanceof NaveFNueve
+				|| actor instanceof NaveFDiez || actor instanceof NaveFOnce || actor instanceof NaveFDoce
+				|| actor instanceof NaveFTrece || actor instanceof NaveFCatorce || actor instanceof NaveFQuince
+				|| actor instanceof NaveFDiesciceis || actor instanceof AntiAereo || actor instanceof Robot
+				|| actor instanceof MaquinaParedDerecha || actor instanceof MaquinaParedIzquierda
+				|| actor instanceof CajaVida || actor instanceof CajaBomba || actor instanceof CajaMisil
+				|| actor instanceof CajaVelocidad || actor instanceof CajaSatelite
+				|| actor instanceof CajaHelicopteroNormal | actor instanceof CajaHelicopteroVerde
+				|| actor instanceof CajaHelicopteroRedondo || actor instanceof CajaHelicopteroMedico
+				|| actor instanceof CajaHelicopteroNegro || actor instanceof CajaHelicopteroSatelital
+				|| actor instanceof Sierra || actor instanceof CarroGris || actor instanceof CarroAmarillo
+				|| actor instanceof CamionetaVerde || actor instanceof CamionetaGris || actor instanceof CamionetaCarga
+				|| actor instanceof BarcoVerde || actor instanceof SateliteEnemigo || actor instanceof JefeUno
+				|| actor instanceof JefeDos || actor instanceof JefeTres || actor instanceof JefeCuatro) {
 
 			puntos = 5;
 

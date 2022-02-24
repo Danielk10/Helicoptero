@@ -118,7 +118,7 @@ public class PlatilloDeLuz extends Personaje {
 
 		bala.setSize(8.0F, 8.0F);
 
-		bala.setPosition(x, y);
+		bala.setPosition(x, y + 4);
 
 		bala.setLado(BalaEnemigo.IZQUIERDO);
 
@@ -186,6 +186,16 @@ public class PlatilloDeLuz extends Personaje {
 			explosion();
 
 			remover = true;
+
+		}
+
+		if (actor instanceof ExplosionTerreno) {
+
+			if (actor.getWidth() >= 64) {
+
+				remover = true;
+
+			}
 
 		}
 	}

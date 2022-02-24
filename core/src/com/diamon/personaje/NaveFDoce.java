@@ -37,10 +37,14 @@ public class NaveFDoce extends Personaje {
 
 	private Jugador jugador;
 
+	private SateliteEnemigo satelite;
+
 	public NaveFDoce(Texture textura, Pantalla pantalla) {
 		super(textura, pantalla);
 
 		obtenerJugador();
+
+		agregarSatelite();
 
 	}
 
@@ -49,12 +53,32 @@ public class NaveFDoce extends Personaje {
 
 		obtenerJugador();
 
+		agregarSatelite();
+
 	}
 
 	public NaveFDoce(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
 		obtenerJugador();
+
+		agregarSatelite();
+
+	}
+
+	private void agregarSatelite() {
+
+		satelite = new SateliteEnemigo(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+
+		satelite.setPersonaje(this);
+
+		satelite.setSize(16, 16);
+
+		satelite.setVelocidadY(400);
+
+		satelite.setDistanciaMovimiento(70);
+
+		personajes.add(satelite);
 
 	}
 

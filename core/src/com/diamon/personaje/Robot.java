@@ -133,11 +133,11 @@ public class Robot extends Personaje {
 
 	public void disparar(int lado) {
 
-		BalaEnemigo bala = new BalaEnemigo((Texture) recurso.get("textura/bala.png", Texture.class), pantalla);
+		BalaEnemigo bala = new BalaEnemigo(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
 
 		bala.setSize(8.0F, 8.0F);
 
-		bala.setPosition(x, y + getHeight() / 2);
+		bala.setPosition(x, y + (getHeight() / 2 + 4));
 
 		bala.setVelocidad(4);
 

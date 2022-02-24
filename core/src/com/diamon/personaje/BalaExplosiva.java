@@ -196,7 +196,7 @@ public class BalaExplosiva extends Personaje {
 
 		if (actor instanceof Sierra || actor instanceof CarroGris || actor instanceof CarroAmarillo
 				|| actor instanceof CamionetaVerde || actor instanceof CamionetaGris || actor instanceof CamionetaCarga
-				|| actor instanceof BarcoVerde) {
+				|| actor instanceof BarcoVerde || actor instanceof SateliteEnemigo) {
 
 			if (dato.isSonido())
 

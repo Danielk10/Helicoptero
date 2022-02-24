@@ -101,7 +101,7 @@ public class PantallaJuego extends Pantalla {
 
 	private Label fps;
 
-	private Label textoPuntos; 
+	private Label textoPuntos;
 
 	private Label textoNumeroNivel;
 
@@ -124,6 +124,10 @@ public class PantallaJuego extends Pantalla {
 	private boolean[] clic;
 
 	private boolean[] desClic;
+
+	private float tiempoEspera;
+
+	private boolean inmunidadJugador;
 
 	public PantallaJuego(Juego juego) {
 		super(juego);
@@ -1512,6 +1516,10 @@ public class PantallaJuego extends Pantalla {
 
 					mundo = new Niveles(this, jugador, mapas);
 
+					inmunidadJugador = true;
+
+					jugador.setInmune(inmunidadJugador);
+
 				}
 
 			}
@@ -1561,6 +1569,22 @@ public class PantallaJuego extends Pantalla {
 					musicaGefe.stop();
 
 				}
+
+			}
+
+		}
+
+		if (inmunidadJugador) {
+
+			tiempoEspera += delta;
+
+			if (tiempoEspera / 2 >= 1) {
+
+				inmunidadJugador = false;
+
+				jugador.setInmune(inmunidadJugador);
+
+				tiempoEspera = 0;
 
 			}
 

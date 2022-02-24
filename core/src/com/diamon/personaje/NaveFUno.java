@@ -241,6 +241,16 @@ public class NaveFUno extends Personaje {
 			remover = true;
 
 		}
+
+		if (actor instanceof ExplosionTerreno) {
+
+			if (actor.getWidth() >= 64) {
+
+				remover = true;
+
+			}
+
+		}
 	}
 
 	@Override

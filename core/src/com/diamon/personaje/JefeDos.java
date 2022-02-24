@@ -128,6 +128,31 @@ public class JefeDos extends Personaje {
 
 		}
 
+		if (actor instanceof ExplosionTerreno) {
+
+			if (actor.getWidth() >= 64) {
+
+				dureza -= 5;
+
+				if (dureza <= 0) {
+
+					if (dato.isSonido())
+
+					{
+						recurso.get("audio/explosion.ogg", Sound.class).play(dato.getVolumenSonido());
+
+					}
+
+					explosion();
+
+					remover = true;
+
+				}
+
+			}
+
+		}
+
 	}
 
 }

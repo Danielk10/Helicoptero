@@ -284,6 +284,8 @@ public class Jugador extends Personaje {
 
 		deltaToque = false;
 
+		velocidadCamaraItem = 1;
+
 		dedos = -1;
 
 		if (tipo == Jugador.HELICOPTERO_NORMAL) {
@@ -869,13 +871,15 @@ public class Jugador extends Personaje {
 
 				tiempoItemVelocidad += delta;
 
-				if (tiempoItemVelocidad / 20 >= 1) {
+				if (tiempoItemVelocidad / 10 >= 1) {
 
 					if (velocidadCamaraItem == 2) {
 
 						velocidadCamaraItem = 0;
 
 						itemVelocidad = false;
+
+						tiempoItemVelocidad = 0;
 
 					}
 
@@ -885,16 +889,19 @@ public class Jugador extends Personaje {
 
 						itemVelocidad = false;
 
+						tiempoItemVelocidad = 0;
+
 					}
 
 					if (velocidadCamaraItem == 4) {
 
 						velocidadCamaraItem = 0;
+
 						itemVelocidad = false;
 
-					}
+						tiempoItemVelocidad = 0;
 
-					tiempoItemVelocidad = 0;
+					}
 
 				}
 
@@ -1576,7 +1583,7 @@ public class Jugador extends Personaje {
 
 		if (actor instanceof Sierra || actor instanceof CarroGris || actor instanceof CarroAmarillo
 				|| actor instanceof CamionetaVerde || actor instanceof CamionetaGris || actor instanceof CamionetaCarga
-				|| actor instanceof BarcoVerde) {
+				|| actor instanceof BarcoVerde || actor instanceof SateliteEnemigo) {
 
 			puntos = 5;
 
@@ -1819,6 +1826,8 @@ public class Jugador extends Personaje {
 		if (tipoItem == ItemDeJuego.VELOCIDAD) {
 
 			itemVelocidad = true;
+
+			tiempoItemVelocidad = 0;
 
 			if (velocidadCamaraItem < Jugador.MAXIMA_CANTIDAD_VELOCIDAD)
 
@@ -2236,24 +2245,28 @@ public class Jugador extends Personaje {
 
 			}
 
-			bomba.setSize(16, 32);
+			if (bomba != null) {
 
-			bomba.setPosition(getX() + 10, getY() - this.getHeight());
+				bomba.setSize(16, 32);
 
-			if (dato.isSonido())
+				bomba.setPosition(getX() + 10, getY() - this.getHeight());
 
-			{
+				if (dato.isSonido())
 
-				Sound sonido = recurso.get("audio/bomba.ogg", Sound.class);
+				{
 
-				sonido.play(dato.getVolumenSonido());
+					Sound sonido = recurso.get("audio/bomba.ogg", Sound.class);
 
-				bomba.setSonido(sonido);
+					sonido.play(dato.getVolumenSonido());
+
+					bomba.setSonido(sonido);
+				}
+
+				this.bomba--;
+
+				personajes.add(bomba);
+
 			}
-
-			this.bomba--;
-
-			personajes.add(bomba);
 
 		}
 
@@ -2261,13 +2274,65 @@ public class Jugador extends Personaje {
 
 	public void agregarParacaisdista() {
 
-		Paracaidista paracaidista = new Paracaidista(recurso.get("textura/paracaisdista.png", Texture.class), pantalla);
+		Paracaidista paracaidista = null;
 
-		paracaidista.setSize(48, 66);
+		if (tipo == Jugador.HELICOPTERO_NORMAL)
 
-		paracaidista.setPosition(x, y);
+		{
 
-		personajes.add(paracaidista);
+			paracaidista = new Paracaidista(recurso.get("textura/paracaisdista.png", Texture.class), pantalla);
+
+		}
+
+		if (tipo == Jugador.HELICOPTERO_REDONDO)
+
+		{
+
+			paracaidista = new Paracaidista(recurso.get("textura/paracaisdista.png", Texture.class), pantalla);
+
+		}
+
+		if (tipo == Jugador.HELICOPTERO_NEGRO)
+
+		{
+
+			paracaidista = new Paracaidista(recurso.get("textura/paracaisdista2.png", Texture.class), pantalla);
+
+		}
+
+		if (tipo == Jugador.HELICOPTERO_MEDICO)
+
+		{
+
+			paracaidista = new Paracaidista(recurso.get("textura/paracaisdista2.png", Texture.class), pantalla);
+
+		}
+
+		if (tipo == Jugador.HELICOPTERO_VERDE)
+
+		{
+
+			paracaidista = new Paracaidista(recurso.get("textura/paracaisdista3.png", Texture.class), pantalla);
+
+		}
+
+		if (tipo == Jugador.HELICOPTERO_SATELITAL)
+
+		{
+
+			paracaidista = new Paracaidista(recurso.get("textura/paracaisdista1.png", Texture.class), pantalla);
+
+		}
+
+		if (paracaidista != null) {
+
+			paracaidista.setSize(48, 66);
+
+			paracaidista.setPosition(x, y);
+
+			personajes.add(paracaidista);
+
+		}
 
 	}
 

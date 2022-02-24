@@ -166,7 +166,7 @@ public class Misil extends Personaje {
 				|| actor instanceof CajaHelicopteroNegro || actor instanceof CajaHelicopteroSatelital
 				|| actor instanceof CarroGris || actor instanceof CarroAmarillo || actor instanceof CamionetaVerde
 				|| actor instanceof CamionetaGris || actor instanceof CamionetaCarga || actor instanceof BarcoVerde
-				|| actor instanceof Sierra) {
+				|| actor instanceof Sierra || actor instanceof SateliteEnemigo) {
 			if (dato.isSonido())
 
 			{

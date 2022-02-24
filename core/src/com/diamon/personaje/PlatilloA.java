@@ -4,7 +4,6 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -74,14 +73,12 @@ public class PlatilloA extends Personaje {
 
 			if (tiempoCuadro / duracionDisparo >= 1) {
 
-				if (MathUtils.random() < 0.8f) {
+				if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+						&& jugador.getX() <= x)
 
-					if (x > jugador.getX())
+				{
 
-					{
-
-						disparar();
-					}
+					disparar();
 
 				}
 
@@ -191,6 +188,16 @@ public class PlatilloA extends Personaje {
 			explosion();
 
 			remover = true;
+
+		}
+
+		if (actor instanceof ExplosionTerreno) {
+
+			if (actor.getWidth() >= 64) {
+
+				remover = true;
+
+			}
 
 		}
 	}

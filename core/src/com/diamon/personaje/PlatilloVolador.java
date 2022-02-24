@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
@@ -14,7 +13,7 @@ import com.diamon.nucleo.Personaje;
 
 public class PlatilloVolador extends Personaje {
 
-	public static final int VELOCIDAD_MAQUINA = 5;
+	public static final int VELOCIDAD_MAQUINA = 3;
 
 	private float tiempoCuadro;
 
@@ -81,15 +80,12 @@ public class PlatilloVolador extends Personaje {
 
 			if (tiempoCuadro / duracionDisparo >= 1) {
 
-				if (MathUtils.random() < 0.8f) {
+				if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
+						&& jugador.getX() <= x)
 
-					if (x > jugador.getX())
+				{
 
-					{
-
-						disparar();
-					}
-
+					disparar();
 				}
 
 				tiempoCuadro = 0;
@@ -223,6 +219,16 @@ public class PlatilloVolador extends Personaje {
 			explosion();
 
 			remover = true;
+
+		}
+
+		if (actor instanceof ExplosionTerreno) {
+
+			if (actor.getWidth() >= 64) {
+
+				remover = true;
+
+			}
 
 		}
 

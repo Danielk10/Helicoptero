@@ -86,10 +86,9 @@ public class MaquinaParedIzquierda extends Personaje {
 			{
 
 				if (animacion1 != null) {
-					
+
 					animacion = animacion1;
 				}
-			
 
 				tiempoCuadro += delta;
 
@@ -101,14 +100,12 @@ public class MaquinaParedIzquierda extends Personaje {
 				}
 
 			} else {
-				
-				if (animacion2 != null) {
-					
-					animacion = animacion2;
-					
-				}
 
-				
+				if (animacion2 != null) {
+
+					animacion = animacion2;
+
+				}
 
 			}
 
@@ -132,11 +129,11 @@ public class MaquinaParedIzquierda extends Personaje {
 
 	public void disparar(int lado) {
 
-		BalaEnemigo bala = new BalaEnemigo((Texture) recurso.get("textura/bala.png", Texture.class), pantalla);
+		BalaEnemigo bala = new BalaEnemigo((Texture) recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
 
-		bala.setSize(8.0F, 8.0F);
+		bala.setSize(12F, 12F);
 
-		bala.setPosition(x, y + getHeight() / 2);
+		bala.setPosition(x, y + (getHeight() / 2 - 5));
 
 		bala.setVelocidad(4);
 
