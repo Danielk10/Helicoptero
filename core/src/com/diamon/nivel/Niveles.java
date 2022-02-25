@@ -1114,7 +1114,7 @@ public class Niveles extends Nivel {
 
 		if (intro) {
 
-			actorIntro1 = new NaveFUno(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).getRegions(), 0.1f,
+			actorIntro1 = new NaveFUno(recurso.get("textura/alienverde.atlas", TextureAtlas.class).getRegions(), 0.1f,
 					Animation.PlayMode.LOOP, pantalla);
 
 			actorIntro1.setSize(48, 48);
@@ -1133,8 +1133,8 @@ public class Niveles extends Nivel {
 
 			personajes.add(actorIntro1);
 
-			actorIntro2 = new NaveFUno(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).getRegions(), 0.1f,
-					Animation.PlayMode.LOOP, pantalla);
+			actorIntro2 = new NaveFUno(recurso.get("textura/triplenaranja.atlas", TextureAtlas.class).getRegions(),
+					0.1f, Animation.PlayMode.LOOP, pantalla);
 
 			actorIntro2.setSize(48, 48);
 
@@ -1171,8 +1171,8 @@ public class Niveles extends Nivel {
 
 			personajes.add(actorIntro3);
 
-			actorIntro4 = new NaveFUno(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).getRegions(), 0.1f,
-					Animation.PlayMode.LOOP, pantalla);
+			actorIntro4 = new NaveFUno(recurso.get("textura/triplepurpura.atlas", TextureAtlas.class).getRegions(),
+					0.1f, Animation.PlayMode.LOOP, pantalla);
 
 			actorIntro4.setSize(48, 48);
 
