@@ -118,6 +118,9 @@ public class PantallaCarga extends Pantalla {
 			recurso.get("textura/cursor.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 			recurso.get("textura/bala.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 			recurso.get("textura/barcoVerde.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
+			recurso.get("textura/vidaJefe.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
+			recurso.get("textura/catidadVidaJefe.png", Texture.class).setFilter(TextureFilter.Linear,
+					TextureFilter.Linear);
 
 			recurso.get("textura/iconos.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 

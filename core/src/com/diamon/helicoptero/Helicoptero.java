@@ -98,6 +98,10 @@ public class Helicoptero extends Juego {
 
 		recurso.load("textura/nube.png", Texture.class);
 
+		recurso.load("textura/vidaJefe.png", Texture.class);
+
+		recurso.load("textura/catidadVidaJefe.png", Texture.class);
+
 		recurso.load("textura/item.atlas", TextureAtlas.class);
 
 		recurso.load("textura/barrasHelicoptero.atlas", TextureAtlas.class);

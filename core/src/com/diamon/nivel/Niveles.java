@@ -101,6 +101,8 @@ public class Niveles extends Nivel {
 
 	private boolean parallax;
 
+	private Personaje jefeNivel;
+
 	public Niveles(PantallaJuego pantalla, Jugador jugador, TiledMap[] mapas) {
 
 		super(pantalla, jugador);
@@ -1248,6 +1250,8 @@ public class Niveles extends Nivel {
 
 			personajes.add(gefeUno);
 
+			jefeNivel = gefeUno;
+
 		}
 
 		if (numero == 20) {
@@ -1268,6 +1272,8 @@ public class Niveles extends Nivel {
 			gefeDos.setDureza(500);
 
 			personajes.add(gefeDos);
+
+			jefeNivel = gefeDos;
 
 		}
 
@@ -1290,6 +1296,8 @@ public class Niveles extends Nivel {
 
 			personajes.add(gefeTres);
 
+			jefeNivel = gefeTres;
+
 		}
 
 		if (numero == 40) {
@@ -1311,8 +1319,14 @@ public class Niveles extends Nivel {
 
 			personajes.add(gefeCuatro);
 
+			jefeNivel = gefeCuatro;
+
 		}
 
+	}
+
+	public Personaje getJefeNivel() {
+		return jefeNivel;
 	}
 
 	@Override

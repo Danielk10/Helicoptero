@@ -75,6 +75,12 @@ public class PantallaJuego extends Pantalla {
 
 	private Image barraDeItemPuntaje;
 
+	private Image vidaJefe;
+
+	private Image cantidadVidaJefe;
+
+	private Image jefe;
+
 	private volatile boolean pausar;
 
 	private Music[] musica;
@@ -129,6 +135,10 @@ public class PantallaJuego extends Pantalla {
 
 	private boolean inmunidadJugador;
 
+	private boolean uiJefe;
+
+	private float cantidadVida;
+
 	public PantallaJuego(Juego juego) {
 		super(juego);
 
@@ -179,6 +189,33 @@ public class PantallaJuego extends Pantalla {
 		}
 
 		numeroNivel = dato.getNumeroNivel();
+
+		//////////////////////////////////////////////
+		vidaJefe = new Image(recurso.get("textura/vidaJefe.png", Texture.class));
+
+		vidaJefe.setPosition(364, 450);
+
+		vidaJefe.setSize(Juego.ANCHO_PANTALLA / 3, 32);
+
+		vidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+		cantidadVidaJefe = new Image(recurso.get("textura/catidadVidaJefe.png", Texture.class));
+
+		cantidadVidaJefe.setPosition(368, 458);
+
+		cantidadVidaJefe.setSize(204, 16);
+
+		cantidadVidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+		jefe = new Image(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).findRegion("alienazul1-1"));
+
+		jefe.setPosition(330, 448);
+
+		jefe.setSize(32, 32);
+
+		jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+		//////////////////////////////////////////////////////////////
 
 		barraDeItem = new Image(
 				recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).findRegion("barra1"));
@@ -1270,6 +1307,45 @@ public class PantallaJuego extends Pantalla {
 
 		if (jugador.isVivo()) {
 
+			if (jugador.isGefe()) {
+
+				if (mundo != null) {
+
+					if (((Niveles) mundo).getJefeNivel().getDureza() <= 0) {
+
+					} else {
+
+						if (uiJefe) {
+
+							nivel.addActor(cantidadVidaJefe);
+
+							nivel.addActor(jefe);
+
+							nivel.addActor(vidaJefe);
+
+							uiJefe = false;
+						}
+
+						cantidadVidaJefe.setSize(((Niveles) mundo).getJefeNivel().getDureza() * cantidadVida, 16);
+
+					}
+
+				}
+
+			} else {
+
+				if (jugador.isFinNivel()) {
+
+					cantidadVidaJefe.remove();
+
+					jefe.remove();
+
+					vidaJefe.remove();
+
+				}
+
+			}
+
 			if (jugador.isCambioTipo()) {
 
 				if (jugador.getTipo() == Jugador.HELICOPTERO_NORMAL) {
@@ -1519,6 +1595,53 @@ public class PantallaJuego extends Pantalla {
 					inmunidadJugador = true;
 
 					jugador.setInmune(inmunidadJugador);
+
+					if (numeroNivel == 10) {
+
+						if (mundo != null) {
+
+							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
+
+						}
+
+						uiJefe = true;
+
+					}
+
+					if (numeroNivel == 20) {
+
+						if (mundo != null) {
+
+							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
+
+						}
+
+						uiJefe = true;
+
+					}
+
+					if (numeroNivel == 30) {
+
+						if (mundo != null) {
+
+							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
+
+						}
+
+						uiJefe = true;
+					}
+
+					if (numeroNivel == 40) {
+
+						if (mundo != null) {
+
+							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
+
+						}
+
+						uiJefe = true;
+
+					}
 
 				}
 
