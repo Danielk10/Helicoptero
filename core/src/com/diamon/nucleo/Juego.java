@@ -29,7 +29,7 @@ public abstract class Juego extends Game {
 
 	public static final float GRAVEDAD = -10.0F;
 
-	public static final float VELOCIDAD_CAMARA = 10;
+	public static final float VELOCIDAD_CAMARA = 1;
 
 	public static final float DELTA_A_PIXEL = 0.0166666666666667F;
 
