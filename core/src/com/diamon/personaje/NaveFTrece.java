@@ -31,10 +31,6 @@ public class NaveFTrece extends Personaje {
 
 	private int lado;
 
-	public static final int IZQUIERDO = 0;
-
-	public static final int DERECHO = 1;
-
 	private Jugador jugador;
 
 	public NaveFTrece(Texture textura, Pantalla pantalla) {

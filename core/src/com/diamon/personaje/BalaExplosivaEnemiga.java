@@ -11,7 +11,7 @@ import com.diamon.nucleo.Personaje;
 
 public class BalaExplosivaEnemiga extends Personaje {
 
-	public static final float VELOCIDAD_BOMBA = 10.0F;
+	public static final float VELOCIDAD_BOMBA = 10;
 
 	private float velocidadX;
 

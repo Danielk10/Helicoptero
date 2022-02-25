@@ -1270,7 +1270,7 @@ public class Niveles extends Nivel {
 			gefeDos.setVelocidadY(200);
 
 			gefeDos.setDureza(500);
-			
+
 			gefeDos.setDuracionDisparo(0.33f);
 
 			personajes.add(gefeDos);
@@ -1295,7 +1295,7 @@ public class Niveles extends Nivel {
 			gefeTres.setVelocidadY(200);
 
 			gefeTres.setDureza(700);
-			
+
 			gefeTres.setDuracionDisparo(0.33f);
 
 			personajes.add(gefeTres);
@@ -1320,7 +1320,7 @@ public class Niveles extends Nivel {
 			gefeCuatro.setVelocidadY(200);
 
 			gefeCuatro.setDureza(900);
-			
+
 			gefeCuatro.setDuracionDisparo(0.33f);
 
 			personajes.add(gefeCuatro);

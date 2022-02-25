@@ -192,27 +192,53 @@ public class PantallaJuego extends Pantalla {
 
 		vidaJefe = new Image(recurso.get("textura/vidaJefe.png", Texture.class));
 
-		vidaJefe.setPosition(364, 450);
-
-		vidaJefe.setSize(Juego.ANCHO_PANTALLA / 3, 32);
-
-		vidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
-
 		cantidadVidaJefe = new Image(recurso.get("textura/catidadVidaJefe.png", Texture.class));
-
-		cantidadVidaJefe.setPosition(368, 458);
-
-		cantidadVidaJefe.setSize(204, 16);
-
-		cantidadVidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
 		jefe = new Image(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).findRegion("alienazul1-1"));
 
-		jefe.setPosition(330, 448);
+		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-		jefe.setSize(32, 32);
+			vidaJefe.setPosition(Juego.ANCHO_PANTALLA - Juego.ANCHO_PANTALLA / 3, 450);
 
-		jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+			vidaJefe.setSize(Juego.ANCHO_PANTALLA / 3, 32);
+
+			vidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+			cantidadVidaJefe.setPosition(Juego.ANCHO_PANTALLA - Juego.ANCHO_PANTALLA / 3 + 4, 458);
+
+			cantidadVidaJefe.setSize(204, 16);
+
+			cantidadVidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+			jefe.setPosition(Juego.ANCHO_PANTALLA - Juego.ANCHO_PANTALLA / 3 - 34, 448);
+
+			jefe.setSize(32, 32);
+
+			jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+		}
+
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
+
+			vidaJefe.setPosition(364, 450);
+
+			vidaJefe.setSize(Juego.ANCHO_PANTALLA / 3, 32);
+
+			vidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+			cantidadVidaJefe.setPosition(368, 458);
+
+			cantidadVidaJefe.setSize(204, 16);
+
+			cantidadVidaJefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+			jefe.setPosition(330, 448);
+
+			jefe.setSize(32, 32);
+
+			jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+		}
 
 		barraDeItem = new Image(
 				recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).findRegion("barra1"));
@@ -1283,6 +1309,7 @@ public class PantallaJuego extends Pantalla {
 
 	}
 
+	@SuppressWarnings("static-access")
 	@Override
 	public void actualizar(float delta) {
 
@@ -1442,7 +1469,6 @@ public class PantallaJuego extends Pantalla {
 
 				nivel.addAction(Actions.sequence(Actions.delay(1f), Actions.run(new Runnable() {
 
-					@SuppressWarnings("static-access")
 					public void run() {
 
 						if (dato.getNumeroNivel() == 40 && jugador.isFinNivel()) {
@@ -1600,11 +1626,25 @@ public class PantallaJuego extends Pantalla {
 							jefe = new Image(recurso.get("textura/alienAzul.atlas", TextureAtlas.class)
 									.findRegion("alienazul1-4"));
 
-							jefe.setPosition(330, 448);
+							if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-							jefe.setSize(32, 32);
+								jefe.setPosition(330, 448);
 
-							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+								jefe.setSize(32, 32);
+
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
+
+							if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+								jefe.setPosition(Juego.ANCHO_PANTALLA - Juego.ANCHO_PANTALLA / 3 - 34, 448);
+
+								jefe.setSize(32, 32);
+
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
 
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 
@@ -1621,11 +1661,25 @@ public class PantallaJuego extends Pantalla {
 							jefe = new Image(recurso.get("textura/alienverde.atlas", TextureAtlas.class)
 									.findRegion("alienverde1-4"));
 
-							jefe.setPosition(330, 448);
+							if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-							jefe.setSize(32, 32);
+								jefe.setPosition(330, 448);
 
-							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+								jefe.setSize(32, 32);
+
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
+
+							if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+								jefe.setPosition(Juego.ANCHO_PANTALLA - Juego.ANCHO_PANTALLA / 3 - 34, 448);
+
+								jefe.setSize(32, 32);
+
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
 
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 
@@ -1642,12 +1696,25 @@ public class PantallaJuego extends Pantalla {
 							jefe = new Image(recurso.get("textura/triplepurpura.atlas", TextureAtlas.class)
 									.findRegion("triplepurpura1-4"));
 
-							jefe.setPosition(330, 448);
+							if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-							jefe.setSize(32, 32);
+								jefe.setPosition(330, 448);
 
-							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+								jefe.setSize(32, 32);
 
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
+
+							if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+								jefe.setPosition(Juego.ANCHO_PANTALLA - Juego.ANCHO_PANTALLA / 3 - 34, 448);
+
+								jefe.setSize(32, 32);
+
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 
 						}
@@ -1662,11 +1729,25 @@ public class PantallaJuego extends Pantalla {
 							jefe = new Image(recurso.get("textura/triplenaranja.atlas", TextureAtlas.class)
 									.findRegion("triplenaranja1-4"));
 
-							jefe.setPosition(330, 448);
+							if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-							jefe.setSize(32, 32);
+								jefe.setPosition(330, 448);
 
-							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+								jefe.setSize(32, 32);
+
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
+
+							if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+								jefe.setPosition(Juego.ANCHO_PANTALLA - Juego.ANCHO_PANTALLA / 3 - 34, 448);
+
+								jefe.setSize(32, 32);
+
+								jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+							}
 
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 

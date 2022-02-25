@@ -20,6 +20,8 @@ public class JefeCuatro extends Personaje {
 
 	private float tiempoCuadro;
 
+	private float tiempoCuadroBalaExplosiva;
+
 	private float tiemo;
 
 	private float velocidadY;
@@ -114,6 +116,15 @@ public class JefeCuatro extends Personaje {
 
 			tiempoCuadro += delta;
 
+			tiempoCuadroBalaExplosiva += delta;
+
+			if (tiempoCuadroBalaExplosiva / 2 >= 1) {
+
+				balaExplosiva();
+
+				tiempoCuadroBalaExplosiva = 0;
+			}
+
 			if (tiempoCuadro / duracionDisparo >= 1) {
 
 				if (jugador.getY() <= y + getHeight() && jugador.getY() + jugador.getHeight() >= y
@@ -144,6 +155,83 @@ public class JefeCuatro extends Personaje {
 			remover = true;
 
 		}
+
+	}
+
+	public void balaExplosiva() {
+
+		BalaExplosivaEnemiga bala1 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala1.setSize(16, 16);
+
+		bala1.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala1.setLado(BalaExplosiva.ABAJO);
+
+		BalaExplosivaEnemiga bala2 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala2.setSize(16, 16);
+
+		bala2.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala2.setLado(BalaExplosiva.ARRIBA);
+
+		BalaExplosivaEnemiga bala3 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala3.setSize(16, 16);
+
+		bala3.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala3.setLado(BalaExplosiva.DERECHO);
+
+		BalaExplosivaEnemiga bala4 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala4.setSize(16, 16);
+
+		bala4.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala4.setLado(BalaExplosiva.DERECHO_ABAJO);
+
+		BalaExplosivaEnemiga bala5 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala5.setSize(16, 16);
+
+		bala5.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala5.setLado(BalaExplosiva.DERECHO_ARRIBA);
+
+		BalaExplosivaEnemiga bala6 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala6.setSize(16, 16);
+
+		bala6.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala6.setLado(BalaExplosiva.IZQUIERDO);
+
+		BalaExplosivaEnemiga bala7 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala7.setSize(16, 16);
+
+		bala7.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala7.setLado(BalaExplosiva.IZQUIERDO_ABAJO);
+
+		BalaExplosivaEnemiga bala8 = new BalaExplosivaEnemiga(recurso.get("textura/bala.png", Texture.class), pantalla);
+
+		bala8.setSize(16, 16);
+
+		bala8.setPosition(getX() + getWidth() / 2 - 8, getY() + getHeight() / 2 - 8);
+
+		bala8.setLado(BalaExplosiva.IZQUIERDO_ARRIBA);
+
+		personajes.add(bala1);
+		personajes.add(bala2);
+		personajes.add(bala3);
+		personajes.add(bala4);
+		personajes.add(bala5);
+		personajes.add(bala6);
+		personajes.add(bala7);
+		personajes.add(bala8);
 
 	}
 
