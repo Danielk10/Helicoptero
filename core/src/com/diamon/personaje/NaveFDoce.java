@@ -31,10 +31,6 @@ public class NaveFDoce extends Personaje {
 
 	private int lado;
 
-	public static final int IZQUIERDO = 0;
-
-	public static final int DERECHO = 1;
-
 	private Jugador jugador;
 
 	private SateliteEnemigo satelite;

@@ -1256,7 +1256,7 @@ public class Niveles extends Nivel {
 
 		if (numero == 20) {
 
-			gefeDos = new JefeDos(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).getRegions(), 0.1f,
+			gefeDos = new JefeDos(recurso.get("textura/alienverde.atlas", TextureAtlas.class).getRegions(), 0.1f,
 					Animation.PlayMode.LOOP, pantalla);
 
 			gefeDos.setSize(128, 128);
@@ -1270,6 +1270,8 @@ public class Niveles extends Nivel {
 			gefeDos.setVelocidadY(200);
 
 			gefeDos.setDureza(500);
+			
+			gefeDos.setDuracionDisparo(0.33f);
 
 			personajes.add(gefeDos);
 
@@ -1279,7 +1281,7 @@ public class Niveles extends Nivel {
 
 		if (numero == 30) {
 
-			gefeTres = new JefeTres(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).getRegions(), 0.1f,
+			gefeTres = new JefeTres(recurso.get("textura/triplepurpura.atlas", TextureAtlas.class).getRegions(), 0.1f,
 					Animation.PlayMode.LOOP, pantalla);
 
 			gefeTres.setSize(128, 128);
@@ -1293,6 +1295,8 @@ public class Niveles extends Nivel {
 			gefeTres.setVelocidadY(200);
 
 			gefeTres.setDureza(700);
+			
+			gefeTres.setDuracionDisparo(0.33f);
 
 			personajes.add(gefeTres);
 
@@ -1302,8 +1306,8 @@ public class Niveles extends Nivel {
 
 		if (numero == 40) {
 
-			gefeCuatro = new JefeCuatro(recurso.get("textura/alienAzul.atlas", TextureAtlas.class).getRegions(), 0.1f,
-					Animation.PlayMode.LOOP, pantalla);
+			gefeCuatro = new JefeCuatro(recurso.get("textura/triplenaranja.atlas", TextureAtlas.class).getRegions(),
+					0.1f, Animation.PlayMode.LOOP, pantalla);
 
 			gefeCuatro.setSize(128, 128);
 
@@ -1316,6 +1320,8 @@ public class Niveles extends Nivel {
 			gefeCuatro.setVelocidadY(200);
 
 			gefeCuatro.setDureza(900);
+			
+			gefeCuatro.setDuracionDisparo(0.33f);
 
 			personajes.add(gefeCuatro);
 

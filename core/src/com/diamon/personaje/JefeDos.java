@@ -32,10 +32,14 @@ public class JefeDos extends Personaje {
 
 	private Jugador jugador;
 
+	private SateliteEnemigo satelite;
+
 	public JefeDos(Texture textura, Pantalla pantalla) {
 		super(textura, pantalla);
 
 		obtenerJugador();
+
+		agregarSatelite();
 
 	}
 
@@ -44,12 +48,33 @@ public class JefeDos extends Personaje {
 
 		obtenerJugador();
 
+		agregarSatelite();
+
 	}
 
 	public JefeDos(Array<AtlasRegion> texturaRegion, float tiempoAnimacion, PlayMode modo, Pantalla pantalla) {
 		super(texturaRegion, tiempoAnimacion, modo, pantalla);
 
 		obtenerJugador();
+
+		agregarSatelite();
+
+	}
+
+	private void agregarSatelite() {
+
+		satelite = new SateliteEnemigo(recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
+
+		satelite.setPersonaje(this);
+
+		satelite.setSize(64, 64);
+
+		satelite.setVelocidadY(400);
+
+		satelite.setDistanciaMovimiento(150);
+
+		personajes.add(satelite);
 
 	}
 

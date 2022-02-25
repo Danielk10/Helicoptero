@@ -68,7 +68,7 @@ public class SateliteEnemigo extends Personaje {
 
 			tiempo += delta;
 
-			x = (personaje.getX() + personaje.getWidth() / 2)
+			x = (personaje.getX() + personaje.getWidth() / 2 - getWidth() / 2)
 					+ (distanciaMovimiento * MathUtils.cosDeg(tiempo * velocidadY));
 
 			y = (personaje.getY() + personaje.getHeight() / 2)
@@ -111,9 +111,21 @@ public class SateliteEnemigo extends Personaje {
 
 		if (actor instanceof Jugador || actor instanceof Misil || actor instanceof Bomba || actor instanceof Satelite) {
 
-			explosion();
+			if (personaje != null) {
 
-			remover = true;
+				if (personaje instanceof JefeUno || personaje instanceof JefeDos || personaje instanceof JefeTres
+						|| personaje instanceof JefeCuatro) {
+
+					explosion();
+
+				} else {
+
+					explosion();
+
+					remover = true;
+				}
+
+			}
 
 		}
 
@@ -121,7 +133,18 @@ public class SateliteEnemigo extends Personaje {
 
 			if (actor.getWidth() >= 64) {
 
-				remover = true;
+				if (personaje != null) {
+
+					if (personaje instanceof JefeUno || personaje instanceof JefeDos || personaje instanceof JefeTres
+							|| personaje instanceof JefeCuatro) {
+
+					} else {
+
+						remover = true;
+
+					}
+
+				}
 
 			}
 

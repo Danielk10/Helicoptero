@@ -1597,6 +1597,15 @@ public class PantallaJuego extends Pantalla {
 
 						if (mundo != null) {
 
+							jefe = new Image(recurso.get("textura/alienAzul.atlas", TextureAtlas.class)
+									.findRegion("alienazul1-4"));
+
+							jefe.setPosition(330, 448);
+
+							jefe.setSize(32, 32);
+
+							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 
 						}
@@ -1608,6 +1617,15 @@ public class PantallaJuego extends Pantalla {
 					if (numeroNivel == 20) {
 
 						if (mundo != null) {
+
+							jefe = new Image(recurso.get("textura/alienverde.atlas", TextureAtlas.class)
+									.findRegion("alienverde1-4"));
+
+							jefe.setPosition(330, 448);
+
+							jefe.setSize(32, 32);
+
+							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 
@@ -1621,6 +1639,15 @@ public class PantallaJuego extends Pantalla {
 
 						if (mundo != null) {
 
+							jefe = new Image(recurso.get("textura/triplepurpura.atlas", TextureAtlas.class)
+									.findRegion("triplepurpura1-4"));
+
+							jefe.setPosition(330, 448);
+
+							jefe.setSize(32, 32);
+
+							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 
 						}
@@ -1631,6 +1658,15 @@ public class PantallaJuego extends Pantalla {
 					if (numeroNivel == 40) {
 
 						if (mundo != null) {
+
+							jefe = new Image(recurso.get("textura/triplenaranja.atlas", TextureAtlas.class)
+									.findRegion("triplenaranja1-4"));
+
+							jefe.setPosition(330, 448);
+
+							jefe.setSize(32, 32);
+
+							jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
 							cantidadVida = (float) 204 / ((Niveles) mundo).getJefeNivel().getDureza();
 
