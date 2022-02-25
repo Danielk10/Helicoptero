@@ -1263,11 +1263,11 @@ public class Niveles extends Nivel {
 
 			gefeDos.setPosition(13440 - gefeDos.getWidth(), 240);
 
-			gefeUno.setDistanciaMovimientoY(50);
+			gefeDos.setDistanciaMovimientoY(50);
 
-			gefeUno.setVelocidadX(2);
+			gefeDos.setVelocidadX(2);
 
-			gefeUno.setVelocidadY(200);
+			gefeDos.setVelocidadY(200);
 
 			gefeDos.setDureza(500);
 
@@ -1286,11 +1286,11 @@ public class Niveles extends Nivel {
 
 			gefeTres.setPosition(13440 - gefeTres.getWidth(), 240);
 
-			gefeUno.setDistanciaMovimientoY(50);
+			gefeTres.setDistanciaMovimientoY(50);
 
-			gefeUno.setVelocidadX(2);
+			gefeTres.setVelocidadX(2);
 
-			gefeUno.setVelocidadY(200);
+			gefeTres.setVelocidadY(200);
 
 			gefeTres.setDureza(700);
 
@@ -1309,11 +1309,11 @@ public class Niveles extends Nivel {
 
 			gefeCuatro.setPosition(13440 - gefeCuatro.getWidth(), 240);
 
-			gefeUno.setDistanciaMovimientoY(50);
+			gefeCuatro.setDistanciaMovimientoY(50);
 
-			gefeUno.setVelocidadX(2);
+			gefeCuatro.setVelocidadX(2);
 
-			gefeUno.setVelocidadY(200);
+			gefeCuatro.setVelocidadY(200);
 
 			gefeCuatro.setDureza(900);
 

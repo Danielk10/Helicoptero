@@ -190,7 +190,6 @@ public class PantallaJuego extends Pantalla {
 
 		numeroNivel = dato.getNumeroNivel();
 
-		//////////////////////////////////////////////
 		vidaJefe = new Image(recurso.get("textura/vidaJefe.png", Texture.class));
 
 		vidaJefe.setPosition(364, 450);
@@ -214,8 +213,6 @@ public class PantallaJuego extends Pantalla {
 		jefe.setSize(32, 32);
 
 		jefe.setColor(1.0F, 1.0F, 1.0F, 0.7F);
-
-		//////////////////////////////////////////////////////////////
 
 		barraDeItem = new Image(
 				recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).findRegion("barra1"));
