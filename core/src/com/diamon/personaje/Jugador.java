@@ -283,6 +283,8 @@ public class Jugador extends Personaje {
 		dispararBomba = false;
 
 		deltaToque = false;
+		
+		inmune = false;
 
 		velocidadCamaraItem = 1;
 
