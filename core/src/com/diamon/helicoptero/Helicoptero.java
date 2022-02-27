@@ -1,14 +1,11 @@
 package com.diamon.helicoptero;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -203,10 +200,6 @@ public class Helicoptero extends Juego {
 		recurso.load("ui/uiskin.json", Skin.class);
 
 		recurso.load("ui/skin/neon-ui.json", Skin.class);
-
-		recurso.load("particula/test.p", ParticleEffect.class);
-
-		recurso.load(new AssetDescriptor<BitmapFont>("letra/letra.fnt", BitmapFont.class));
 
 		recurso.load("audio/explosion.ogg", Sound.class);
 

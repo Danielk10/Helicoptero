@@ -68,7 +68,8 @@ public class NaveFQuince extends Personaje {
 	
 	private void agregarSatelite() {
 
-		satelite = new SateliteEnemigo(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		satelite = new SateliteEnemigo(recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(),
+				0.05f, Animation.PlayMode.LOOP, pantalla);
 
 		satelite.setPersonaje(this);
 

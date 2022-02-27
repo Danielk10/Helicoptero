@@ -13,7 +13,6 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.diamon.dato.Configuraciones;
 import com.diamon.dato.Dato;
 import com.diamon.pantalla.PantallaCarga;
-import com.diamon.pantalla.PantallaFinDeJuego;
 import com.diamon.pantalla.PantallaJuego;
 import com.diamon.pantalla.PantallaPrecentacion;
 
@@ -131,7 +130,7 @@ public abstract class Juego extends Game {
 	@Override
 	public void setScreen(Screen screen) {
 
-		if (screen instanceof PantallaCarga || screen instanceof PantallaFinDeJuego || screen instanceof PantallaJuego
+		if (screen instanceof PantallaCarga || screen instanceof PantallaJuego
 				|| screen instanceof PantallaPrecentacion) {
 
 			nivelMenu.clear();
@@ -173,7 +172,7 @@ public abstract class Juego extends Game {
 
 		super.resume();
 
-		if (screen instanceof PantallaCarga || screen instanceof PantallaFinDeJuego || screen instanceof PantallaJuego
+		if (screen instanceof PantallaCarga || screen instanceof PantallaJuego
 				|| screen instanceof PantallaPrecentacion) {
 
 		} else {

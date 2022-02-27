@@ -326,7 +326,9 @@ public class Bala extends Personaje {
 
 	public void balaExplosiva() {
 
-		BalaExplosiva bala1 = new BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaExplosiva bala1 = new BalaExplosiva(
+				recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		bala1.setSize(8, 8);
 
@@ -334,7 +336,9 @@ public class Bala extends Personaje {
 
 		bala1.setLado(BalaExplosiva.ABAJO);
 
-		BalaExplosiva bala2 = new BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaExplosiva bala2 = new BalaExplosiva(
+				recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		bala2.setSize(8, 8);
 
@@ -342,7 +346,9 @@ public class Bala extends Personaje {
 
 		bala2.setLado(BalaExplosiva.ARRIBA);
 
-		BalaExplosiva bala3 = new BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaExplosiva bala3 = new BalaExplosiva(
+				recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		bala3.setSize(8, 8);
 
@@ -350,7 +356,9 @@ public class Bala extends Personaje {
 
 		bala3.setLado(BalaExplosiva.DERECHO);
 
-		BalaExplosiva bala4 = new BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaExplosiva bala4 = new BalaExplosiva(
+				recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		bala4.setSize(8, 8);
 
@@ -358,7 +366,9 @@ public class Bala extends Personaje {
 
 		bala4.setLado(BalaExplosiva.DERECHO_ABAJO);
 
-		BalaExplosiva bala5 = new BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaExplosiva bala5 = new BalaExplosiva(
+				recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		bala5.setSize(8, 8);
 
@@ -368,8 +378,9 @@ public class Bala extends Personaje {
 
 		/*
 		 * BalaExplosiva bala6 = new
-		 * BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class),
-		 * pantalla);
+		 * BalaExplosiva(recurso.get("textura/bolaPlasma.atlas",
+		 * TextureAtlas.class).getRegions(), 0.05f, Animation.PlayMode.LOOP, pantalla);
+		 * 
 		 * 
 		 * bala6.setSize(8, 8);
 		 * 
@@ -378,7 +389,9 @@ public class Bala extends Personaje {
 		 * bala6.setLado(BalaExplosiva.IZQUIERDO);
 		 */
 
-		BalaExplosiva bala7 = new BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaExplosiva bala7 = new BalaExplosiva(
+				recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		bala7.setSize(8, 8);
 
@@ -386,7 +399,9 @@ public class Bala extends Personaje {
 
 		bala7.setLado(BalaExplosiva.IZQUIERDO_ABAJO);
 
-		BalaExplosiva bala8 = new BalaExplosiva(recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaExplosiva bala8 = new BalaExplosiva(
+				recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(), 0.05f,
+				Animation.PlayMode.LOOP, pantalla);
 
 		bala8.setSize(8, 8);
 

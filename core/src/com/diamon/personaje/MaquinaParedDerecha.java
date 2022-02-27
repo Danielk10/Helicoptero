@@ -129,7 +129,8 @@ public class MaquinaParedDerecha extends Personaje {
 
 	public void disparar(int lado) {
 
-		BalaEnemigo bala = new BalaEnemigo((Texture) recurso.get("textura/balaExplosiva.png", Texture.class), pantalla);
+		BalaEnemigo bala = new BalaEnemigo(recurso.get("textura/bolaPlasma.atlas", TextureAtlas.class).getRegions(),
+				0.05f, Animation.PlayMode.LOOP, pantalla);
 
 		bala.setSize(10, 10);
 

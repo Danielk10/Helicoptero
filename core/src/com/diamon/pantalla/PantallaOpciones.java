@@ -720,9 +720,9 @@ public class PantallaOpciones extends Pantalla {
 
 			nivelMenu.addActor(mostrarFPS);
 
-			nivelMenu.addActor(tituloPrueba);
+			// nivelMenu.addActor(tituloPrueba);
 
-			nivelMenu.addActor(prueba);
+			// nivelMenu.addActor(prueba);
 
 			nivelMenu.addActor(aceptarGraficos);
 
@@ -748,9 +748,9 @@ public class PantallaOpciones extends Pantalla {
 
 			mostrarFPS.remove();
 
-			tituloPrueba.remove();
+			// tituloPrueba.remove();
 
-			prueba.remove();
+			// prueba.remove();
 
 			aceptarGraficos.remove();
 
@@ -1452,6 +1452,11 @@ public class PantallaOpciones extends Pantalla {
 			recurso.get("textura/barcoVerde.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 			recurso.get("textura/paracaisdista.png", Texture.class).setFilter(TextureFilter.Linear,
 					TextureFilter.Linear);
+
+			recurso.get("textura/vidaJefe.png", Texture.class).setFilter(TextureFilter.Linear, TextureFilter.Linear);
+			recurso.get("textura/catidadVidaJefe.png", Texture.class).setFilter(TextureFilter.Linear,
+					TextureFilter.Linear);
+
 			recurso.get("textura/paracaisdista1.png", Texture.class).setFilter(TextureFilter.Linear,
 					TextureFilter.Linear);
 
@@ -1774,6 +1779,11 @@ public class PantallaOpciones extends Pantalla {
 			recurso.get("textura/bala.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 			recurso.get("textura/barcoVerde.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
+
+			recurso.get("textura/vidaJefe.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+			recurso.get("textura/catidadVidaJefe.png", Texture.class).setFilter(TextureFilter.Nearest,
+					TextureFilter.Nearest);
+
 			recurso.get("textura/paracaisdista.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
 			recurso.get("textura/paracaisdista1.png", Texture.class).setFilter(TextureFilter.Nearest,

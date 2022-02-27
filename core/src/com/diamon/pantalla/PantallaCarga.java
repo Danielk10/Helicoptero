@@ -448,6 +448,10 @@ public class PantallaCarga extends Pantalla {
 			recurso.get("textura/barcoVerde.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
 
+			recurso.get("textura/vidaJefe.png", Texture.class).setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+			recurso.get("textura/catidadVidaJefe.png", Texture.class).setFilter(TextureFilter.Nearest,
+					TextureFilter.Nearest);
+
 			recurso.get("textura/paracaisdista.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
 			recurso.get("textura/paracaisdista1.png", Texture.class).setFilter(TextureFilter.Nearest,

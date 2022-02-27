@@ -411,33 +411,45 @@ public class PantallaJuego extends Pantalla {
 
 		textoPausa = new Label("Pausa", recurso.get("ui/uieli.json", Skin.class));
 
-		textoPausa.setPosition(280, 316);
+		textoPausa.setPosition(280, 300);
+
+		editarNivel = new TextButton("Editar Niveles", recurso.get("ui/uieli.json", Skin.class));
+
+		editarNivel.setSize(213.0F, 32);
+
+		editarNivel.setPosition(213.0F, 260);
+
+		editarNivel.setColor(1.0F, 1.0F, 1.0F, 0.0F);
 
 		reanudar = new TextButton("Reanudar", recurso.get("ui/uieli.json", Skin.class));
 
 		reanudar.setSize(213.0F, 32);
 
-		reanudar.setPosition(213.0F, 240.0F);
+		menu = new TextButton("Menu", recurso.get("ui/uieli.json", Skin.class));
+
+		menu.setSize(213.0F, 32);
+
+		if (dato.isEditor()) {
+
+			reanudar.setPosition(213.0F, 212);
+
+			menu.setPosition(213.0F, 164);
+
+		}
+
+		if (!dato.isEditor()) {
+
+			reanudar.setPosition(213.0F, 248);
+
+			menu.setPosition(213.0F, 200);
+
+		}
 
 		menuPausa = new Image(recurso.get("textura/menuPausa.png", Texture.class));
 
 		menuPausa.setSize(320.0F, 240.0F);
 
 		menuPausa.setPosition(160.0F, 120.0F);
-
-		menu = new TextButton("Menu", recurso.get("ui/uieli.json", Skin.class));
-
-		menu.setSize(213.0F, 32);
-
-		menu.setPosition(213.0F, 192.0F);
-
-		editarNivel = new TextButton("Editar Niveles", recurso.get("ui/uieli.json", Skin.class));
-
-		editarNivel.setSize(213.0F, 32);
-
-		editarNivel.setPosition(213.0F, 292);
-
-		editarNivel.setColor(1.0F, 1.0F, 1.0F, 0.0F);
 
 		terminarEdicion = new TextButton("Terminar", recurso.get("ui/uiskin.json", Skin.class));
 
@@ -471,7 +483,11 @@ public class PantallaJuego extends Pantalla {
 
 		nivel.addActor(menu);
 
-		nivel.addActor(editarNivel);
+		if (dato.isEditor()) {
+
+			nivel.addActor(editarNivel);
+
+		}
 
 		nivel.addActor(textoPausa);
 
@@ -1491,6 +1507,8 @@ public class PantallaJuego extends Pantalla {
 							dato.anadirPuntuaciones(puntos, dato.getNumeroNivel(), "Gana");
 
 							dato.setNumeroNivel(1);
+
+							dato.setEditor(true);
 
 							if (dato.isSonido())
 
