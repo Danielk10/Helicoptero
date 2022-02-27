@@ -341,6 +341,8 @@ public class Niveles extends Nivel {
 
 			actor.setVelocidadY(3.5f);
 
+			actor.setDureza(2);
+
 			actor.setDistanciaDesplazamientoY(100);
 
 			actor.setDuracionDisparo(0.2f);
@@ -746,7 +748,7 @@ public class Niveles extends Nivel {
 
 			actor.setSize(48, 48);
 
-			actor.setDureza(7);
+			actor.setDureza(5);
 
 			actor.setPosition(posicion.x, posicion.y);
 

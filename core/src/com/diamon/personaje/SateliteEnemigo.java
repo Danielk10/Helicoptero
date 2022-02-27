@@ -109,7 +109,7 @@ public class SateliteEnemigo extends Personaje {
 	@Override
 	public void colision(Personaje actor) {
 
-		if (actor instanceof Jugador || actor instanceof Misil || actor instanceof Bomba || actor instanceof Satelite) {
+		if (actor instanceof Jugador || actor instanceof Misil || actor instanceof Bomba ) {
 
 			if (personaje != null) {
 

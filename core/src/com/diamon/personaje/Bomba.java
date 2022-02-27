@@ -46,7 +46,7 @@ public class Bomba extends Personaje {
 		// TODO Auto-generated method stub
 		super.actualizar(delta);
 
-		y -= 2 / Juego.DELTA_A_PIXEL * delta;
+		y -= 3 / Juego.DELTA_A_PIXEL * delta;
 
 		if (y <= camara.position.y - (Juego.ALTO_PANTALLA / 2 + getHeight())) {
 

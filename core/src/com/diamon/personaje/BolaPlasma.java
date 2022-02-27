@@ -3,6 +3,7 @@ package com.diamon.personaje;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.diamon.nucleo.Juego;
@@ -193,10 +194,26 @@ public class BolaPlasma extends Personaje {
 		this.tipo = tipo;
 	}
 
+	public void explosion() {
+
+		Explosion explosion = new Explosion(recurso.get("textura/explosion1.atlas", TextureAtlas.class).getRegions(),
+				0.07f, Animation.PlayMode.NORMAL, pantalla);
+
+		explosion.setSize(64, 64);
+
+		explosion.setPosition(x, y);
+
+		explosion.setDuracionExplosion(0.58f);
+
+		personajes.add(explosion);
+	}
+
 	@Override
 	public void colision(Personaje actor) {
 
 		if (actor instanceof Jugador || actor instanceof Satelite) {
+
+			explosion();
 
 			remover = true;
 		}

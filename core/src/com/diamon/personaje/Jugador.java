@@ -283,7 +283,7 @@ public class Jugador extends Personaje {
 		dispararBomba = false;
 
 		deltaToque = false;
-		
+
 		inmune = false;
 
 		velocidadCamaraItem = 1;
@@ -329,6 +329,8 @@ public class Jugador extends Personaje {
 		if (numeroDeSatelites == 1) {
 
 			agregarSatelite = true;
+
+			actorSatelite.setRemover(false);
 
 		}
 
@@ -1299,7 +1301,7 @@ public class Jugador extends Personaje {
 
 	public void colision(Personaje actor) {
 
-		if (actor instanceof BalaExplosivaEnemiga || actor instanceof BalaEnemigo || actor instanceof BolaPlasma) {
+		if (actor instanceof BalaExplosivaEnemiga || actor instanceof BalaEnemigo) {
 
 			if (tipo == Jugador.HELICOPTERO_NORMAL) {
 
@@ -1585,7 +1587,7 @@ public class Jugador extends Personaje {
 
 		if (actor instanceof Sierra || actor instanceof CarroGris || actor instanceof CarroAmarillo
 				|| actor instanceof CamionetaVerde || actor instanceof CamionetaGris || actor instanceof CamionetaCarga
-				|| actor instanceof BarcoVerde || actor instanceof SateliteEnemigo) {
+				|| actor instanceof BarcoVerde || actor instanceof SateliteEnemigo || actor instanceof BolaPlasma) {
 
 			puntos = 5;
 

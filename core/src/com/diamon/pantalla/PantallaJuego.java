@@ -661,10 +661,11 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
+		sonido.loop(dato.getVolumenSonido());
+
 		if (!mundo.isIntro())
 
 		{
-			sonido.loop(dato.getVolumenSonido());
 
 			musica[indice].setLooping(true);
 
@@ -1815,7 +1816,7 @@ public class PantallaJuego extends Pantalla {
 
 			tiempoEspera += delta;
 
-			if (tiempoEspera / 2 >= 1) {
+			if (tiempoEspera / 3 >= 1) {
 
 				inmunidadJugador = false;
 
