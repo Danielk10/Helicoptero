@@ -326,11 +326,15 @@ public class Jugador extends Personaje {
 
 		}
 
-		if (numeroDeSatelites == 1) {
+		if (actorSatelite != null) {
 
-			agregarSatelite = true;
+			if (numeroDeSatelites == 1) {
 
-			actorSatelite.setRemover(false);
+				agregarSatelite = true;
+
+				actorSatelite.setRemover(false);
+
+			}
 
 		}
 
