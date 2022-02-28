@@ -245,7 +245,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoDisparo.setPosition(Juego.ANCHO_PANTALLA / 4, 160);
 
-		disparo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlX"));
+		disparo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlZ"));
 
 		disparo.setSize(128, 24);
 
@@ -255,7 +255,7 @@ public class PantallaOpciones extends Pantalla {
 
 		textoDisparoMisil.setPosition(Juego.ANCHO_PANTALLA / 4, 128);
 
-		disparoMisil = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlZ"));
+		disparoMisil = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlX"));
 
 		disparoMisil.setSize(128, 24);
 
