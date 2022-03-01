@@ -198,7 +198,7 @@ public class Helicoptero extends Juego {
 		recurso.load("ui/uieli.json", Skin.class);
 
 		recurso.load("ui/uiskin.json", Skin.class);
-		
+
 		recurso.load("ui/creditos.json", Skin.class);
 
 		recurso.load("ui/skin/neon-ui.json", Skin.class);

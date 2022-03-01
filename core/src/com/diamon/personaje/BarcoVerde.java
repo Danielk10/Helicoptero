@@ -49,8 +49,9 @@ public class BarcoVerde extends Personaje {
 
 	public void explosion() {
 
-		Explosion explosion = new Explosion(recurso.get("textura/explosion1.atlas", TextureAtlas.class).getRegions(),
-				0.07f, Animation.PlayMode.NORMAL, pantalla);
+		ExplosionTerreno explosion = new ExplosionTerreno(
+				recurso.get("textura/explosion1.atlas", TextureAtlas.class).getRegions(), 0.07f,
+				Animation.PlayMode.NORMAL, pantalla);
 
 		explosion.setSize(256, 256);
 
