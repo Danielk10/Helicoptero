@@ -76,7 +76,7 @@ public class PantallaCreditos extends Pantalla {
 
 		creditos = new Array<Label>();
 
-		posicionEspecial = -1426.0f;
+		posicionEspecial = -1450.0f;
 
 		for (int i = 0; i < clic.length; i++) {
 
@@ -128,8 +128,8 @@ public class PantallaCreditos extends Pantalla {
 				"Luis Diamon", "Carlos Calanche", "Alfredo Casas", "Kelwins Mosquera", "Natalia Mosquera",
 				"Herith Ducey", "Lucino Dulcey", "Ruth Celis", "Anye Mosquera", "Yelitza Vazquez", "Dannys Diamon",
 				"Jorge Diamon", "Darwin Diamon", "Vanessa Diamon", "Jordan Rivas", "Angel Leonardo Reina",
-				"Javier Narea", "Merlyannis Garcia", "Jennifer Rivero", "Luis Jose Garcia", "Veronica Mendez",
-				"Ricardo Gonzalez Santamaria", "Jenina Estefania Santamaria" };
+				"Javier Narea", "Jefferson Cuellar", "Merlyannis Garcia", "Jennifer Rivero", "Luis Jose Garcia",
+				"Veronica Mendez", "Ricardo Gonzalez Santamaria", "Jenina Estefania Santamaria" };
 
 		creditosAutores = new Label[autores.length];
 
