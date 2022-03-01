@@ -127,7 +127,7 @@ public class NaveFUno extends Personaje {
 
 		if (lado == NaveFUno.DERECHO) {
 
-			x += velocidadX / Juego.DELTA_A_PIXEL * delta;
+			x += (int) velocidadX / Juego.DELTA_A_PIXEL * delta;
 
 			if (x >= camara.position.x + Juego.ANCHO_PANTALLA / 2) {
 

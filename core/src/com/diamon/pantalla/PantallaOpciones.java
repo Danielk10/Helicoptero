@@ -135,6 +135,7 @@ public class PantallaOpciones extends Pantalla {
 
 	}
 
+	@SuppressWarnings("static-access")
 	@Override
 	public void mostrar() {
 
@@ -176,19 +177,33 @@ public class PantallaOpciones extends Pantalla {
 
 		controles.setSize(Juego.ANCHO_PANTALLA / 3, 32);
 
-		controles.setPosition(Juego.ANCHO_PANTALLA / 3, 192);
-
 		graficos = new TextButton("Gráficos", recurso.get("ui/uieli.json", Skin.class));
 
 		graficos.setSize(Juego.ANCHO_PANTALLA / 3, 32);
-
-		graficos.setPosition(Juego.ANCHO_PANTALLA / 3, 144);
 
 		sonido = new TextButton("Sonido", recurso.get("ui/uieli.json", Skin.class));
 
 		sonido.setSize(Juego.ANCHO_PANTALLA / 3, 32);
 
-		sonido.setPosition(Juego.ANCHO_PANTALLA / 3, 96);
+		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+			controles.setPosition(Juego.ANCHO_PANTALLA / 3, 192);
+
+			graficos.setPosition(Juego.ANCHO_PANTALLA / 3, 144);
+
+			sonido.setPosition(Juego.ANCHO_PANTALLA / 3, 96);
+
+		}
+
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
+
+			controles.setPosition(Juego.ANCHO_PANTALLA / 3, 240);
+
+			graficos.setPosition(Juego.ANCHO_PANTALLA / 3, 144);
+
+			sonido.setPosition(Juego.ANCHO_PANTALLA / 3, 192);
+
+		}
 
 		textoPausaJuego = new Label("Pausa", recurso.get("ui/uiskin.json", Skin.class));
 
@@ -623,12 +638,17 @@ public class PantallaOpciones extends Pantalla {
 
 	}
 
+	@SuppressWarnings("static-access")
 	private void anadirBotonesOpciones(boolean anadir) {
 
 		if (anadir) {
+
 			nivelMenu.addActor(titulo);
 
-			nivelMenu.addActor(partida);
+			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+				nivelMenu.addActor(partida);
+			}
 
 			nivelMenu.addActor(controles);
 
@@ -641,7 +661,11 @@ public class PantallaOpciones extends Pantalla {
 		} else {
 			titulo.remove();
 
-			partida.remove();
+			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+				partida.remove();
+
+			}
 
 			controles.remove();
 

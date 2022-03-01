@@ -8,10 +8,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Array;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
 public class PantallaCreditos extends Pantalla {
+
+	private static final float VELOCIDAD_CREDITOS = 0.5f;
 
 	private TextButton aceptar;
 
@@ -51,6 +54,14 @@ public class PantallaCreditos extends Pantalla {
 
 	private float mover[];
 
+	private float moverEspecial;
+
+	private Array<Label> creditos;
+
+	private float[] posiciones;
+
+	private float posicionEspecial;
+
 	public PantallaCreditos(Juego juego) {
 		super(juego);
 
@@ -62,6 +73,10 @@ public class PantallaCreditos extends Pantalla {
 		clic = new boolean[1];
 
 		desClic = new boolean[1];
+
+		creditos = new Array<Label>();
+
+		posicionEspecial = -1378.0f;
 
 		for (int i = 0; i < clic.length; i++) {
 
@@ -97,25 +112,24 @@ public class PantallaCreditos extends Pantalla {
 
 		String[] nombresDesarrolladores = { "Daniel Diamon", "Jesus Mnedez" };
 
-		String[] nombresArtistas = { "GameArt2D - Zuhria Alfitra - pzUH (www.gameart2d.com)",
-				"Carlos Alface - kalface@gmail.com (www.carlosalface.blogspot.pt - www.opengameart.org)",
-				"cemkalyoncu (www.opengameart.org)", "yd (www.opengameart.org)", "mishonis (www.opengameart.org)",
-				"2dGameCreation (www.opengameart.org)", "knik1985 (www.opengameart.org)", "www.enchantjs.com",
-				"Tiled (www.mapeditor.org)", "paint.net (www.getpaint.net)", "Skin Composer (www.ray3k.wordpress.com)",
-				"GDX Texture Packer (www. crashinvaders.com)", "Hiero (www.libgdx.com)", "www.libgdx.com",
-				"www.reygif.com", "RAY3K", "Daniel Diamon", "Jesus Mendez" };
+		String[] nombresArtistas = { "Zuhria Alfitra - www.gameart2d.com",
+				"Carlos Alface - www.carlosalface.blogspot.pt", "cemkalyoncu - www.opengameart.org",
+				"yd - www.opengameart.org", "mishonis - www.opengameart.org", "2dGameCreation - www.opengameart.org",
+				"knik1985 - www.opengameart.org", "www.enchantjs.com", "Tiled - www.mapeditor.org",
+				"paint.net - www.getpaint.net", "Skin Composer - www.ray3k.wordpress.com",
+				"GDX Texture Packer - www. crashinvaders.com", "Hiero - www.libgdx.com", "www.libgdx.com",
+				"www.reygif.com", "RAY3K", "Jesus Mendez", "Daniel Diamon" };
 
-		String[] nombresArtitasDeMusica = { "sfxr (www.drpetter.se)", "Jobromedia (www.opengameart.org)",
-				"Alexandr Zhelanov (www.opengameart.org)", "Tozan (www.opengameart.org)",
-				"Matthew Pablo (www.opengameart.org)", "Zydro (www.opengameart.org)", "Daniel Diamon",
-
-		};
+		String[] nombresArtitasDeMusica = { "sfxr - www.drpetter.se", "Jobromedia - www.opengameart.org",
+				"Alexandr Zhelanov - www.opengameart.org", "Tozan - www.opengameart.org",
+				"Matthew Pablo - www.opengameart.org", "Zydro - www.opengameart.org", "Daniel Diamon" };
 
 		String[] nombres = { "Alexander Hristov", "Jesus Code", "Nacho Cabanes", "Angel Navarro Baeza", "Yayo Arellano",
-				"Luis Diamon", "Kelwins Mosquera", "Natalia Mosquera", "Herith Ducey", "Lucino Dulcey", "Ruth Celis",
-				"Anye Mosquera", "Kelwins Mosquera", "Yelitza Vazquez", "Rafael Diamon", "Vanessa Diamon",
-				"Jordan Rivas", "Angel Leonardo Reina", "Javier Narea", "Merlyannis Garcia", "Jennifer Rivero",
-				"Luis Jose Garcia", "Veronica Mendez", "Ricardo Gonzalez Santamaria", "Jenina Estefania Santamaria" };
+				"Luis Diamon", "Carlos Calanche", "Alfredo Casas", "Kelwins Mosquera", "Natalia Mosquera",
+				"Herith Ducey", "Lucino Dulcey", "Ruth Celis", "Anye Mosquera", "Yelitza Vazquez", "Dannys Diamon",
+				"Jorge Diamon", "Darwin Diamon", "Vanessa Diamon", "Jordan Rivas", "Angel Leonardo Reina",
+				"Javier Narea", "Merlyannis Garcia", "Jennifer Rivero", "Luis Jose Garcia", "Veronica Mendez",
+				"Ricardo Gonzalez Santamaria", "Jenina Estefania Santamaria" };
 
 		creditosAutores = new Label[autores.length];
 
@@ -129,123 +143,176 @@ public class PantallaCreditos extends Pantalla {
 
 		creditosArtistasDeMusicaNombres = new Label[nombresArtitasDeMusica.length];
 
-		creditosAutores[0] = new Label(autores[0], recurso.get("ui/creditos.json", Skin.class));
+		int indice = 230;
 
-		creditosAutores[0].setPosition(Juego.ANCHO_PANTALLA / 2 - 50, 374);
+		for (int i = 0; i < creditosAutores.length; i++) {
 
-		nivelMenu.addActor(creditosAutores[0]);
+			creditosAutores[i] = new Label(autores[i], recurso.get("ui/creditos.json", Skin.class));
 
-		creditosAutores[1] = new Label(autores[1], recurso.get("ui/creditos.json", Skin.class));
+			creditosAutores[i].setPosition(Juego.ANCHO_PANTALLA / 2 - 50, indice);
 
-		creditosAutores[1].setPosition(Juego.ANCHO_PANTALLA / 4, 344);
+			if (i == 1) {
 
-		nivelMenu.addActor(creditosAutores[1]);
+				indice = indice - 24;
 
-		int posicionDiseNonombre = 264;
+				creditosAutores[i].setPosition(Juego.ANCHO_PANTALLA / 4 - 20, indice);
 
-		for (int i = 0; i < creditosDisenoNombres.length; i++) {
+			}
 
-			creditosDisenoNombres[i] = new Label(nombresDesarrolladores[i], recurso.get("ui/uiskin.json", Skin.class));
+			creditos.add(creditosAutores[i]);
 
-			creditosDisenoNombres[i].setPosition(Juego.ANCHO_PANTALLA / 2, posicionDiseNonombre);
+			nivelMenu.addActor(creditosAutores[i]);
 
-			nivelMenu.addActor(creditosDisenoNombres[i]);
-
-			posicionDiseNonombre -= 24;
-
+			indice -= 24;
 		}
 
-		int posicionDiseno = 288;
+		indice = indice - 24;
 
 		for (int i = 0; i < creditosDiseno.length; i++) {
 
 			creditosDiseno[i] = new Label(titulosDesarrolladores[i], recurso.get("ui/creditos.json", Skin.class));
 
-			creditosDiseno[i].setPosition(Juego.ANCHO_PANTALLA / 4, posicionDiseno);
+			creditosDiseno[i].setPosition(Juego.ANCHO_PANTALLA / 4 - 20, indice);
+
+			if (i == 2) {
+
+				indice = indice - 24;
+
+				creditosDiseno[i].setPosition(Juego.ANCHO_PANTALLA / 4 - 20, indice);
+
+			}
+
+			creditos.add(creditosDiseno[i]);
 
 			nivelMenu.addActor(creditosDiseno[i]);
 
-			posicionDiseno -= 24;
+			indice -= 24;
 
 		}
 
+		indice = indice + 72;
+
+		for (int i = 0; i < creditosDisenoNombres.length; i++) {
+
+			creditosDisenoNombres[i] = new Label(nombresDesarrolladores[i], recurso.get("ui/uiskin.json", Skin.class));
+
+			creditosDisenoNombres[i].setPosition(Juego.ANCHO_PANTALLA / 2 - 20, indice);
+
+			if (i == 1) {
+
+				indice = indice - 24;
+
+				creditosDisenoNombres[i].setPosition(Juego.ANCHO_PANTALLA / 2 - 20, indice);
+
+			}
+
+			creditos.add(creditosDisenoNombres[i]);
+
+			nivelMenu.addActor(creditosDisenoNombres[i]);
+
+			indice -= 24;
+
+		}
+
+		indice = indice - 24;
+
 		creditosArtistas = new Label("Arte y Graficos", recurso.get("ui/creditos.json", Skin.class));
 
-		creditosArtistas.setPosition(Juego.ANCHO_PANTALLA / 4, 216);
+		creditosArtistas.setPosition(Juego.ANCHO_PANTALLA / 4 - 20, indice);
+
+		creditos.add(creditosArtistas);
 
 		nivelMenu.addActor(creditosArtistas);
-
-		int posicionArtista = 216;
 
 		for (int i = 0; i < creditosArtistasNombres.length; i++) {
 
 			creditosArtistasNombres[i] = new Label(nombresArtistas[i], recurso.get("ui/uiskin.json", Skin.class));
 
-			creditosArtistasNombres[i].setPosition(Juego.ANCHO_PANTALLA / 2, posicionArtista);
+			creditosArtistasNombres[i].setPosition(Juego.ANCHO_PANTALLA / 2 - 20, indice);
+
+			creditos.add(creditosArtistasNombres[i]);
 
 			nivelMenu.addActor(creditosArtistasNombres[i]);
 
-			posicionArtista -= 24;
+			indice -= 24;
 
 		}
 
+		indice = indice - 24;
+
 		creditosArtistasDeMusica = new Label("Musica", recurso.get("ui/creditos.json", Skin.class));
 
-		creditosArtistasDeMusica.setPosition(Juego.ANCHO_PANTALLA / 4, -240);
+		creditosArtistasDeMusica.setPosition(Juego.ANCHO_PANTALLA / 4 - 20, indice);
+
+		creditos.add(creditosArtistasDeMusica);
 
 		nivelMenu.addActor(creditosArtistasDeMusica);
-
-		int posicionArtistaMusica = -240;
 
 		for (int i = 0; i < creditosArtistasDeMusicaNombres.length; i++) {
 
 			creditosArtistasDeMusicaNombres[i] = new Label(nombresArtitasDeMusica[i],
 					recurso.get("ui/uiskin.json", Skin.class));
 
-			creditosArtistasDeMusicaNombres[i].setPosition(Juego.ANCHO_PANTALLA / 2, posicionArtistaMusica);
+			creditosArtistasDeMusicaNombres[i].setPosition(Juego.ANCHO_PANTALLA / 2 - 20, indice);
+
+			creditos.add(creditosArtistasDeMusicaNombres[i]);
 
 			nivelMenu.addActor(creditosArtistasDeMusicaNombres[i]);
 
-			posicionArtistaMusica -= 24;
+			indice -= 24;
 
 		}
 
+		indice = indice - 24;
+
 		creditoMotor = new Label("Motor Grafico", recurso.get("ui/creditos.json", Skin.class));
 
-		creditoMotor.setPosition(Juego.ANCHO_PANTALLA / 4, -428);
+		creditoMotor.setPosition(Juego.ANCHO_PANTALLA / 4 - 20, indice);
+
+		creditos.add(creditoMotor);
 
 		nivelMenu.addActor(creditoMotor);
 
-		creditoMotorNombre = new Label("LibdGDX (www.libgdx.com)", recurso.get("ui/creditos.json", Skin.class));
+		creditoMotorNombre = new Label("LibGDX - www.libgdx.com", recurso.get("ui/uiskin.json", Skin.class));
 
-		creditoMotorNombre.setPosition(Juego.ANCHO_PANTALLA / 2, -428);
+		creditoMotorNombre.setPosition(Juego.ANCHO_PANTALLA / 2 - 20, indice);
+
+		creditos.add(creditoMotorNombre);
 
 		nivelMenu.addActor(creditoMotorNombre);
 
+		indice = indice - 48;
+
 		creditosAgredecimientos = new Label("Agradecimientos", recurso.get("ui/creditos.json", Skin.class));
 
-		creditosAgredecimientos.setPosition(Juego.ANCHO_PANTALLA / 2 - 12, -476);
+		creditosAgredecimientos.setPosition(Juego.ANCHO_PANTALLA / 2 - 12, indice);
+
+		creditos.add(creditosAgredecimientos);
 
 		nivelMenu.addActor(creditosAgredecimientos);
+
+		indice = indice - 48;
 
 		creditosEspecial = new Label("Gracias a Dios por todo y a mi Familia",
 				recurso.get("ui/creditos.json", Skin.class));
 
-		creditosEspecial.setPosition(Juego.ANCHO_PANTALLA / 3, -500);
+		creditosEspecial.setPosition(Juego.ANCHO_PANTALLA / 3, indice);
 
 		nivelMenu.addActor(creditosEspecial);
 
-		int posicionAgradesimientos = -524;
+		indice = indice - 48;
 
 		for (int i = 0; i < creditosAgredecimientosNombre.length; i++) {
 
 			creditosAgredecimientosNombre[i] = new Label(nombres[i], recurso.get("ui/uiskin.json", Skin.class));
 
-			creditosAgredecimientosNombre[i].setPosition(Juego.ANCHO_PANTALLA / 2, posicionAgradesimientos);
+			creditosAgredecimientosNombre[i].setPosition(Juego.ANCHO_PANTALLA / 2 - 20, indice);
+
+			creditos.add(creditosAgredecimientosNombre[i]);
 
 			nivelMenu.addActor(creditosAgredecimientosNombre[i]);
 
-			posicionAgradesimientos -= 24;
+			indice -= 24;
 
 		}
 
@@ -259,9 +326,11 @@ public class PantallaCreditos extends Pantalla {
 
 		aceptar.setPosition(Juego.ANCHO_PANTALLA / 2 - 40, 32);
 
-		version = new Label("Version 1.0.0", recurso.get("ui/uiskin.json", Skin.class));
+		version = new Label("Version 1.0.0", recurso.get("ui/creditos.json", Skin.class));
 
 		version.setPosition(608 - version.getWidth(), 32);
+
+		version.setColor(0, 1, 0, 1f);
 
 		nivelMenu.addActor(titulo);
 
@@ -269,70 +338,25 @@ public class PantallaCreditos extends Pantalla {
 
 		nivelMenu.addActor(version);
 
-		mover = new float[creditosArtistasNombres.length + creditosAgredecimientosNombre.length + creditosAutores.length
-				+ creditosDiseno.length + creditosDisenoNombres.length + creditosArtistasDeMusicaNombres.length + 6];
+		mover = new float[creditos.size];
 
-		int i = 0;
+		for (int i = 0; i < creditos.size; i++) {
 
-		for (Label texto : creditosArtistasNombres) {
-
-			mover[i] = texto.getY();
-
-			i += 1;
+			mover[i] = creditos.get(i).getY();
 
 		}
 
-		for (Label texto : creditosAgredecimientosNombre) {
+		posiciones = new float[creditos.size];
 
-			mover[i] = texto.getY();
+		for (int i = 0; i < creditos.size; i++) {
 
-			i += 1;
+			float posicion = mover[i];
 
-		}
-
-		for (Label texto : creditosAutores) {
-
-			mover[i] = texto.getY();
-
-			i += 1;
+			posiciones[i] = posicion;
 
 		}
 
-		for (Label texto : creditosDiseno) {
-
-			mover[i] = texto.getY();
-
-			i += 1;
-
-		}
-
-		for (Label texto : creditosDisenoNombres) {
-
-			mover[i] = texto.getY();
-
-			i += 1;
-
-		}
-
-		for (Label texto : creditosArtistasDeMusicaNombres) {
-
-			mover[i] = texto.getY();
-
-			i += 1;
-
-		}
-
-		mover[mover.length - 6] = creditoMotor.getY();
-
-		mover[mover.length - 5] = creditoMotorNombre.getY();
-
-		mover[mover.length - 4] = creditosEspecial.getY();
-
-		mover[mover.length - 3] = creditosAgredecimientos.getY();
-
-		mover[mover.length - 2] = creditosArtistas.getY();
-
-		mover[mover.length - 1] = creditosArtistasDeMusica.getY();
+		moverEspecial = creditosEspecial.getY();
 
 	}
 
@@ -406,97 +430,37 @@ public class PantallaCreditos extends Pantalla {
 
 		botonesDeseleccionados();
 
-		int i = 0;
+		for (int i = 0; i < creditos.size; i++) {
 
-		for (Label texto : creditosArtistasNombres) {
+			mover[i] += VELOCIDAD_CREDITOS / Juego.DELTA_A_PIXEL * delta;
 
-			mover[i] += 0.5f / Juego.DELTA_A_PIXEL * delta;
+			creditos.get(i).setY(mover[i]);
 
-			texto.setY(mover[i]);
+			if (creditos.get(i).getY() >= Juego.ALTO_PANTALLA - 120) {
 
-			i += 1;
+				creditos.get(i).setColor(1, 1, 1, 0);
 
-		}
+				mover[i] = posiciones[posiciones.length - 1];
 
-		for (Label texto : creditosAgredecimientosNombre) {
+				creditos.get(i).setColor(1, 1, 1, 1);
 
-			mover[i] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-			texto.setY(mover[i]);
-
-			i += 1;
+			}
 
 		}
 
-		for (Label texto : creditosAutores) {
+		moverEspecial += VELOCIDAD_CREDITOS / Juego.DELTA_A_PIXEL * delta;
 
-			mover[i] += 0.5f / Juego.DELTA_A_PIXEL * delta;
+		creditosEspecial.setY(moverEspecial);
 
-			texto.setY(mover[i]);
+		if (creditosEspecial.getY() >= Juego.ALTO_PANTALLA - 120) {
 
-			i += 1;
+			creditosEspecial.setColor(1, 1, 1, 0);
 
-		}
+			moverEspecial = posicionEspecial;
 
-		for (Label texto : creditosDiseno) {
-
-			mover[i] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-			texto.setY(mover[i]);
-
-			i += 1;
+			creditosEspecial.setColor(1, 1, 1, 1);
 
 		}
-
-		for (Label texto : creditosDisenoNombres) {
-
-			mover[i] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-			texto.setY(mover[i]);
-
-			i += 1;
-
-		}
-
-		for (Label texto : creditosArtistasDeMusicaNombres) {
-
-			mover[i] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-			texto.setY(mover[i]);
-
-			i += 1;
-
-		}
-
-		mover[mover.length - 6] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-		mover[mover.length - 5] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-		mover[mover.length - 4] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-		mover[mover.length - 3] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-		mover[mover.length - 2] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-		mover[mover.length - 1] += 0.5f / Juego.DELTA_A_PIXEL * delta;
-
-		creditoMotor.setY(mover[mover.length - 6]);
-
-		creditoMotorNombre.setY(mover[mover.length - 5]);
-
-		creditosEspecial.setY(mover[mover.length - 4]);
-
-		creditosAgredecimientos.setY(mover[mover.length - 3]);
-
-		creditosArtistas.setY(mover[mover.length - 2]);
-
-		creditosArtistasDeMusica.setY(mover[mover.length - 1]);
-
-		/*
-		 * if (mover <= -Juego.ANCHO_PANTALLA) {
-		 * 
-		 * mover = 0; }
-		 */
 
 	}
 

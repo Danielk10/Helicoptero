@@ -92,12 +92,17 @@ public class PlatilloVolador extends Personaje {
 
 			}
 
-			x -= PlatilloVolador.VELOCIDAD_MAQUINA / Juego.DELTA_A_PIXEL * delta;
+			 x -= PlatilloVolador.VELOCIDAD_MAQUINA / Juego.DELTA_A_PIXEL * delta;
 
-			y += velocidadY / Juego.DELTA_A_PIXEL * delta;
+			y += (int)velocidadY / Juego.DELTA_A_PIXEL * delta;
 
-			if (y <= (camara.position.y - Juego.ALTO_PANTALLA / 2) + pocicionY
-					|| y >= pocicionY + distanciaDesplazamientoY) {
+			if (y <= (camara.position.y - Juego.ALTO_PANTALLA / 2) + pocicionY) {
+
+				velocidadY = -velocidadY;
+
+			}
+
+			if (y >= pocicionY + distanciaDesplazamientoY) {
 
 				velocidadY = -velocidadY;
 

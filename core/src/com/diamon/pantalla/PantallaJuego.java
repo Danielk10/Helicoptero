@@ -1352,22 +1352,26 @@ public class PantallaJuego extends Pantalla {
 
 				if (mundo != null) {
 
-					if (((Niveles) mundo).getJefeNivel().getDureza() <= 0) {
+					if (((Niveles) mundo).getJefeNivel() != null) {
 
-					} else {
+						if (((Niveles) mundo).getJefeNivel().getDureza() <= 0) {
 
-						if (uiJefe) {
+						} else {
 
-							nivel.addActor(cantidadVidaJefe);
+							if (uiJefe) {
 
-							nivel.addActor(jefe);
+								nivel.addActor(cantidadVidaJefe);
 
-							nivel.addActor(vidaJefe);
+								nivel.addActor(jefe);
 
-							uiJefe = false;
+								nivel.addActor(vidaJefe);
+
+								uiJefe = false;
+							}
+
+							cantidadVidaJefe.setSize(((Niveles) mundo).getJefeNivel().getDureza() * cantidadVida, 16);
+
 						}
-
-						cantidadVidaJefe.setSize(((Niveles) mundo).getJefeNivel().getDureza() * cantidadVida, 16);
 
 					}
 

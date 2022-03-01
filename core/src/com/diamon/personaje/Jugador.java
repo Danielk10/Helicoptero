@@ -102,6 +102,8 @@ public class Jugador extends Personaje {
 
 	private float tiempoItemVelocidad;
 
+	private float tiempoNuevaVida;
+
 	private boolean itemVelocidad;
 
 	private float velocidadCamaraItem;
@@ -285,6 +287,8 @@ public class Jugador extends Personaje {
 		deltaToque = false;
 
 		inmune = false;
+
+		tiempoNuevaVida = 0;
 
 		velocidadCamaraItem = 1;
 
@@ -910,6 +914,33 @@ public class Jugador extends Personaje {
 						tiempoItemVelocidad = 0;
 
 					}
+
+				}
+
+			}
+
+			tiempoNuevaVida += delta;
+
+			if (tiempoNuevaVida / 30 >= 1) {
+
+				if (tipo == Jugador.HELICOPTERO_MEDICO) {
+
+					if (vida < Jugador.MAXIMA_CANTIDAD_VIDA)
+
+					{
+						vida++;
+
+						if (dato.isSonido())
+
+						{
+
+							recurso.get("audio/poder.ogg", Sound.class).play(dato.getVolumenSonido());
+
+						}
+
+					}
+
+					tiempoNuevaVida = 0;
 
 				}
 

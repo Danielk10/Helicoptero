@@ -80,7 +80,7 @@ public class JefeTres extends Personaje {
 
 			y = pocicionY + distanciaMovimientoY + (distanciaMovimientoY * MathUtils.sinDeg(tiemo * velocidadY));
 
-			x += velocidadX / Juego.DELTA_A_PIXEL * delta;
+			x += (int) velocidadX / Juego.DELTA_A_PIXEL * delta;
 
 			if (x >= camara.position.x + (Juego.ANCHO_PANTALLA / 2 - getWidth())
 					|| x <= camara.position.x - (Juego.ANCHO_PANTALLA / 2 - 200)) {
