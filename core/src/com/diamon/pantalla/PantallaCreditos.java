@@ -76,7 +76,7 @@ public class PantallaCreditos extends Pantalla {
 
 		creditos = new Array<Label>();
 
-		posicionEspecial = -1378.0f;
+		posicionEspecial = -1426.0f;
 
 		for (int i = 0; i < clic.length; i++) {
 
