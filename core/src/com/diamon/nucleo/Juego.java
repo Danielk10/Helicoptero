@@ -36,6 +36,7 @@ public abstract class Juego extends Game {
 
 	protected Dato dato;
 
+
 	protected Configuraciones configuracion;
 
 	private Image[] fondo = new Image[2];

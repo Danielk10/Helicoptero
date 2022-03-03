@@ -1,6 +1,23 @@
 android {
     buildToolsVersion "30.0.3"
     compileSdkVersion 31
+	
+	
+buildTypes {
+		appcenter {
+			applicationVariants.all { variant ->
+				variant.outputs.all {
+					def currentFile = new File(outputFileName)
+					def filename = currentFile.getName()
+					outputFileName = "../../../../../build/outputs/apk/${filename}"
+				}
+			}
+		}
+	}
+	
+	
+	
+	
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
