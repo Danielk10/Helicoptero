@@ -63,15 +63,12 @@ public class PantallaMenu extends Pantalla {
 			desClic[i] = true;
 
 		}
-		
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
-			
-			
-			Gdx.graphics.setCursor(Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("textura/cursor.png")), 0, 0));
-			
-		}
 
-		
+		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+			Gdx.graphics.setCursor(Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("textura/cursor.png")), 0, 0));
+
+		}
 
 		musica = recurso.get("audio/Battle in the winter.ogg", Music.class);
 
@@ -107,7 +104,7 @@ public class PantallaMenu extends Pantalla {
 
 		puntuaciones.setPosition(512, 144);
 
-		creditos = new TextButton("Créditos", recurso.get("ui/uieli.json", Skin.class));
+		creditos = new TextButton("CrÃ©ditos", recurso.get("ui/uieli.json", Skin.class));
 
 		creditos.setSize(213, 32);
 
