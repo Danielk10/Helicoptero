@@ -13,7 +13,6 @@ import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.diamon.helicoptero.Helicoptero;
 
-
 import com.diamon.pantalla.PantallaCompleta;
 import android.content.*;
 import android.view.*;
@@ -37,7 +36,7 @@ public class AndroidLauncher extends AndroidApplication {
 		pantallaCompleta.ocultarBotonesVirtuales();
 
 		publicidad = new MostrarPublicidad(this);
-		
+
 		publicidad.IniciarPublicidad(this);
 
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
@@ -48,11 +47,11 @@ public class AndroidLauncher extends AndroidApplication {
 
 		FrameLayout frame = new FrameLayout(this);
 
-		Banner baner = new Banner(this);
+		// Banner baner = new Banner(this);
 
-		baner.setScaleX(0.5f);
+		Banner baner = publicidad.getBanner();
 
-		baner.setScaleY(0.5f);
+		publicidad.ocultarBanner();
 
 		RelativeLayout.LayoutParams mrecParameters = new RelativeLayout.LayoutParams(
 				RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -61,7 +60,7 @@ public class AndroidLauncher extends AndroidApplication {
 
 		mainLayout.addView(baner, mrecParameters);
 
-		frame.addView(initializeForView(new Helicoptero(), config), new FrameLayout.LayoutParams(
+		frame.addView(initializeForView(new Helicoptero(publicidad), config), new FrameLayout.LayoutParams(
 				FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
 
 		frame.addView(mainLayout);

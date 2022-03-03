@@ -1,5 +1,6 @@
 package com.diamon.pantalla;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -21,6 +22,8 @@ public class PantallaCreditos extends Pantalla {
 	private Label titulo;
 
 	private Label version;
+
+	private Label politicaDePrivacidad;
 
 	private Label[] creditosAgredecimientosNombre;
 
@@ -326,6 +329,12 @@ public class PantallaCreditos extends Pantalla {
 
 		aceptar.setPosition(Juego.ANCHO_PANTALLA / 2 - 40, 32);
 
+		politicaDePrivacidad = new Label("Politica de privacidad", recurso.get("ui/creditos.json", Skin.class));
+
+		politicaDePrivacidad.setPosition(32, 32);
+
+		politicaDePrivacidad.setColor(0, 1, 0, 1f);
+
 		version = new Label("Version 1.0.0", recurso.get("ui/creditos.json", Skin.class));
 
 		version.setPosition(608 - version.getWidth(), 32);
@@ -337,6 +346,8 @@ public class PantallaCreditos extends Pantalla {
 		nivelMenu.addActor(aceptar);
 
 		nivelMenu.addActor(version);
+
+		nivelMenu.addActor(politicaDePrivacidad);
 
 		mover = new float[creditos.size];
 
@@ -412,6 +423,28 @@ public class PantallaCreditos extends Pantalla {
 			public void clicked(InputEvent event, float x, float y) {
 
 				juego.setScreen(new PantallaMenu(juego));
+
+				super.clicked(event, x, y);
+			}
+
+		});
+
+		politicaDePrivacidad.addListener(new ClickListener() {
+
+			@SuppressWarnings("static-access")
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+
+				if (Gdx.app.getType() == Gdx.app.getType().Android) {
+
+					politicaDePrivacidad.setColor(0, 0, 1, 1f);
+
+				}
+
+				if (publicidad != null) {
+
+					publicidad.iniciarActividad();
+				}
 
 				super.clicked(event, x, y);
 			}

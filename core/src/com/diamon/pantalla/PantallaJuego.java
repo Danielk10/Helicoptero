@@ -148,6 +148,13 @@ public class PantallaJuego extends Pantalla {
 	@Override
 	public void mostrar() {
 
+		////////
+
+		if (publicidad != null) {
+
+			publicidad.mostrarBanner();
+		}
+
 		clic = new boolean[2];
 
 		desClic = new boolean[2];
@@ -1002,6 +1009,13 @@ public class PantallaJuego extends Pantalla {
 
 				puntos = 0;
 
+				////////
+
+				if (publicidad != null) {
+
+					publicidad.ocultarBanner();
+				}
+
 				juego.setScreen(new PantallaMenu(juego));
 
 				super.clicked(event, x, y);
@@ -1514,6 +1528,11 @@ public class PantallaJuego extends Pantalla {
 
 							dato.setEditor(true);
 
+							if (publicidad != null) {
+
+								publicidad.ocultarBanner();
+							}
+
 							if (dato.isSonido())
 
 							{
@@ -1549,6 +1568,11 @@ public class PantallaJuego extends Pantalla {
 							dato.setNumeroSatelite(0);
 
 							dato.anadirPuntuaciones(puntos, dato.getNumeroNivel(), "Pierde");
+
+							if (publicidad != null) {
+
+								publicidad.ocultarBanner();
+							}
 
 							if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 

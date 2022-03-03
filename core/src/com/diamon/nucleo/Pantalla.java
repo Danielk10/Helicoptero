@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.diamon.helicoptero.Publicidad;
 import com.diamon.dato.Configuraciones;
 import com.diamon.dato.Dato;
 
@@ -37,9 +38,13 @@ public abstract class Pantalla implements Screen {
 
 	protected Configuraciones configuracion;
 
+	protected Publicidad publicidad;
+
 	public Pantalla(Juego juego) {
 
 		this.juego = juego;
+
+		publicidad = juego.publicidad;
 
 		nivelMenu = juego.nivelMenu;
 

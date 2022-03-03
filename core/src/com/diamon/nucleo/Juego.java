@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.diamon.helicoptero.Publicidad;
 import com.diamon.dato.Configuraciones;
 import com.diamon.dato.Dato;
 import com.diamon.pantalla.PantallaCarga;
@@ -36,7 +37,6 @@ public abstract class Juego extends Game {
 
 	protected Dato dato;
 
-
 	protected Configuraciones configuracion;
 
 	private Image[] fondo = new Image[2];
@@ -46,6 +46,15 @@ public abstract class Juego extends Game {
 	protected Stage nivelMenu;
 
 	private boolean renderizar;
+
+	protected Publicidad publicidad;
+
+	public Juego(Publicidad publicidad) {
+		super();
+
+		this.publicidad = publicidad;
+
+	}
 
 	@Override
 	public void create() {

@@ -104,7 +104,7 @@ public class PantallaMenu extends Pantalla {
 
 		puntuaciones.setPosition(512, 144);
 
-		creditos = new TextButton("CrÃ©ditos", recurso.get("ui/uieli.json", Skin.class));
+		creditos = new TextButton("Créditos", recurso.get("ui/uieli.json", Skin.class));
 
 		creditos.setSize(213, 32);
 

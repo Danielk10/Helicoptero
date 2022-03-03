@@ -15,6 +15,11 @@ import com.diamon.pantalla.PantallaPrecentacion;
 
 public class Helicoptero extends Juego {
 
+	public Helicoptero(Publicidad publicidad) {
+		super(publicidad);
+
+	}
+
 	@SuppressWarnings("static-access")
 	@Override
 	public void create() {
