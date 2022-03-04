@@ -438,9 +438,9 @@ public class PantallaJuego extends Pantalla {
 
 		pausa.setPosition(576, 416);
 
-		textoPausa = new Label("Pausa", recurso.get("ui/uieli.json", Skin.class));
+		textoPausa = new Label("Pausado", recurso.get("ui/uieli.json", Skin.class));
 
-		textoPausa.setPosition(280, 300);
+		textoPausa.setPosition(264, 300);
 
 		editarNivel = new TextButton("Editar Niveles", recurso.get("ui/uieli.json", Skin.class));
 

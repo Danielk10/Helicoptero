@@ -49,7 +49,7 @@ public class PantallaSeleccion extends Pantalla {
 
 		}
 
-		atrasMenu = new TextButton("Atrás", recurso.get("ui/uieli.json", Skin.class));
+		atrasMenu = new TextButton("Atras", recurso.get("ui/uieli.json", Skin.class));
 
 		atrasMenu.setSize(Juego.ANCHO_PANTALLA / 8, 32);
 

@@ -77,7 +77,7 @@ public class PantallaPuntuaciones extends Pantalla {
 
 		titulo.setPosition((Juego.ANCHO_PANTALLA / 3) + 20, Juego.ALTO_PANTALLA - 64);
 
-		atras = new TextButton("Atrás", recurso.get("ui/uieli.json", Skin.class));
+		atras = new TextButton("Atras", recurso.get("ui/uieli.json", Skin.class));
 
 		atras.setSize(Juego.ANCHO_PANTALLA / 8, 32);
 

@@ -29,8 +29,6 @@ public class PantallaMenu extends Pantalla {
 
 	private TextButton salir;
 
-	private TextButton politica;
-
 	private Image titulo;
 
 	private Music musica;
@@ -104,7 +102,7 @@ public class PantallaMenu extends Pantalla {
 
 		puntuaciones.setPosition(512, 144);
 
-		creditos = new TextButton("Créditos", recurso.get("ui/uieli.json", Skin.class));
+		creditos = new TextButton("Creditos", recurso.get("ui/uieli.json", Skin.class));
 
 		creditos.setSize(213, 32);
 
@@ -122,10 +120,6 @@ public class PantallaMenu extends Pantalla {
 
 		titulo.setPosition(Juego.ANCHO_PANTALLA / 2 - 20, 320);
 
-		politica = new TextButton("Politica de Privacidad", recurso.get("ui/uiskin.json", Skin.class));
-
-		politica.setPosition(608 - politica.getWidth(), 32);
-
 		nivelMenu.addActor(titulo);
 
 		nivelMenu.addActor(jugar);
@@ -137,8 +131,6 @@ public class PantallaMenu extends Pantalla {
 		nivelMenu.addActor(creditos);
 
 		nivelMenu.addActor(salir);
-
-		// nivelMenu.addActor(politica);
 
 		float moveDuration = 1;
 

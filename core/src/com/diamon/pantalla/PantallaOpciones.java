@@ -155,7 +155,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		atras = new TextButton("Atr·s", recurso.get("ui/uieli.json", Skin.class));
+		atras = new TextButton("Atras", recurso.get("ui/uieli.json", Skin.class));
 
 		atras.setSize(Juego.ANCHO_PANTALLA / 8, 32);
 
@@ -177,7 +177,7 @@ public class PantallaOpciones extends Pantalla {
 
 		controles.setSize(Juego.ANCHO_PANTALLA / 3, 32);
 
-		graficos = new TextButton("Gr·ficos", recurso.get("ui/uieli.json", Skin.class));
+		graficos = new TextButton("Graficos", recurso.get("ui/uieli.json", Skin.class));
 
 		graficos.setSize(Juego.ANCHO_PANTALLA / 3, 32);
 
@@ -405,7 +405,7 @@ public class PantallaOpciones extends Pantalla {
 
 		tituloOpcionesControles.setPosition((Juego.ANCHO_PANTALLA / 3) + 50, Juego.ALTO_PANTALLA - 64);
 
-		atrasControles = new TextButton("Atr·s", recurso.get("ui/uieli.json", Skin.class));
+		atrasControles = new TextButton("Atras", recurso.get("ui/uieli.json", Skin.class));
 
 		atrasControles.setSize(Juego.ANCHO_PANTALLA / 7, 32);
 
@@ -513,7 +513,7 @@ public class PantallaOpciones extends Pantalla {
 
 		aceptarGraficos.setPosition(608 - aceptarGraficos.getWidth(), 32);
 
-		tituloOpcionesGraficos = new Label("Gr√°ficos", recurso.get("ui/uieli.json", Skin.class));
+		tituloOpcionesGraficos = new Label("Graficos", recurso.get("ui/uieli.json", Skin.class));
 
 		tituloOpcionesGraficos.setPosition((Juego.ANCHO_PANTALLA / 3) + 50, Juego.ALTO_PANTALLA - 64);
 
@@ -993,9 +993,9 @@ public class PantallaOpciones extends Pantalla {
 
 			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-				 nivelMenu.addActor(clicIzquierdo);
+				nivelMenu.addActor(clicIzquierdo);
 
-				 nivelMenu.addActor(clicDerecho);
+				nivelMenu.addActor(clicDerecho);
 
 			}
 
@@ -1039,9 +1039,9 @@ public class PantallaOpciones extends Pantalla {
 
 			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-				 clicDerecho.remove();
+				clicDerecho.remove();
 
-				 clicIzquierdo.remove();
+				clicIzquierdo.remove();
 
 			}
 

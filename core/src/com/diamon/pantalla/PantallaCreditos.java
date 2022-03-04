@@ -23,7 +23,7 @@ public class PantallaCreditos extends Pantalla {
 
 	private Label version;
 
-	private Label politicaDePrivacidad;
+	private TextButton politicaDePrivacidad;
 
 	private Label[] creditosAgredecimientosNombre;
 
@@ -112,7 +112,7 @@ public class PantallaCreditos extends Pantalla {
 
 		String[] autores = { "Helicoptero", "2021 - 2022  Daniel Diamon y Diamond Black" };
 
-		String[] titulosDesarrolladores = { "Diseño del Juego", "y Programación", "Diseñador Grafico" };
+		String[] titulosDesarrolladores = { "Diseno del Juego", "y Programacion", "Disenador Grafico" };
 
 		String[] nombresDesarrolladores = { "Daniel Diamon", "Jesus Mnedez" };
 
@@ -320,7 +320,7 @@ public class PantallaCreditos extends Pantalla {
 
 		}
 
-		titulo = new Label("Créditos", recurso.get("ui/uieli.json", Skin.class));
+		titulo = new Label("Creditos", recurso.get("ui/uieli.json", Skin.class));
 
 		titulo.setPosition((Juego.ANCHO_PANTALLA / 2) - 64, Juego.ALTO_PANTALLA - 64);
 
@@ -330,11 +330,11 @@ public class PantallaCreditos extends Pantalla {
 
 		aceptar.setPosition(Juego.ANCHO_PANTALLA / 2 - 40, 32);
 
-		politicaDePrivacidad = new Label("Politica de privacidad", recurso.get("ui/creditos.json", Skin.class));
+		politicaDePrivacidad = new TextButton("Politica de privacidad", recurso.get("ui/uiskin.json", Skin.class));
 
 		politicaDePrivacidad.setPosition(32, 32);
 
-		politicaDePrivacidad.setColor(0, 1, 0, 1f);
+		politicaDePrivacidad.setSize(170, 32);
 
 		version = new Label("Version 1.0.0", recurso.get("ui/creditos.json", Skin.class));
 
@@ -438,8 +438,6 @@ public class PantallaCreditos extends Pantalla {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-
-				politicaDePrivacidad.setColor(0, 0, 1, 1f);
 
 				if (publicidad != null) {
 

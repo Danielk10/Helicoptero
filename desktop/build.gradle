@@ -1,7 +1,6 @@
 sourceCompatibility = 1.7
 sourceSets.main.java.srcDirs = [ "src/" ]
 sourceSets.main.resources.srcDirs = ["../android/assets"]
-
 project.ext.mainClassName = "com.diamon.helicoptero.desktop.DesktopLauncher"
 project.ext.assetsDir = new File("../android/assets")
 
