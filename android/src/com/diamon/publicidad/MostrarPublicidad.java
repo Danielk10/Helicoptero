@@ -47,11 +47,9 @@ public class MostrarPublicidad implements Publicidad {
 	@Override
 	public void mostrarInterstitial() {
 
-		// StartAppAd.disbleAutoInterstitial();
+		StartAppAd.disbleAutoInterstitial();
 
 		StartAppAd.showAd(actividad);
-
-		// StartAppAd.enableAutoInterstitial();
 
 	}
 

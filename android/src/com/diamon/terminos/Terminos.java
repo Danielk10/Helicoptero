@@ -48,7 +48,7 @@ public class Terminos extends Activity {
 
 		pagina.getSettings().setJavaScriptEnabled(true);
 
-		pagina.loadUrl("http://www.e-droid.net/privacy.php?ida=1454194&idl=es");
+		pagina.loadUrl("https://politicasdehelicoptero.blogspot.com");
 
 	}
 
