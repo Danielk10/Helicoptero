@@ -25,10 +25,6 @@
 		android:name="android.permission.Ad_ID" />
 
 
-	<uses-sdk android:minSdkVersion="14"
-		android:targetSdkVersion="301" />
-
-
 	<application android:allowBackup="true"
 		android:icon="@drawable/ic_launcher" android:isGame="true"
 		android:appCategory="game" android:label="@string/app_name"
