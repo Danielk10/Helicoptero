@@ -27,36 +27,29 @@ public class Terminos extends Activity {
 		pantallaCompleta.pantallaCompleta();
 
 		pantallaCompleta.ocultarBotonesVirtuales();
-		
-		
+
 		pagina = new WebView(this);
 
-		
-
 		RelativeLayout mainLayout = new RelativeLayout(this);
-		
+
 		FrameLayout frame = new FrameLayout(this);
-	
-		
-		
+
 		RelativeLayout.LayoutParams mrecParameters = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+				RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 		mrecParameters.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		mrecParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 
 		mainLayout.addView(pagina, mrecParameters);
 
-	
-		frame.addView(mainLayout);
+		frame.addView(mainLayout, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+				FrameLayout.LayoutParams.MATCH_PARENT));
 
 		setContentView(frame);
-		
-		
+
 		pagina.getSettings().setJavaScriptEnabled(true);
 
 		pagina.loadUrl("http://www.e-droid.net/privacy.php?ida=1454194&idl=es");
 
-		
 	}
 
 	@Override

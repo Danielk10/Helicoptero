@@ -87,6 +87,7 @@ public class MostrarPublicidad implements Publicidad {
 
 	@Override
 	public void botonAtrasInterstitial() {
+
 		StartAppAd.onBackPressed(actividad);
 
 	}

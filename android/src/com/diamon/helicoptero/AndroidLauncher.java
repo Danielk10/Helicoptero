@@ -41,13 +41,9 @@ public class AndroidLauncher extends AndroidApplication {
 
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 
-		// initialize(new Helicoptero(), config);
-
 		RelativeLayout mainLayout = new RelativeLayout(this);
 
 		FrameLayout frame = new FrameLayout(this);
-
-		// Banner baner = new Banner(this);
 
 		Banner baner = publicidad.getBanner();
 

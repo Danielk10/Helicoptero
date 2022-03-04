@@ -70,6 +70,7 @@ public class PantallaCreditos extends Pantalla {
 
 	}
 
+	@SuppressWarnings("static-access")
 	@Override
 	public void mostrar() {
 
@@ -347,7 +348,11 @@ public class PantallaCreditos extends Pantalla {
 
 		nivelMenu.addActor(version);
 
-		nivelMenu.addActor(politicaDePrivacidad);
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
+
+			nivelMenu.addActor(politicaDePrivacidad);
+
+		}
 
 		mover = new float[creditos.size];
 
@@ -431,15 +436,10 @@ public class PantallaCreditos extends Pantalla {
 
 		politicaDePrivacidad.addListener(new ClickListener() {
 
-			@SuppressWarnings("static-access")
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 
-				if (Gdx.app.getType() == Gdx.app.getType().Android) {
-
-					politicaDePrivacidad.setColor(0, 0, 1, 1f);
-
-				}
+				politicaDePrivacidad.setColor(0, 0, 1, 1f);
 
 				if (publicidad != null) {
 

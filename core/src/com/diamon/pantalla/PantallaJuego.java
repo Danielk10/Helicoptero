@@ -148,8 +148,6 @@ public class PantallaJuego extends Pantalla {
 	@Override
 	public void mostrar() {
 
-		////////
-
 		if (publicidad != null) {
 
 			publicidad.mostrarBanner();
@@ -362,11 +360,23 @@ public class PantallaJuego extends Pantalla {
 
 		dispararMisil.setSize(32, 32);
 
-		dispararMisil.setColor(1.0F, 1.0F, 1.0F, 0.7F);
-
-		dispararMisil.setPosition(548, 0);
-
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
+
+			if (dato.isMostrarFPS()) {
+
+				dispararMisil.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+				dispararMisil.setPosition(548, 0);
+
+			}
+
+			if (!dato.isMostrarFPS()) {
+
+				dispararMisil.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+				dispararMisil.setPosition(606, 0);
+
+			}
 
 			nivel.addActor(dispararMisil);
 
@@ -376,11 +386,23 @@ public class PantallaJuego extends Pantalla {
 
 		dispararBomba.setSize(32, 32);
 
-		dispararBomba.setColor(1.0F, 1.0F, 1.0F, 0.7F);
-
-		dispararBomba.setPosition(508, 0);
-
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
+
+			if (dato.isMostrarFPS()) {
+
+				dispararBomba.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+				dispararBomba.setPosition(508, 0);
+
+			}
+
+			if (!dato.isMostrarFPS()) {
+
+				dispararBomba.setColor(1.0F, 1.0F, 1.0F, 0.7F);
+
+				dispararBomba.setPosition(566, 0);
+
+			}
 
 			nivel.addActor(dispararBomba);
 
@@ -1008,8 +1030,6 @@ public class PantallaJuego extends Pantalla {
 			public void clicked(InputEvent event, float x, float y) {
 
 				puntos = 0;
-
-				////////
 
 				if (publicidad != null) {
 
