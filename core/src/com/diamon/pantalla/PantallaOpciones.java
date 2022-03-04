@@ -218,7 +218,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			pausaJuego = new Image(recurso.get("textura/pausa.png", Texture.class));
 
@@ -240,7 +240,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			arriba = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlArriba"));
 
@@ -262,7 +262,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			abajo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlAbajo"));
 
@@ -285,7 +285,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			izquierda = new Image(
 					recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlIzquierdo"));
@@ -309,7 +309,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			derecha = new Image(
 					recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlDerecho"));
@@ -332,7 +332,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			disparo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlZ"));
 
@@ -354,7 +354,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			disparoMisil = new Image(
 					recurso.get("textura/iconos.atlas", TextureAtlas.class).findRegion("iconoexplosion"));
@@ -378,7 +378,7 @@ public class PantallaOpciones extends Pantalla {
 
 		}
 
-		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
 			disparoBomba = new Image(recurso.get("textura/iconos.atlas", TextureAtlas.class).findRegion("iconobomba"));
 
@@ -993,9 +993,9 @@ public class PantallaOpciones extends Pantalla {
 
 			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-				// nivelMenu.addActor(clicIzquierdo);
+				 nivelMenu.addActor(clicIzquierdo);
 
-				// nivelMenu.addActor(clicDerecho);
+				 nivelMenu.addActor(clicDerecho);
 
 			}
 
@@ -1039,9 +1039,9 @@ public class PantallaOpciones extends Pantalla {
 
 			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-				// clicDerecho.remove();
+				 clicDerecho.remove();
 
-				// clicIzquierdo.remove();
+				 clicIzquierdo.remove();
 
 			}
 
