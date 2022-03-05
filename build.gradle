@@ -64,7 +64,6 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
         implementation 'com.startapp:inapp-sdk:4.9.+'
-		implementation 'com.android.support:multidex:2.0.1'
     }
 }
 
