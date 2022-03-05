@@ -35,8 +35,8 @@ buildTypes {
         applicationId "com.diamon.helicoptero"
         minSdkVersion 14
         targetSdkVersion 31
-        versionCode 4
-        versionName "1.0.4"
+        versionCode 6
+        versionName "1.0.6"
     }
     buildTypes {
         release {
