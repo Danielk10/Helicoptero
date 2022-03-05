@@ -242,7 +242,7 @@ public class PantallaOpciones extends Pantalla {
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-			arriba = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlArriba"));
+			arriba = new Image(recurso.get("textura/dedos.atlas", TextureAtlas.class).findRegion("arriba"));
 
 			arriba.setSize(32, 32);
 
@@ -264,7 +264,7 @@ public class PantallaOpciones extends Pantalla {
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-			abajo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlAbajo"));
+			abajo = new Image(recurso.get("textura/dedos.atlas", TextureAtlas.class).findRegion("abajo"));
 
 			abajo.setSize(32, 32);
 
@@ -287,8 +287,7 @@ public class PantallaOpciones extends Pantalla {
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-			izquierda = new Image(
-					recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlIzquierdo"));
+			izquierda = new Image(recurso.get("textura/dedos.atlas", TextureAtlas.class).findRegion("izquierda"));
 
 			izquierda.setSize(32, 32);
 
@@ -311,8 +310,7 @@ public class PantallaOpciones extends Pantalla {
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-			derecha = new Image(
-					recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlDerecho"));
+			derecha = new Image(recurso.get("textura/dedos.atlas", TextureAtlas.class).findRegion("derecha"));
 
 			derecha.setSize(32, 32);
 
@@ -334,7 +332,7 @@ public class PantallaOpciones extends Pantalla {
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
-			disparo = new Image(recurso.get("textura/controles.atlas", TextureAtlas.class).findRegion("controlZ"));
+			disparo = new Image(recurso.get("textura/dedos.atlas", TextureAtlas.class).findRegion("precionado"));
 
 			disparo.setSize(32, 32);
 
@@ -1633,6 +1631,12 @@ public class PantallaOpciones extends Pantalla {
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Linear,
 					TextureFilter.Linear);
 
+			for (Texture tetura : recurso.get("textura/dedos.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
+
 			for (Texture tetura : recurso.get("textura/item.atlas", TextureAtlas.class).getTextures()) {
 
 				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -1961,6 +1965,12 @@ public class PantallaOpciones extends Pantalla {
 
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
+
+			for (Texture tetura : recurso.get("textura/dedos.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
 
 			for (Texture tetura : recurso.get("textura/barrasHelicoptero.atlas", TextureAtlas.class).getTextures()) {
 

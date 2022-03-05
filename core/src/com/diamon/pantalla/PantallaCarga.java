@@ -134,6 +134,13 @@ public class PantallaCarga extends Pantalla {
 
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Linear,
 					TextureFilter.Linear);
+			
+			
+			for (Texture tetura : recurso.get("textura/dedos.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+
+			}
 
 			for (Texture tetura : recurso.get("textura/item.atlas", TextureAtlas.class).getTextures()) {
 
@@ -462,6 +469,13 @@ public class PantallaCarga extends Pantalla {
 
 			recurso.get("textura/paracaisdista3.png", Texture.class).setFilter(TextureFilter.Nearest,
 					TextureFilter.Nearest);
+			
+			
+			for (Texture tetura : recurso.get("textura/dedos.atlas", TextureAtlas.class).getTextures()) {
+
+				tetura.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+
+			}
 
 			for (Texture tetura : recurso.get("textura/item.atlas", TextureAtlas.class).getTextures()) {
 
