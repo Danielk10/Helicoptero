@@ -1,21 +1,8 @@
 android {
     buildToolsVersion "30.0.3"
     compileSdkVersion 31
-buildTypes {
-		appcenter {
-			applicationVariants.all { variant ->
-				variant.outputs.all {
-					def currentFile = new File(outputFileName)
-					def filename = currentFile.getName()
-					outputFileName = "../../../../../build/outputs/apk/${filename}"
-				}
-			}
-		}
-	}
 	
-	
-	
-	
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -37,10 +24,14 @@ buildTypes {
         targetSdkVersion 31
         versionCode 6
         versionName "1.0.6"
+		//Cambiando ruta de salida .aab y .apk
+		buildDir ="${buildDir}../../../build/" 
     }
+	
     buildTypes {
-        release {
-            minifyEnabled true
+	
+       release {
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
