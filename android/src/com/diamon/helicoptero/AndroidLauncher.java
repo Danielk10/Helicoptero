@@ -32,7 +32,7 @@ public class AndroidLauncher extends AndroidApplication {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		AppCenter.start(getApplication(), "cf7ac082-49cd-4cef-bd2d-3f1a3377efa9", Analytics.class, Crashes.class);
+		AppCenter.start(getApplication(), "2dea6be0-8f41-49ac-b4ce-468cced27237", Analytics.class, Crashes.class);
 
 		pantallaCompleta = new PantallaCompleta(this);
 
