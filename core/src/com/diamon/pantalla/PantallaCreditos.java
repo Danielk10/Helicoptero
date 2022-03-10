@@ -346,7 +346,10 @@ public class PantallaCreditos extends Pantalla {
 
 		nivelMenu.addActor(aceptar);
 
-		nivelMenu.addActor(version);
+		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
+
+			nivelMenu.addActor(version);
+		}
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 

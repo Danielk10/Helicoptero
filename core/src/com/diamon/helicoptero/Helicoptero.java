@@ -58,7 +58,9 @@ public class Helicoptero extends Juego {
 
 		if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-			Gdx.graphics.setCursor(Gdx.graphics.newCursor(new Pixmap(32, 32, Pixmap.Format.RGBA8888), 0, 0));
+			Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+
+			Gdx.graphics.setCursor(Gdx.graphics.newCursor(pixmap, 0, 0));
 
 		}
 
@@ -103,7 +105,7 @@ public class Helicoptero extends Juego {
 		recurso.load("textura/vidaJefe.png", Texture.class);
 
 		recurso.load("textura/catidadVidaJefe.png", Texture.class);
-		
+
 		recurso.load("textura/dedos.atlas", TextureAtlas.class);
 
 		recurso.load("textura/item.atlas", TextureAtlas.class);

@@ -1,8 +1,6 @@
 android {
     buildToolsVersion "30.0.3"
     compileSdkVersion 31
-	
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -10,7 +8,7 @@ android {
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
+            assets.srcDirs = ['../assets']
             jniLibs.srcDirs = ['libs']
         }
 
@@ -20,17 +18,15 @@ android {
     }
     defaultConfig {
         applicationId "com.diamon.helicoptero"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 31
         versionCode 6
         versionName "1.0.6"
 		//Cambiando ruta de salida .aab y .apk
 		buildDir ="${buildDir}../../../build/" 
     }
-	
     buildTypes {
-	
-       release {
+        release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
