@@ -336,7 +336,7 @@ public class PantallaCreditos extends Pantalla {
 
 		politicaDePrivacidad.setSize(170, 32);
 
-		version = new Label("Version 1.0.0", recurso.get("ui/creditos.json", Skin.class));
+		version = new Label("Version 1.0.6", recurso.get("ui/creditos.json", Skin.class));
 
 		version.setPosition(608 - version.getWidth(), 32);
 

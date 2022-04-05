@@ -358,7 +358,7 @@ public class PantallaJuego extends Pantalla {
 
 		dispararMisil = new Image(recurso.get("textura/iconos.atlas", TextureAtlas.class).findRegion("iconoexplosion"));
 
-		dispararMisil.setSize(32, 32);
+		dispararMisil.setSize(64, 64);
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
@@ -366,7 +366,7 @@ public class PantallaJuego extends Pantalla {
 
 				dispararMisil.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
-				dispararMisil.setPosition(548, 0);
+				dispararMisil.setPosition(516, 0);
 
 			}
 
@@ -374,7 +374,7 @@ public class PantallaJuego extends Pantalla {
 
 				dispararMisil.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
-				dispararMisil.setPosition(606, 0);
+				dispararMisil.setPosition(574, 0);
 
 			}
 
@@ -384,7 +384,7 @@ public class PantallaJuego extends Pantalla {
 
 		dispararBomba = new Image(recurso.get("textura/iconos.atlas", TextureAtlas.class).findRegion("iconobomba"));
 
-		dispararBomba.setSize(32, 32);
+		dispararBomba.setSize(64, 64);
 
 		if (Gdx.app.getType() == Gdx.app.getType().Android) {
 
@@ -392,7 +392,7 @@ public class PantallaJuego extends Pantalla {
 
 				dispararBomba.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
-				dispararBomba.setPosition(508, 0);
+				dispararBomba.setPosition(444, 0);
 
 			}
 
@@ -400,7 +400,7 @@ public class PantallaJuego extends Pantalla {
 
 				dispararBomba.setColor(1.0F, 1.0F, 1.0F, 0.7F);
 
-				dispararBomba.setPosition(566, 0);
+				dispararBomba.setPosition(502, 0);
 
 			}
 
