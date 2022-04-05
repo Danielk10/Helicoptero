@@ -181,7 +181,7 @@ public class PantallaJuego extends Pantalla {
 
 			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-				Gdx.graphics.setCursor(Gdx.graphics.newCursor(new Pixmap(32, 32, Pixmap.Format.RGBA8888), 0, 0));
+				Gdx.graphics.setCursor(Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0));
 
 			}
 
@@ -865,8 +865,7 @@ public class PantallaJuego extends Pantalla {
 
 					if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-						Gdx.graphics
-								.setCursor(Gdx.graphics.newCursor(new Pixmap(32, 32, Pixmap.Format.RGBA8888), 0, 0));
+						Gdx.graphics.setCursor(Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0));
 
 					}
 
@@ -944,8 +943,8 @@ public class PantallaJuego extends Pantalla {
 
 						if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-							Gdx.graphics.setCursor(
-									Gdx.graphics.newCursor(new Pixmap(32, 32, Pixmap.Format.RGBA8888), 0, 0));
+							Gdx.graphics
+									.setCursor(Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0));
 
 						}
 
@@ -1147,8 +1146,8 @@ public class PantallaJuego extends Pantalla {
 
 									if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-										Gdx.graphics.setCursor(Gdx.graphics
-												.newCursor(new Pixmap(32, 32, Pixmap.Format.RGBA8888), 0, 0));
+										Gdx.graphics.setCursor(
+												Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0));
 
 									}
 
