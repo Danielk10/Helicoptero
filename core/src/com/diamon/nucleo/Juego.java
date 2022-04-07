@@ -103,11 +103,11 @@ public abstract class Juego extends Game {
 	@Override
 	public void render() {
 
+		ScreenUtils.clear(0.0F, 0.0F, 1.0F, 1.0f, true);
+
 		super.render();
 
 		if (renderizar) {
-
-			ScreenUtils.clear(0.0F, 0.0F, 1.0F, 1.0f, true);
 
 			xFondo -= 0.5f / Juego.DELTA_A_PIXEL * Gdx.graphics.getDeltaTime();
 
