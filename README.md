@@ -1,6 +1,8 @@
 # Helicoptero
 Juego Hecho en LibGDx con motor 2D incluido, el juego es multiplataforma, esta es la versión 1.0.0 Beta
 
+link de de Google Play https://play.google.com/store/apps/details?id=com.diamon.helicoptero
+
 Portada del Juego
 
 ![Image text](https://github.com/Danielk10/Helicoptero/blob/main/portada/Mi%20juego.jpg)
