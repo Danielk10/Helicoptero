@@ -277,7 +277,7 @@ public class PantallaCreditos extends Pantalla {
 
 		nivelMenu.addActor(creditoMotor);
 
-		creditoMotorNombre = new Label("LibGDX - www.libgdx.com", recurso.get("ui/uiskin.json", Skin.class));
+		creditoMotorNombre = new Label("libGDX - www.libgdx.com", recurso.get("ui/uiskin.json", Skin.class));
 
 		creditoMotorNombre.setPosition(Juego.ANCHO_PANTALLA / 2 - 20, indice);
 
