@@ -814,6 +814,11 @@ public class PantallaJuego extends Pantalla {
 
 					pausar = true;
 
+					if (publicidad != null) {
+
+						publicidad.mostrarInterstitial();
+					}
+
 				}
 
 				super.clicked(event, x, y);

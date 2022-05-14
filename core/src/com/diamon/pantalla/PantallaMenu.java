@@ -46,18 +46,6 @@ public class PantallaMenu extends Pantalla {
 	@Override
 	public void mostrar() {
 
-		try {
-
-			if (publicidad != null) {
-
-				publicidad.cargarBanner();
-
-			}
-
-		} catch (Exception e) {
-
-		}
-
 		clic = new boolean[5];
 
 		desClic = new boolean[5];
