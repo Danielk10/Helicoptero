@@ -407,6 +407,11 @@ public class PantallaMenu extends Pantalla {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				
+					if (publicidad != null) {
+
+						publicidad.mostrarInterstitial();
+					}
 
 				Gdx.app.exit();
 

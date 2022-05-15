@@ -111,13 +111,7 @@ public class AndroidLauncher extends AndroidApplication {
 	}
 	
 	
-	@Override
-	public void onBackPressed() {
-		
-		publicidad.botonAtrasInterstitial();
-		
-		super.onBackPressed();
-	}
+
 	
 	
 	
