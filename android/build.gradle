@@ -1,6 +1,6 @@
 android {
     buildToolsVersion "30.0.3"
-    compileSdkVersion 32
+    compileSdkVersion 33
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -19,9 +19,9 @@ android {
     defaultConfig {
         applicationId "com.diamon.helicoptero"
         minSdkVersion 21
-        targetSdkVersion 32
-        versionCode 10
-        versionName "1.1.0"
+        targetSdkVersion 33
+        versionCode 11
+        versionName "1.1.1"
 		//Cambiando ruta de salida .aab y .apk
 		buildDir ="${buildDir}../../../build/" 
     }

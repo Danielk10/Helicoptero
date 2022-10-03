@@ -181,7 +181,11 @@ public class PantallaJuego extends Pantalla {
 
 			if (Gdx.app.getType() == Gdx.app.getType().Desktop) {
 
-				Gdx.graphics.setCursor(Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0));
+				Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+
+				pixmap.setColor(1, 1, 1, 0);
+
+				Gdx.graphics.setCursor(Gdx.graphics.newCursor(pixmap, 0, 0));
 
 			}
 
