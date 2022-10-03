@@ -38,12 +38,15 @@
    <uses-permission 
         android:name="com.google.android.gms.permission.AD_ID"/>
 
-	<application android:allowBackup="true"
-		android:fullBackupContent="true" android:icon="@drawable/ic_launcher"
+	<application 
+	    android:allowBackup="true"
+		android:fullBackupContent="true" 
+		android:icon="@drawable/ic_launcher"
 		android:isGame="true" 
 		android:appCategory="game"
-		android:label="@string/app_name" tools:ignore="UnusedAttribute"
-		android:theme="@style/GdxTheme">
+		android:label="@string/app_name" 
+		android:theme="@style/GdxTheme"
+		tools:ignore="UnusedAttribute">
 
 		<meta-data android:name="com.startapp.sdk.APPLICATION_ID"
 			android:value="203801004" />
@@ -69,7 +72,8 @@
 		</activity>
 
 		<activity android:name="com.diamon.terminos.Terminos"
-			android:exported="true" android:label="@string/app_name"
+			android:exported="true" 
+			android:label="@string/app_name"
 			android:screenOrientation="landscape"
 			android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout">
 		</activity>
