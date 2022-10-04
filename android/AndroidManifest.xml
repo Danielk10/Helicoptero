@@ -57,7 +57,7 @@
 			
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5141499161332805~8263601193"/>
+            android:value="ca-app-pub-5141499161332805~5712767508"/>
 
 		<activity
 			android:name="com.diamon.helicoptero.AndroidLauncher"
