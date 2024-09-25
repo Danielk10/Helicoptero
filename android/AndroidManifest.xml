@@ -35,8 +35,12 @@
       android:appCategory="game"
       android:label="@string/app_name"
       tools:ignore="UnusedAttribute"
-      android:theme="@style/GdxTheme"
-      android:exported="true">
+      android:theme="@style/GdxTheme">
+    
+     <meta-data
+      android:name="com.google.android.gms.ads.APPLICATION_ID"
+      android:value="ca-app-pub-5141499161332805~5712767508"/>
+    
     <activity
         android:name="com.diamon.helicoptero.android.AndroidLauncher"
         android:label="@string/app_name"
