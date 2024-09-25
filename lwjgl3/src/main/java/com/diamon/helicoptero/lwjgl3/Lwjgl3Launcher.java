@@ -3,6 +3,7 @@ package com.diamon.helicoptero.lwjgl3;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.diamon.helicoptero.Helicoptero;
+import com.diamon.helicoptero.Publicidad
 
 /** Launches the desktop (LWJGL3) application. */
 public class Lwjgl3Launcher {
@@ -12,7 +13,38 @@ public class Lwjgl3Launcher {
     }
 
     private static Lwjgl3Application createApplication() {
-        return new Lwjgl3Application(new Helicoptero(null), getDefaultConfiguration());
+        return new Lwjgl3Application(new Helicoptero(new Helicoptero(new Publicidad() {
+          
+          			@Override
+          			public void mostrarInterstitial() {
+          
+          			}
+          
+          			@Override
+          			public void botonAtrasInterstitial() {
+          
+          			}
+          
+          			@Override
+          			public void cargarBanner() {
+          
+          			}
+          
+          			@Override
+          			public void mostrarBanner() {
+          
+          			}
+          
+          			@Override
+          			public void ocultarBanner() {
+          
+          			}
+          
+          			@Override
+          			public void iniciarActividad() {
+          
+          			}
+          		})), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
@@ -30,6 +62,11 @@ public class Lwjgl3Launcher {
         configuration.setWindowedMode(640, 480);
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
+        
+        configuration.setForegroundFPS(60);
+        
+        configuration.setResizable(false);
+        
         return configuration;
     }
 }
