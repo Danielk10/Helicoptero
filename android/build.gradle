@@ -27,8 +27,8 @@ android {
     applicationId 'com.diamon.helicoptero'
     minSdkVersion 21
     targetSdkVersion 34
-    versionCode 1
-    versionName "1.0"
+    versionCode 12
+    versionName "1.2.0"
     multiDexEnabled true
     //Cambiando ruta de salida .aab y .apk
   	buildDir ="${buildDir}../../../build/" 
