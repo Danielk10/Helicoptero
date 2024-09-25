@@ -65,7 +65,7 @@ public abstract class Juego extends Game {
 
 		dato = configuracion.leerDatos(Configuraciones.INTERNO);
 
-		/*if (dato.isLeerDatosAsset()) {
+		if (dato.isLeerDatosAsset()) {
 
 			Configuraciones configuracionInterna = new Configuraciones();
 
@@ -75,7 +75,7 @@ public abstract class Juego extends Game {
 
 			configuracionInterna.escribirDatos(dato);
 
-		}*/
+		}
 
 		xFondo = 0;
 

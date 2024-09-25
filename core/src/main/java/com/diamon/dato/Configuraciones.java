@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.Json;
 
 public class Configuraciones {
 
-	private static final String DATOS_DE_JUEGO = "helicoptero/datos.dat";
+	private static final String DATOS_DE_JUEGO = ".helicoptero/datos.dat";
 
 	private Dato datos;
 
