@@ -68,7 +68,7 @@ public class AndroidLauncher extends AndroidApplication {
               // Create a new ad view.
               adView = new AdView(this);
               adView.setAdUnitId(AD_UNIT_ID);
-              adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, 1612);
+              adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, 1612));
       
           
               adView.loadAd(adRequest);
