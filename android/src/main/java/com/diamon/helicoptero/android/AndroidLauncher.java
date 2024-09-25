@@ -22,6 +22,10 @@ import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.diamon.helicoptero.Helicoptero;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {
   
@@ -37,6 +41,12 @@ public class AndroidLauncher extends AndroidApplication {
         
         AppCenter.start(getApplication(), "2dea6be0-8f41-49ac-b4ce-468cced27237",
                   Analytics.class, Crashes.class);
+        new Thread(
+                    () -> {
+                      // Initialize the Google Mobile Ads SDK on a background thread.
+                      MobileAds.initialize(this, initializationStatus -> {});
+                    })
+                .start();
                   
         pantallaCompleta = new PantallaCompleta(this);
         
