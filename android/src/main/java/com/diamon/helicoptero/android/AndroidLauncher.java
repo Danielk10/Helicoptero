@@ -23,15 +23,30 @@ import com.diamon.helicoptero.Helicoptero;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import androidx.annotation.NonNull;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.RequestConfiguration;
+
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {
+  
+    private static final String AD_UNIT_ID = "ca-app-pub-5141499161332805/5839846237";
   
     private WakeLock wakeLock;
   
   	private PantallaCompleta pantallaCompleta;
   
   	private MostrarPublicidad publicidad;
+  	
+  	private AdView adView;
   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +60,23 @@ public class AndroidLauncher extends AndroidApplication {
                       MobileAds.initialize(this, initializationStatus -> {});
                     })
                 .start();
+                
+                
+          AdRequest adRequest = new AdRequest.Builder().build();
+          	
+          
+              // Create a new ad view.
+              adView = new AdView(this);
+              adView.setAdUnitId(AD_UNIT_ID);
+              adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, 1612);
+      
+          
+              adView.loadAd(adRequest);
+              // [END load_ad]
+            
+          
+          
+          
                   
         pantallaCompleta = new PantallaCompleta(this);
         
@@ -69,7 +101,7 @@ public class AndroidLauncher extends AndroidApplication {
         		mrecParameters.addRule(RelativeLayout.CENTER_HORIZONTAL);
         		mrecParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);
       
-        
+        mainLayout.addView(adView, mrecParameters);
         		frame.addView(initializeForView(new Helicoptero(publicidad), configuration), new FrameLayout.LayoutParams(
         				FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
         
