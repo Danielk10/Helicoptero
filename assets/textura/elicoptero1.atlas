@@ -1,0 +1,62 @@
+
+elicoptero1.png
+size: 512, 256
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+elicoptero1
+  rotate: false
+  xy: 262, 68
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
+elicoptero2
+  rotate: false
+  xy: 132, 68
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
+elicoptero3
+  rotate: false
+  xy: 2, 68
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
+elicoptero4
+  rotate: false
+  xy: 132, 2
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
+elicoptero5
+  rotate: false
+  xy: 2, 2
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
+elicoptero6
+  rotate: false
+  xy: 2, 134
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
+elicoptero7
+  rotate: false
+  xy: 262, 134
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
+elicoptero8
+  rotate: false
+  xy: 132, 134
+  size: 128, 64
+  orig: 128, 64
+  offset: 0, 0
+  index: -1
