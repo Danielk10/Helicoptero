@@ -31,7 +31,7 @@ android {
     versionName "1.0"
     multiDexEnabled true
     //Cambiando ruta de salida .aab y .apk
-  	//buildDir ="${buildDir}../../../build/" 
+  	buildDir ="${buildDir}../../../build/" 
   }
   compileOptions {
     sourceCompatibility "11"
