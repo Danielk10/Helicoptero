@@ -60,8 +60,7 @@ public class AndroidLauncher extends AndroidApplication {
         				RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         		mrecParameters.addRule(RelativeLayout.CENTER_HORIZONTAL);
         		mrecParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-        
-        		mainLayout.addView(baner, mrecParameters);
+      
         
         		frame.addView(initializeForView(new Helicoptero(publicidad), configuration), new FrameLayout.LayoutParams(
         				FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
