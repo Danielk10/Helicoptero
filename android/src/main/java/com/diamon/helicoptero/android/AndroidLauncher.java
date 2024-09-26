@@ -54,15 +54,6 @@ public class AndroidLauncher extends AndroidApplication {
         
         AppCenter.start(getApplication(), "2dea6be0-8f41-49ac-b4ce-468cced27237",
                   Analytics.class, Crashes.class);
-      
-                
-                
-        	MobileAds.initialize(this, new OnInitializationCompleteListener() {
-                		            @Override
-                		            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                		            }
-                		    });
-                				
           
         pantallaCompleta = new PantallaCompleta(this);
         
@@ -73,6 +64,13 @@ public class AndroidLauncher extends AndroidApplication {
         publicidad = new MostrarPublicidad(this);
         
         publicidad.IniciarPublicidad(this);
+        
+        	MobileAds.initialize(this, new OnInitializationCompleteListener() {
+                		            @Override
+                		            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                		            }
+                		    });
+                				
         
               // Create a new ad view.
               adView = new AdView(this);
