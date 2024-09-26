@@ -38,7 +38,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {
   
-    private static final String AD_UNIT_ID = "ca-app-pub-5141499161332805/5839846237";
+    private static final String AD_UNIT_ID = "ca-app-pub-5141499161332805/3936571775";
   
     private WakeLock wakeLock;
   
