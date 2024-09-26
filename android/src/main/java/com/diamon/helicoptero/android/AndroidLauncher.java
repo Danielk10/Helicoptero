@@ -54,12 +54,15 @@ public class AndroidLauncher extends AndroidApplication {
         
         AppCenter.start(getApplication(), "2dea6be0-8f41-49ac-b4ce-468cced27237",
                   Analytics.class, Crashes.class);
-        new Thread(
-                    () -> {
-                      // Initialize the Google Mobile Ads SDK on a background thread.
-                      MobileAds.initialize(this, initializationStatus -> {});
-                    })
-                .start();
+      
+                
+                
+        	MobileAds.initialize(this, new OnInitializationCompleteListener() {
+                		            @Override
+                		            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                		            }
+                		    });
+                				
                 
                 
           AdRequest adRequest = new AdRequest.Builder().build();
@@ -68,7 +71,8 @@ public class AndroidLauncher extends AndroidApplication {
               // Create a new ad view.
               adView = new AdView(this);
               adView.setAdUnitId(AD_UNIT_ID);
-              adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, 1612));
+              
+              adView.setAdSize(AdSize.BANNER);
       
           
               adView.loadAd(adRequest);
