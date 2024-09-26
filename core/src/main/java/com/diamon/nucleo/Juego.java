@@ -61,9 +61,9 @@ public abstract class Juego extends Game {
 
 		recurso = new AssetManager();
 
-		configuracion = new Configuraciones();
+configuracion = new Configuraciones();
 
-		dato = configuracion.leerDatos(Configuraciones.INTERNO);
+		dato = configuracion.leerDatos(Configuraciones.LOCAL);
 
 		if (dato.isLeerDatosAsset()) {
 
@@ -76,7 +76,6 @@ public abstract class Juego extends Game {
 			configuracionInterna.escribirDatos(dato);
 
 		}
-
 		xFondo = 0;
 
 		renderizar = false;
