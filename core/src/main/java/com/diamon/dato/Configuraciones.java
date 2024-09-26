@@ -42,10 +42,10 @@ public class Configuraciones {
 
 			try {
 
-				String archivoCodificado = configuracionDato.readString();
-
-				String archivoDecodificado = Base64Coder.decodeString(archivoCodificado);
-
+			byte[] datosBinarios = configuracionDato.readBytes();
+			
+				String archivoDecodificado = Base64Coder.decodeString(new String(datosBinarios, "UTF-8"));
+				
 				datos = json.fromJson(Dato.class, archivoDecodificado);
 
 			} catch (Exception e) {
