@@ -63,6 +63,17 @@ public class AndroidLauncher extends AndroidApplication {
                 		            }
                 		    });
                 				
+          
+        pantallaCompleta = new PantallaCompleta(this);
+        
+        pantallaCompleta.pantallaCompleta();
+        
+        pantallaCompleta.ocultarBotonesVirtuales();
+        
+        publicidad = new MostrarPublicidad(this);
+        
+        publicidad.IniciarPublicidad(this);
+        
               // Create a new ad view.
               adView = new AdView(this);
               adView.setAdUnitId(AD_UNIT_ID);
@@ -74,17 +85,6 @@ public class AndroidLauncher extends AndroidApplication {
           
               adView.loadAd(adRequest);
               // [END load_ad]
-          
-                  
-        pantallaCompleta = new PantallaCompleta(this);
-        
-        pantallaCompleta.pantallaCompleta();
-        
-        pantallaCompleta.ocultarBotonesVirtuales();
-        
-        publicidad = new MostrarPublicidad(this);
-        
-        publicidad.IniciarPublicidad(this);
         
         AndroidApplicationConfiguration configuration = new AndroidApplicationConfiguration();
         
