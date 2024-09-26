@@ -63,23 +63,17 @@ public class AndroidLauncher extends AndroidApplication {
                 		            }
                 		    });
                 				
-                
-                
-          AdRequest adRequest = new AdRequest.Builder().build();
-          	
-          
               // Create a new ad view.
               adView = new AdView(this);
               adView.setAdUnitId(AD_UNIT_ID);
               
               adView.setAdSize(AdSize.BANNER);
       
+              AdRequest adRequest = new AdRequest.Builder().build();
+
           
               adView.loadAd(adRequest);
               // [END load_ad]
-            
-          
-          
           
                   
         pantallaCompleta = new PantallaCompleta(this);
@@ -120,8 +114,14 @@ public class AndroidLauncher extends AndroidApplication {
     
     @Override
     	protected void onPause() {
+    	  
+    	      if (adView != null) {
+    	        adView.pause();
+    	      }
     
     		super.onPause();
+    		
+    		
     
     		wakeLock.release();
     
@@ -131,6 +131,13 @@ public class AndroidLauncher extends AndroidApplication {
     	protected void onResume() {
     
     		super.onResume();
+    		
+    		    if (adView != null) {
+    		      adView.resume();
+    		    }    if (adView != null) {
+    		          adView.resume();
+    		        }
+    		
     
     		wakeLock.acquire();
     
