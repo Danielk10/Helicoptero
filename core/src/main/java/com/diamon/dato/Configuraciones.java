@@ -26,7 +26,7 @@ public class Configuraciones {
 
 		if (tipoDato == Configuraciones.INTERNO) {
 
-			configuracionDato = Gdx.files.internal("dato/datos.json");
+			configuracionDato = Gdx.files.internal("dato/datos.dat");
 
 		}
 
@@ -41,14 +41,13 @@ public class Configuraciones {
 		if (configuracionDato.exists()) {
 
 			try {
-
-			String archivoNoCodificado = configuracionDato.readString();
 			
-		//String archivoDecodificado = Base64Coder.decodeString(archivoCodificado);
-			String archivoDecodificado = archivoNoCodificado;
-							
+			String archivoCodificado = configuracionDato.readString();
+			
+			String archivoDecodificado = Base64Coder.decodeString(archivoCodificado);
+			
 			datos = json.fromJson(Dato.class, archivoDecodificado);
-
+			
 			} catch (Exception e) {
 
 				datos = new Dato();
