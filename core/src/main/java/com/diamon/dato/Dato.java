@@ -167,7 +167,7 @@ public class Dato {
 
 		mostrarFPS = false;
 
-		editor = false;
+		editor = true;
 
 		prueba = false;
 
