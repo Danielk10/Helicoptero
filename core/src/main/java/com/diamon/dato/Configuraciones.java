@@ -26,7 +26,7 @@ public class Configuraciones {
 
 		if (tipoDato == Configuraciones.INTERNO) {
 
-			configuracionDato = Gdx.files.internal("dato/datos.dat");
+			configuracionDato = Gdx.files.internal("dato/datos.json");
 
 		}
 
@@ -42,11 +42,12 @@ public class Configuraciones {
 
 			try {
 
-			byte[] datosBinarios = configuracionDato.readBytes();
+			String archivoNoCodificado = configuracionDato.readString();
 			
-				String archivoDecodificado = Base64Coder.decodeString(new String(datosBinarios, "UTF-8"));
-				
-				datos = json.fromJson(Dato.class, archivoDecodificado);
+		//String archivoDecodificado = Base64Coder.decodeString(archivoCodificado);
+			String archivoDecodificado = archivoNoCodificado;
+							
+			datos = json.fromJson(Dato.class, archivoDecodificado);
 
 			} catch (Exception e) {
 
@@ -73,7 +74,7 @@ public class Configuraciones {
 
 		configuracionDato = Gdx.files.local(Configuraciones.DATOS_DE_JUEGO);
 
-		String archivoDecodifcado = json.toJson(dato);
+		String archivoDecodifcado = json.toJson(dato,Dato.class);
 
 		String archivoCodificado = Base64Coder.encodeString(archivoDecodifcado);
 
