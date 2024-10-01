@@ -60,11 +60,9 @@ public class MostrarPublicidad implements Publicidad {
 
 
 	public AdView getBanner() {
-
-
-
-    return adView;
-
+  
+      return adView;
+  
 	}
 
 	@Override
@@ -86,7 +84,7 @@ public class MostrarPublicidad implements Publicidad {
 	public void mostrarBanner() {
 
       if (adView != null) {
-    		 cargarBanner();
+    		
 
     		 }  
     		 
