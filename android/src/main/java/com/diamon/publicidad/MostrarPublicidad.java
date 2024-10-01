@@ -97,7 +97,7 @@ public class MostrarPublicidad implements Publicidad {
 	public void ocultarBanner() {
 
     	  if (adView != null) {
-    	        adView.pause();
+    	       
     	      }
    
 		
