@@ -21,6 +21,11 @@ import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
+import android.util.DisplayMetrics;
+import android.view.WindowMetrics;
+
 
 public class MostrarPublicidad implements Publicidad {
   
@@ -46,7 +51,7 @@ public class MostrarPublicidad implements Publicidad {
        
     adView = new AdView(actividad);
     adView.setAdUnitId(AD_UNIT_ID);
-    adView.setAdSize(AdSize.BANNER);
+    adView.setAdSize(adView.setAdSize(getAdSize()));
     adRequest = new AdRequest.Builder().build();
 
      
@@ -113,5 +118,21 @@ public class MostrarPublicidad implements Publicidad {
 	
 
 	}
+	
+	
+	
+private AdSize getAdSize() {
+    DisplayMetrics displayMetrics = actividad.getResources().getDisplayMetrics();
+    int adWidthPixels = displayMetrics.widthPixels;
+
+    if (VERSION.SDK_INT >= VERSION_CODES.R) {
+      WindowMetrics windowMetrics = actividad.getWindowManager().getCurrentWindowMetrics();
+      adWidthPixels = windowMetrics.getBounds().width();
+    }
+
+    float density = displayMetrics.density;
+    int adWidth = (int) (adWidthPixels / density);
+    return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+  }
 
 }
