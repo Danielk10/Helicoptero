@@ -51,7 +51,7 @@ public class MostrarPublicidad implements Publicidad {
        
     adView = new AdView(actividad);
     adView.setAdUnitId(AD_UNIT_ID);
-    adView.setAdSize(AdSize.BANNER);
+    adView.setAdSize(AdSize.BANN;
     adRequest = new AdRequest.Builder().build();
 
      
@@ -86,7 +86,8 @@ public class MostrarPublicidad implements Publicidad {
 	public void mostrarBanner() {
 
       if (adView != null) {
-    		   adView.resume();
+    		  publicidad.cargarBanner();
+
     		 }  
     		
 
