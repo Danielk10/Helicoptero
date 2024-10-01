@@ -51,7 +51,7 @@ public class AndroidLauncher extends AndroidApplication {
         
         publicidad.cargarBanner();
         
-        //publicidad.ocultarBanner();
+        publicidad.ocultarBanner();
       
         AndroidApplicationConfiguration configuration = new AndroidApplicationConfiguration();
         
