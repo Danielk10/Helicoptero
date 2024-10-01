@@ -51,7 +51,7 @@ public class MostrarPublicidad implements Publicidad {
        
     adView = new AdView(actividad);
     adView.setAdUnitId(AD_UNIT_ID);
-    adView.setAdSize(adView.setAdSize(getAdSize()));
+    adView.setAdSize(getAdSize());
     adRequest = new AdRequest.Builder().build();
 
      
@@ -132,7 +132,7 @@ private AdSize getAdSize() {
 
     float density = displayMetrics.density;
     int adWidth = (int) (adWidthPixels / density);
-    return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(actividad, adWidth);
   }
 
 }
