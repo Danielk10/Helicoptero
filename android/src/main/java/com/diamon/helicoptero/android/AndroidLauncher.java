@@ -47,11 +47,7 @@ public class AndroidLauncher extends AndroidApplication {
         
         pantallaCompleta.ocultarBotonesVirtuales();
         
-        publicidad = new MostrarPublicidad(this);
-        
-        publicidad.cargarBanner();
-        
-        publicidad.ocultarBanner();
+        publicidad = new MostrarPublicidad(this); 
       
         AndroidApplicationConfiguration configuration = new AndroidApplicationConfiguration();
         

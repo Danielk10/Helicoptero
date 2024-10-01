@@ -30,8 +30,11 @@ android {
     versionCode 12
     versionName "1.2.0"
     multiDexEnabled true
-    //Cambiando ruta de salida .aab y .apk
-  	buildDir ="${buildDir}../../../build/" 
+    //Cambiando ruta de salida vieja .aab y .apk
+  	//buildDir ="${buildDir}../../../build/" 
+  	//Cambiando ruta de salida nueva .aab y .apk
+  	buildDir ="${buildDir}../../../android/build/" 
+
   }
   compileOptions {
     sourceCompatibility "11"
