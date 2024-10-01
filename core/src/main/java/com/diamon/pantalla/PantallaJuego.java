@@ -1971,5 +1971,27 @@ public class PantallaJuego extends Pantalla {
 		}
 
 	}
+	
+	
+	
+	@Override
+	public void pause() {
+
+		super.pause();
+		
+		publicidad.ocultarBanner();
+		
+	}
+
+	@Override
+	public void resume() {
+
+   super.resume();
+   
+      publicidad.mostrarBanner();
+
+
+	}
+	
 
 }

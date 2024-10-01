@@ -20,25 +20,12 @@ import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.diamon.helicoptero.Helicoptero;
 
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import androidx.annotation.NonNull;
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.RequestConfiguration;
 
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {
   
-    private static final String AD_UNIT_ID = "ca-app-pub-5141499161332805/3936571775";
   
     private WakeLock wakeLock;
   
@@ -46,7 +33,6 @@ public class AndroidLauncher extends AndroidApplication {
   
   	private MostrarPublicidad publicidad;
   	
-  	private AdView adView;
   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,27 +49,10 @@ public class AndroidLauncher extends AndroidApplication {
         
         publicidad = new MostrarPublicidad(this);
         
-        publicidad.IniciarPublicidad(this);
+        publicidad.cargarBanner();
         
-        	MobileAds.initialize(this, new OnInitializationCompleteListener() {
-                		            @Override
-                		            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                		            }
-                		    });
-                				
-        
-              // Create a new ad view.
-              adView = new AdView(this);
-              adView.setAdUnitId(AD_UNIT_ID);
-              
-              adView.setAdSize(AdSize.BANNER);
+        publicidad.ocultarBanner();
       
-              AdRequest adRequest = new AdRequest.Builder().build();
-
-          
-              adView.loadAd(adRequest);
-              // [END load_ad]
-        
         AndroidApplicationConfiguration configuration = new AndroidApplicationConfiguration();
         
         RelativeLayout mainLayout = new RelativeLayout(this);
@@ -97,7 +66,7 @@ public class AndroidLauncher extends AndroidApplication {
         		mrecParameters.addRule(RelativeLayout.CENTER_HORIZONTAL);
         		mrecParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);
       
-        mainLayout.addView(adView, mrecParameters);
+        mainLayout.addView(publicidad.getBanner(), mrecParameters);
         		frame.addView(initializeForView(new Helicoptero(publicidad), configuration), new FrameLayout.LayoutParams(
         				FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
         
@@ -113,14 +82,10 @@ public class AndroidLauncher extends AndroidApplication {
     @Override
     	protected void onPause() {
     	  
-    	      if (adView != null) {
-    	        adView.pause();
-    	      }
+    	  
     
     		super.onPause();
     		
-    		
-    
     		wakeLock.release();
     
     	}
@@ -130,13 +95,7 @@ public class AndroidLauncher extends AndroidApplication {
     
     		super.onResume();
     		
-    		    if (adView != null) {
-    		      adView.resume();
-    		    }    if (adView != null) {
-    		          adView.resume();
-    		        }
     		
-    
     		wakeLock.acquire();
     
     	}
