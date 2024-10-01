@@ -51,7 +51,7 @@ public class MostrarPublicidad implements Publicidad {
        
     adView = new AdView(actividad);
     adView.setAdUnitId(AD_UNIT_ID);
-    adView.setAdSize(AdSize.BANN;
+    adView.setAdSize(AdSize.BANNER);
     adRequest = new AdRequest.Builder().build();
 
      
