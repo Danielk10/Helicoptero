@@ -86,7 +86,7 @@ public class MostrarPublicidad implements Publicidad {
 	public void mostrarBanner() {
 
       if (adView != null) {
-    		  publicidad.cargarBanner();
+    		  cargarBanner();
 
     		 }  
     		
