@@ -17,7 +17,7 @@ public class Terminos extends Activity {
 
 	private PantallaCompleta pantallaCompleta;
 
-	@SuppressLint("SetJavaScriptEnabled")
+	@SuppressLint("SetJavaScriptEnabled") 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
