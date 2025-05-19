@@ -48,4 +48,4 @@ Muestra
 
 ![Image text](https://github.com/Danielk10/Helicoptero/blob/main/portada/Juego%202.jpg)
 
-El codígo fuente esta en Libgdx versión 1.10.0, el proyecto es de Eclipse IDE, aunque tambien se puede importar en Android Stdio
+El codígo fuente esta en Libgdx versión 1.13.5, el proyecto es de Eclipse IDE, aunque tambien se puede importar en Android Stdio
