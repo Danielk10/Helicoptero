@@ -19,190 +19,179 @@ import com.diamon.pantalla.PantallaPrecentacion;
 
 public abstract class Juego extends Game {
 
-	protected AssetManager recurso;
+    protected AssetManager recurso;
 
-	public static final int ANCHO_PANTALLA = 640;
+    public static final int ANCHO_PANTALLA = 640;
 
-	public static final int ALTO_PANTALLA = 480;
+    public static final int ALTO_PANTALLA = 480;
 
-	public static final int LARGO_NIVEL = 13440;
+    public static final int LARGO_NIVEL = 13440;
 
-	public static final float GRAVEDAD = -10.0F;
+    public static final float GRAVEDAD = -10.0F;
 
-	public static final float VELOCIDAD_CAMARA = 1;
+    public static final float VELOCIDAD_CAMARA = 1;
 
-	public static final float DELTA_A_PIXEL = 0.0166666666666667F;
+    public static final float DELTA_A_PIXEL = 0.0166666666666667F;
 
-	public static final int FPS = 60;
+    public static final int FPS = 60;
 
-	protected Dato dato;
+    protected Dato dato;
 
-	protected Configuraciones configuracion;
+    protected Configuraciones configuracion;
 
-	private Image[] fondo = new Image[2];
+    private Image[] fondo = new Image[2];
 
-	private float xFondo;
+    private float xFondo;
 
-	protected Stage nivelMenu;
+    protected Stage nivelMenu;
 
-	private boolean renderizar;
+    private boolean renderizar;
 
-	protected Publicidad publicidad;
+    protected Publicidad publicidad;
 
-	public Juego(Publicidad publicidad) {
-		super();
+    public Juego(Publicidad publicidad) {
+        super();
 
-		this.publicidad = publicidad;
+        this.publicidad = publicidad;
+    }
 
-	}
+    @Override
+    public void create() {
 
-	@Override
-	public void create() {
+        recurso = new AssetManager();
 
-		recurso = new AssetManager();
+        configuracion = new Configuraciones();
 
-configuracion = new Configuraciones();
+        dato = configuracion.leerDatos(Configuraciones.LOCAL);
 
-		dato = configuracion.leerDatos(Configuraciones.LOCAL);
+        if (dato.isLeerDatosAsset()) {
 
-		if (dato.isLeerDatosAsset()) {
+            Configuraciones configuracionInterna = new Configuraciones();
 
-			Configuraciones configuracionInterna = new Configuraciones();
+            dato = configuracionInterna.leerDatos(Configuraciones.INTERNO);
 
-			dato = configuracionInterna.leerDatos(Configuraciones.INTERNO);
+            dato.setLeerDatosAsset(false);
 
-			dato.setLeerDatosAsset(false);
+            configuracionInterna.escribirDatos(dato);
+        }
+        xFondo = 0;
 
-			configuracionInterna.escribirDatos(dato);
+        renderizar = false;
 
-		}
-		xFondo = 0;
+        nivelMenu = new Stage(new StretchViewport(Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA));
 
-		renderizar = false;
+        ((OrthographicCamera) nivelMenu.getCamera())
+                .setToOrtho(false, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
 
-		nivelMenu = new Stage(new StretchViewport(Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA));
+        for (int i = 0; i < fondo.length; i++) {
 
-		((OrthographicCamera) nivelMenu.getCamera()).setToOrtho(false, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
+            fondo[i] = new Image(new Texture(Gdx.files.internal("textura/fondo1.png")));
 
-		for (int i = 0; i < fondo.length; i++) {
+            fondo[i].setSize(Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
 
-			fondo[i] = new Image(new Texture(Gdx.files.internal("textura/fondo1.png")));
+            fondo[i].setPosition(0, 0);
 
-			fondo[i].setSize(Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
+            nivelMenu.addActor(fondo[i]);
+        }
 
-			fondo[i].setPosition(0, 0);
+        Gdx.input.setInputProcessor(nivelMenu);
+    }
 
-			nivelMenu.addActor(fondo[i]);
-		}
+    @Override
+    public void render() {
 
-		Gdx.input.setInputProcessor(nivelMenu);
+        ScreenUtils.clear(0.0F, 0.0F, 1.0F, 1.0f, true);
 
-	}
+        super.render();
 
-	@Override
-	public void render() {
+        if (renderizar) {
 
-		ScreenUtils.clear(0.0F, 0.0F, 1.0F, 1.0f, true);
+            xFondo -= 0.5f / Juego.DELTA_A_PIXEL * Gdx.graphics.getDeltaTime();
 
-		super.render();
+            if (xFondo <= -Juego.ANCHO_PANTALLA) {
 
-		if (renderizar) {
+                xFondo = 0;
+            }
 
-			xFondo -= 0.5f / Juego.DELTA_A_PIXEL * Gdx.graphics.getDeltaTime();
+            fondo[0].setPosition(xFondo, 0);
 
-			if (xFondo <= -Juego.ANCHO_PANTALLA) {
+            fondo[1].setPosition(xFondo + Juego.ANCHO_PANTALLA, 0);
 
-				xFondo = 0;
-			}
+            nivelMenu.draw();
 
-			fondo[0].setPosition(xFondo, 0);
+            nivelMenu.act();
+        }
+    }
 
-			fondo[1].setPosition(xFondo + Juego.ANCHO_PANTALLA, 0);
+    @Override
+    public void resize(int ancho, int alto) {
 
-			nivelMenu.draw();
+        super.resize(ancho, alto);
 
-			nivelMenu.act();
+        nivelMenu.getViewport().update(ancho, alto);
+    }
 
-		}
+    @Override
+    public void setScreen(Screen screen) {
 
-	}
+        if (screen instanceof PantallaCarga
+                || screen instanceof PantallaJuego
+                || screen instanceof PantallaPrecentacion) {
 
-	@Override
-	public void resize(int ancho, int alto) {
+            nivelMenu.clear();
 
-		super.resize(ancho, alto);
+            renderizar = false;
 
-		nivelMenu.getViewport().update(ancho, alto);
+            super.setScreen(screen);
 
-	}
+        } else {
+            nivelMenu.clear();
 
-	@Override
-	public void setScreen(Screen screen) {
+            for (int i = 0; i < fondo.length; i++) {
 
-		if (screen instanceof PantallaCarga || screen instanceof PantallaJuego
-				|| screen instanceof PantallaPrecentacion) {
+                fondo[i] = new Image(new Texture(Gdx.files.internal("textura/fondo1.png")));
 
-			nivelMenu.clear();
+                fondo[i].setSize(Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
 
-			renderizar = false;
+                fondo[i].setPosition(0, 0);
 
-			super.setScreen(screen);
+                nivelMenu.addActor(fondo[i]);
+            }
 
-		} else
+            super.setScreen(screen);
 
-		{
-			nivelMenu.clear();
+            Gdx.input.setInputProcessor(null);
 
-			for (int i = 0; i < fondo.length; i++) {
+            Gdx.input.setInputProcessor(nivelMenu);
 
-				fondo[i] = new Image(new Texture(Gdx.files.internal("textura/fondo1.png")));
+            renderizar = true;
+        }
+    }
 
-				fondo[i].setSize(Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
+    @Override
+    public void resume() {
 
-				fondo[i].setPosition(0, 0);
+        super.resume();
 
-				nivelMenu.addActor(fondo[i]);
-			}
+        if (screen instanceof PantallaCarga
+                || screen instanceof PantallaJuego
+                || screen instanceof PantallaPrecentacion) {
 
-			super.setScreen(screen);
+        } else {
 
-			Gdx.input.setInputProcessor(null);
+            Gdx.input.setInputProcessor(null);
 
-			Gdx.input.setInputProcessor(nivelMenu);
+            Gdx.input.setInputProcessor(nivelMenu);
+        }
+    }
 
-			renderizar = true;
+    @Override
+    public void dispose() {
 
-		}
+        recurso.dispose();
 
-	}
+        Gdx.input.setInputProcessor(null);
 
-	@Override
-	public void resume() {
-
-		super.resume();
-
-		if (screen instanceof PantallaCarga || screen instanceof PantallaJuego
-				|| screen instanceof PantallaPrecentacion) {
-
-		} else {
-
-			Gdx.input.setInputProcessor(null);
-
-			Gdx.input.setInputProcessor(nivelMenu);
-
-		}
-
-	}
-
-	@Override
-	public void dispose() {
-
-		recurso.dispose();
-
-		Gdx.input.setInputProcessor(null);
-
-		nivelMenu.dispose();
-
-	}
-
+        nivelMenu.dispose();
+    }
 }

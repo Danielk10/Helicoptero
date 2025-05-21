@@ -1,137 +1,126 @@
 package com.diamon.publicidad;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.diamon.helicoptero.Publicidad;
-import com.diamon.terminos.Terminos;
-
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.ads.AdView;
+import com.diamon.helicoptero.android.AndroidLauncher;
 import com.google.android.gms.ads.AdRequest;
-import androidx.annotation.NonNull;
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.RequestConfiguration;
-
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
-import android.util.DisplayMetrics;
-import android.view.WindowMetrics;
-
-
 public class MostrarPublicidad implements Publicidad {
-  
-  private static final String AD_UNIT_ID = "ca-app-pub-5141499161332805/3936571775";
 
-	private Activity actividad;
-	
-	private AdView adView;
-	
-	private AdRequest adRequest;
-	
+    private static final String AD_UNIT_ID = "ca-app-pub-5141499161332805/3936571775";
+    private AndroidLauncher actividad;
+    private AdView adView;
+    private InterstitialAd interstitialAd;
 
+    public MostrarPublicidad(AndroidLauncher actividad) {
+        this.actividad = actividad;
 
-	public MostrarPublicidad(Activity actividad) {
+        // Configurar el banner
+        actividad.runOnUiThread(
+                () -> {
+                    adView = new AdView(actividad);
+                    adView.setAdSize(AdSize.BANNER);
+                    adView.setAdUnitId(AD_UNIT_ID); // Banner de prueba
 
-		this.actividad = actividad;
-		
- MobileAds.initialize(actividad, new OnInitializationCompleteListener() {
-                		        @Override
-                		        public void onInitializationComplete(InitializationStatus initializationStatus) {
-                		            }
-                		    });
-       
-    adView = new AdView(actividad);
-    adView.setAdUnitId(AD_UNIT_ID);
-    adView.setAdSize(AdSize.BANNER);
-    adRequest = new AdRequest.Builder().build();
+                    AdRequest adRequest = new AdRequest.Builder().build();
+                    adView.loadAd(adRequest);
 
-     
-		
-	}
+                    
+                    adView.setVisibility(View.GONE); // Oculto inicialmente
+                });
 
+        // Configurar el interstitial
+        actividad.runOnUiThread(
+                () -> {
+                    AdRequest adRequest = new AdRequest.Builder().build();
+                    InterstitialAd.load(
+                            actividad,
+                            "ca-app-pub-3940256099942544/1033173712", 
+                            adRequest,
+                            new InterstitialAdLoadCallback() {
+                                @Override
+                                public void onAdLoaded(@NonNull InterstitialAd ad) {
+                                    interstitialAd = ad;
+                                }
 
-	public AdView getBanner() {
-  
-      return adView;
-  
-	}
-
-	@Override
-	public void mostrarInterstitial() {
-
-		
-
-	}
-
-	@Override
-	public void cargarBanner() {
-
-  adView.loadAd(this.adRequest);
-
-
-	}
-
-	@Override
-	public void mostrarBanner() {
-
-      if (adView != null) {
-    		
-
-    		 }  
-    		 
-
-	}
-
-	@Override
-	public void ocultarBanner() {
-
-    	  if (adView != null) {
-    	       
-    	      }
-   
-		
-
-	}
-
-	@Override
-	public void iniciarActividad() {
-
-		Intent nuevaActividad = new Intent(actividad, Terminos.class);
-
-		actividad.startActivity(nuevaActividad);
-
-	}
-
-	@Override
-	public void botonAtrasInterstitial() {
-
-	
-
-	}
-	
-	
-	
-private AdSize getAdSize() {
-    DisplayMetrics displayMetrics = actividad.getResources().getDisplayMetrics();
-    int adWidthPixels = displayMetrics.widthPixels;
-
-    if (VERSION.SDK_INT >= VERSION_CODES.R) {
-      WindowMetrics windowMetrics = actividad.getWindowManager().getCurrentWindowMetrics();
-      adWidthPixels = windowMetrics.getBounds().width();
+                                @Override
+                                public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                                    interstitialAd = null;
+                                }
+                            });
+                });
     }
 
-    float density = displayMetrics.density;
-    int adWidth = (int) (adWidthPixels / density);
-    return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(actividad, adWidth);
-  }
+    @Override
+    public void mostrarBanner() {
+        actividad.runOnUiThread(
+                () -> {
+                    if (adView != null) {
+                        adView.setVisibility(View.VISIBLE);
+                    }
+                });
+    }
 
+    @Override
+    public void ocultarBanner() {
+        actividad.runOnUiThread(
+                () -> {
+                    if (adView != null) {
+                        adView.setVisibility(View.GONE);
+                    }
+                });
+    }
+
+    @Override
+    public void mostrarInterstitial() {
+        actividad.runOnUiThread(
+                () -> {
+                    if (interstitialAd != null) {
+                        interstitialAd.show(actividad);
+                    } else {
+                        // Opcional: recargar si aún no está disponible
+                        AdRequest adRequest = new AdRequest.Builder().build();
+                        InterstitialAd.load(
+                                actividad,
+                                "ca-app-pub-3940256099942544/1033173712",
+                                adRequest,
+                                new InterstitialAdLoadCallback() {
+                                    @Override
+                                    public void onAdLoaded(@NonNull InterstitialAd ad) {
+                                        interstitialAd = ad;
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                                        interstitialAd = null;
+                                    }
+                                });
+                    }
+                });
+    }
+
+    
+    public AdView getBanner()
+    {
+        
+        return adView;
+        
+    }
+    
+    @Override
+    public void botonAtrasInterstitial() {}
+
+    @Override
+    public void cargarBanner() {}
+
+    @Override
+    public void iniciarActividad() {}
 }
