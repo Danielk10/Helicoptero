@@ -1,5 +1,6 @@
 package com.diamon.helicoptero.android;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.PowerManager;
@@ -27,6 +28,7 @@ public class AndroidLauncher extends AndroidApplication {
 
     private MostrarPublicidad publicidad;
 
+    @SuppressLint("InvalidWakeLockTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

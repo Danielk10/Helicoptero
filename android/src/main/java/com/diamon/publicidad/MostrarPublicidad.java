@@ -33,7 +33,7 @@ public class MostrarPublicidad implements Publicidad {
                     AdRequest adRequest = new AdRequest.Builder().build();
                     adView.loadAd(adRequest);
 
-                    
+
                     adView.setVisibility(View.GONE); // Oculto inicialmente
                 });
 
@@ -43,7 +43,7 @@ public class MostrarPublicidad implements Publicidad {
                     AdRequest adRequest = new AdRequest.Builder().build();
                     InterstitialAd.load(
                             actividad,
-                            "ca-app-pub-3940256099942544/1033173712", 
+                            "ca-app-pub-3940256099942544/1033173712",
                             adRequest,
                             new InterstitialAdLoadCallback() {
                                 @Override
@@ -64,7 +64,7 @@ public class MostrarPublicidad implements Publicidad {
         actividad.runOnUiThread(
                 () -> {
                     if (adView != null) {
-                        adView.setVisibility(View.VISIBLE);
+                       // adView.setVisibility(View.VISIBLE);
                     }
                 });
     }
@@ -74,7 +74,7 @@ public class MostrarPublicidad implements Publicidad {
         actividad.runOnUiThread(
                 () -> {
                     if (adView != null) {
-                        adView.setVisibility(View.GONE);
+                       // adView.setVisibility(View.GONE);
                     }
                 });
     }
@@ -90,7 +90,7 @@ public class MostrarPublicidad implements Publicidad {
                         AdRequest adRequest = new AdRequest.Builder().build();
                         InterstitialAd.load(
                                 actividad,
-                                "ca-app-pub-3940256099942544/1033173712",
+                                "ca-app-pub-5141499161332805/2847166323",
                                 adRequest,
                                 new InterstitialAdLoadCallback() {
                                     @Override
@@ -107,14 +107,14 @@ public class MostrarPublicidad implements Publicidad {
                 });
     }
 
-    
+
     public AdView getBanner()
     {
-        
+
         return adView;
-        
+
     }
-    
+
     @Override
     public void botonAtrasInterstitial() {}
 

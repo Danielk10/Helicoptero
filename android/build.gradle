@@ -33,16 +33,16 @@ android {
   defaultConfig {
     applicationId 'com.diamon.helicoptero'
     minSdkVersion 23
-    targetSdkVersion 35
-    versionCode 15
-    versionName "1.2.6"
+    targetSdkVersion 36
+    versionCode 14
+    versionName "1.2.5"
     multiDexEnabled true
     //Los tres niveles ../../.../ son de libGDX
     //No de AppCenter
     //Cambiando ruta de salida vieja .aab y .apk
-    //buildDir ="${buildDir}../../../build/" 
+    //buildDir ="${buildDir}../../../build/"
     //Cambiando ruta de salida nueva .aab y .apk
-    buildDir ="${buildDir}../../../android/build/" 
+    //buildDir ="${buildDir}../../../android/build/"
   }
   compileOptions {
     sourceCompatibility "17"
@@ -86,7 +86,7 @@ dependencies {
   natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
   natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
   natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
-  
+
   def appCenterSdkVersion = '5.0.6'
   implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
   implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
