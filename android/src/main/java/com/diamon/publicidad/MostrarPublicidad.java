@@ -1,11 +1,13 @@
 package com.diamon.publicidad;
 
+import android.content.Intent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 
 import com.diamon.helicoptero.Publicidad;
 import com.diamon.helicoptero.android.AndroidLauncher;
+import com.diamon.terminos.Terminos;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -33,7 +35,6 @@ public class MostrarPublicidad implements Publicidad {
                     AdRequest adRequest = new AdRequest.Builder().build();
                     adView.loadAd(adRequest);
 
-
                     adView.setVisibility(View.GONE); // Oculto inicialmente
                 });
 
@@ -43,7 +44,7 @@ public class MostrarPublicidad implements Publicidad {
                     AdRequest adRequest = new AdRequest.Builder().build();
                     InterstitialAd.load(
                             actividad,
-                            "ca-app-pub-3940256099942544/1033173712",
+                            "ca-app-pub-5141499161332805/2847166323",
                             adRequest,
                             new InterstitialAdLoadCallback() {
                                 @Override
@@ -64,7 +65,7 @@ public class MostrarPublicidad implements Publicidad {
         actividad.runOnUiThread(
                 () -> {
                     if (adView != null) {
-                       // adView.setVisibility(View.VISIBLE);
+                        // adView.setVisibility(View.VISIBLE);
                     }
                 });
     }
@@ -74,7 +75,7 @@ public class MostrarPublicidad implements Publicidad {
         actividad.runOnUiThread(
                 () -> {
                     if (adView != null) {
-                       // adView.setVisibility(View.GONE);
+                        // adView.setVisibility(View.GONE);
                     }
                 });
     }
@@ -107,12 +108,9 @@ public class MostrarPublicidad implements Publicidad {
                 });
     }
 
-
-    public AdView getBanner()
-    {
+    public AdView getBanner() {
 
         return adView;
-
     }
 
     @Override
@@ -122,5 +120,10 @@ public class MostrarPublicidad implements Publicidad {
     public void cargarBanner() {}
 
     @Override
-    public void iniciarActividad() {}
+    public void iniciarActividad() {
+
+        Intent nuevaActividad = new Intent(actividad, Terminos.class);
+
+        actividad.startActivity(nuevaActividad);
+    }
 }
