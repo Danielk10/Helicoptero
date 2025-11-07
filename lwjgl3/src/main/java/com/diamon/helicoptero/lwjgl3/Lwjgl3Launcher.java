@@ -2,7 +2,6 @@ package com.diamon.helicoptero.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-
 import com.diamon.helicoptero.Helicoptero;
 import com.diamon.helicoptero.Publicidad;
 
@@ -13,39 +12,40 @@ public class Lwjgl3Launcher {
         createApplication();
     }
 
+
     private static Lwjgl3Application createApplication() {
         return new Lwjgl3Application(new Helicoptero(new Publicidad() {
-          
+
           			@Override
           			public void mostrarInterstitial() {
-          
+
           			}
-          
+
           			@Override
           			public void botonAtrasInterstitial() {
-          
+
           			}
-          
+
           			@Override
           			public void cargarBanner() {
-          
+
           			}
-          
+
           			@Override
           			public void mostrarBanner() {
-          
+
           			}
-          
+
           			@Override
           			public void ocultarBanner() {
-          
+
           			}
-          
+
           			@Override
           			public void iniciarActividad() {
-          
+
           			}
-          		})), getDefaultConfiguration());
+          		}), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
@@ -65,11 +65,18 @@ public class Lwjgl3Launcher {
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
         //// They can also be loaded from the root of assets/ .
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
-        
+
         configuration.setForegroundFPS(60);
-        
-        configuration.setResizable(false); 
-        
+
+        configuration.setResizable(false);
+
+        //// This should improve compatibility with Windows machines with buggy OpenGL drivers, Macs
+        //// with Apple Silicon that have to emulate compatibility with OpenGL anyway, and more.
+        //// This uses the dependency `com.badlogicgames.gdx:gdx-lwjgl3-angle` to function.
+        //// You can choose to remove the following line and the mentioned dependency if you want; they
+        //// are not intended for games that use GL30 (which is compatibility with OpenGL ES 3.0).
+        configuration.setOpenGLEmulation(Lwjgl3ApplicationConfiguration.GLEmulation.ANGLE_GLES20, 0, 0);
+
         return configuration;
     }
 }
