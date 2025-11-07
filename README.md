@@ -35,7 +35,7 @@ Note that most tasks that are not specific to a single project can be run with `
 For example, `core:clean` removes `build` folder only from the `core` project.
 
 # Helicoptero
-Juego Hecho en LibGDx con motor 2D incluido, el juego es multiplataforma, esta es la versión 1.13.5 Beta
+Juego Hecho en LibGDx con motor 2D incluido, el juego es multiplataforma, esta es la versión 1.14.0 Beta
 
 link de de Google Play https://play.google.com/store/apps/details?id=com.diamon.helicoptero
 
@@ -48,4 +48,4 @@ Muestra
 
 ![Image text](https://github.com/Danielk10/Helicoptero/blob/main/portada/Juego%202.jpg)
 
-El codígo fuente esta en Libgdx versión 1.13.5, el proyecto es de Eclipse IDE, aunque tambien se puede importar en Android Stdio
+El codígo fuente esta en Libgdx versión 1.14.0, el proyecto es de Eclipse IDE, aunque tambien se puede importar en Android Stdio
