@@ -1,6 +1,12 @@
 package com.diamon.helicoptero.android;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.view.KeyEvent;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
@@ -15,18 +21,18 @@ import com.microsoft.appcenter.crashes.Crashes;
 
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {
-	
-	 private WakeLock wakeLock;
+
+	 private PowerManager.WakeLock wakeLock;
 
     private PantallaCompleta pantallaCompleta;
 
     private MostrarPublicidad publicidad;
-	
+
 	@SuppressLint("InvalidWakeLockTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		
+
 		    AppCenter.start(
                 getApplication(),
                 "2dea6be0-8f41-49ac-b4ce-468cced27237",
@@ -46,9 +52,9 @@ public class AndroidLauncher extends AndroidApplication {
         RelativeLayout mainLayout = new RelativeLayout(this);
 
         FrameLayout frame = new FrameLayout(this);
-		
+
         configuration.useImmersiveMode = true; // Recommended, but not required.
-		
+
 		  RelativeLayout.LayoutParams mrecParameters =
                 new RelativeLayout.LayoutParams(
                         RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -74,11 +80,11 @@ public class AndroidLauncher extends AndroidApplication {
         PowerManager powerManejador = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
         wakeLock = powerManejador.newWakeLock(PowerManager.FULL_WAKE_LOCK, "GLGame");
-		
-     
+
+
     }
-	
-	
+
+
 	    @Override
     protected void onPause() {
 
