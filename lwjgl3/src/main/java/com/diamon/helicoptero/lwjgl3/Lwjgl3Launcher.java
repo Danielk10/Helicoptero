@@ -12,7 +12,6 @@ public class Lwjgl3Launcher {
         createApplication();
     }
 
-
     private static Lwjgl3Application createApplication() {
         return new Lwjgl3Application(new Helicoptero(new Publicidad() {
 
@@ -65,8 +64,8 @@ public class Lwjgl3Launcher {
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
         //// They can also be loaded from the root of assets/ .
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
-
-        configuration.setForegroundFPS(60);
+		
+		configuration.setForegroundFPS(60);
 
         configuration.setResizable(false);
 
