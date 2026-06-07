@@ -26,12 +26,12 @@ public class AndroidLauncher extends AndroidApplication {
     private PantallaCompleta pantallaCompleta;
 
     private MostrarPublicidad publicidad;
-	
-	
+
+    @SuppressLint("InvalidWakeLockTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		
+
 		   AppCenter.start(
                 getApplication(),
                 "2dea6be0-8f41-49ac-b4ce-468cced27237",
@@ -45,10 +45,10 @@ public class AndroidLauncher extends AndroidApplication {
         pantallaCompleta.ocultarBotonesVirtuales();
 
         publicidad = new MostrarPublicidad(this);
-		
+
         AndroidApplicationConfiguration configuration = new AndroidApplicationConfiguration();
         configuration.useImmersiveMode = true; // Recommended, but not required.
-		
+
 		RelativeLayout mainLayout = new RelativeLayout(this);
 
         FrameLayout frame = new FrameLayout(this);
@@ -82,7 +82,7 @@ public class AndroidLauncher extends AndroidApplication {
         wakeLock = powerManejador.newWakeLock(PowerManager.FULL_WAKE_LOCK, "GLGame");
 
     }
-	
+
 	    @Override
     protected void onPause() {
 

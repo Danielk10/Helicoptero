@@ -32,11 +32,10 @@
       android:icon="@drawable/ic_launcher"
       android:isGame="true"
       android:appCategory="game"
-	  android:appCategory="game"
       android:label="@string/app_name"
       tools:ignore="UnusedAttribute"
       android:theme="@style/GdxTheme">
-	  
+
 	   <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-5141499161332805~5712767508" />
@@ -46,9 +45,9 @@
             android:value="true" />
       <meta-data
             android:name="com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING"
-            android:value="true" />	  
-	  
-	  
+            android:value="true" />
+
+
     <activity
         android:name="com.diamon.helicoptero.android.AndroidLauncher"
         android:label="@string/app_name"
@@ -60,7 +59,7 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-	
+
 		  <activity
                 android:name="com.diamon.terminos.Terminos"
             android:exported="true"
@@ -68,8 +67,8 @@
             android:screenOrientation="landscape"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout">
 		</activity>
-	
-	
+
+
   </application>
 
 </manifest>
