@@ -1,17 +1,21 @@
 # Notas de Lanzamiento - Helicoptero v1.2.6 🚁
 
-## 📋 Novedades y Mejoras Principales
+## 📋 Novedades y Correcciones
 
-### ⚡ Entorno y Compilación
-- **Aislamiento Total en `/tmp`:** Redirección completa de la instalación del Android SDK (`/tmp/android-sdk`), del cache global de Gradle (`/tmp/.gradle`), cache local de proyecto (`/tmp/helicoptero/.gradle`) y directorio de build a `/tmp/helicoptero/` para evitar consumir cuota en `$HOME`.
-- **Automatización de SDK:** Inclusión de `setup-sdk.sh` para aprovisionamiento rápido y autónomo de herramientas Android (Build-Tools 37.0.0, Platform Android 37, NDK y CMake).
-- **Publicación Automatizada:** Integración del script `upload_play_store.py` y guía `GUIA_PUBLICACION_PLAY_STORE.md` para lanzamientos automatizados a Google Play Store.
+### 🎮 Corrección de Icono de la Aplicación
+- **Eliminación del icono por defecto de libGDX:** Se removió el archivo vectorial y recursos que causaban que en Android 8.0+ se visualizara el logo genérico de libGDX.
+- **Generación de Iconos Adaptativos:** Se crearon los iconos de primer plano (`ic_launcher_foreground.png`) y fondos adaptativos con el logo oficial del juego para todas las densidades de pantalla (`mdpi`, `hdpi`, `xhdpi`, `xxhdpi`, `xxxhdpi`).
 
-### 📦 Dependencias y Compatibilidad
-- Actualizadas las dependencias de Google Play Services Ads a la versión `25.3.0`.
-- Actualizadas las dependencias de Microsoft AppCenter SDK a `5.0.6`.
-- Compatibilidad con Java 17 y compilación dirigida a Android Target SDK 37.
-- ProGuard/R8 habilitado y optimizado con preservación de librerías nativas de LibGDX (`armeabi-v7a`, `arm64-v8a`, `x86`, `x86_64`).
+### 🛡️ Integridad de Base de Datos y Assets (.dat)
+- **Desactivación de Ofuscación:** Se configuró `minifyEnabled false` en el tipo de compilación release para evitar que R8/ProGuard corrompa la lectura, deserialización y acceso a los archivos de base de datos de assets (`.dat`/`.data`).
+
+### 📢 Publicidad AdMob en Producción
+- **Inicialización de Mobile Ads SDK:** Se integró la llamada explícita `MobileAds.initialize(...)` en el flujo de arranque.
+- **Verificación de IDs de Producción:** Comprobación del App ID (`ca-app-pub-5141499161332805~5712767508`), Banner Unit ID (`ca-app-pub-5141499161332805/3936571775`) e Interstitial Unit ID (`ca-app-pub-5141499161332805/2847166323`).
+
+### ⚡ Entorno y Compilación en `/tmp`
+- **Aislamiento Total en `/tmp`:** Redirección de la instalación del Android SDK (`/tmp/android-sdk`), del cache global de Gradle (`/tmp/.gradle`), cache local de proyecto (`/tmp/helicoptero/.gradle`) y directorio de build a `/tmp/helicoptero/` para evitar ocupar cuota en `$HOME`.
+- **Automatización de SDK y Publicación:** Script autónomo `setup-sdk.sh` y script de subida a Play Store `upload_play_store.py`.
 
 ---
 

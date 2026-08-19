@@ -15,6 +15,8 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
+import com.google.android.gms.ads.MobileAds;
+
 public class MostrarPublicidad implements Publicidad {
 
     private static final String AD_UNIT_ID = "ca-app-pub-5141499161332805/3936571775";
@@ -25,12 +27,14 @@ public class MostrarPublicidad implements Publicidad {
     public MostrarPublicidad(AndroidLauncher actividad) {
         this.actividad = actividad;
 
+        MobileAds.initialize(actividad, initializationStatus -> {});
+
         // Configurar el banner
         actividad.runOnUiThread(
                 () -> {
                     adView = new AdView(actividad);
                     adView.setAdSize(AdSize.BANNER);
-                    adView.setAdUnitId(AD_UNIT_ID); // Banner de prueba
+                    adView.setAdUnitId(AD_UNIT_ID);
 
                     AdRequest adRequest = new AdRequest.Builder().build();
                     adView.loadAd(adRequest);
