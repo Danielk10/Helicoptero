@@ -77,6 +77,8 @@ public class AndroidLauncher extends AndroidApplication {
 
         setContentView(frame);
 
+        publicidad.instalarBotonPrivacidad(frame);
+
         PowerManager powerManejador = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
         wakeLock = powerManejador.newWakeLock(PowerManager.FULL_WAKE_LOCK, "GLGame");

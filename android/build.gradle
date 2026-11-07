@@ -112,6 +112,8 @@ dependencies {
   implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
   implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
   implementation 'com.google.android.gms:play-services-ads:25.3.0'
+  // UMP: consentimiento de privacidad (RGPD / normativas estatales de EE. UU.)
+  implementation 'com.google.android.ump:user-messaging-platform:4.0.0'
   implementation 'androidx.activity:activity:1.10.1'
   implementation 'androidx.fragment:fragment:1.8.6'
 
