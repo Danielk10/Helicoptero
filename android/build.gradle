@@ -43,10 +43,10 @@ android {
   }
   defaultConfig {
     applicationId 'com.diamon.helicoptero'
-    minSdkVersion 23
+    minSdkVersion 24
     targetSdkVersion 37
-    versionCode 16
-    versionName "1.2.7"
+    versionCode 17
+    versionName "1.2.8"
   }
   compileOptions {
     sourceCompatibility "17"
