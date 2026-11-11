@@ -37,18 +37,82 @@ Evitar el agotamiento del espacio en disco en el directorio persistente `/home` 
 * **Ubicación del APK Release:** `/tmp/helicoptero/outputs/apk/release/android-release.apk`
 * **Ubicación del AAB Release:** `/tmp/helicoptero/outputs/bundle/release/android-release.aab`
 * **Ubicación del APK Debug:** `/tmp/helicoptero/outputs/apk/debug/android-debug.apk`
+* **Imagen nativa (GraalVM):** `/tmp/helicoptero/lwjgl3/native/nativeCompile/Helicoptero`
 
 ---
 
-## 📦 Dependencias de Anuncios y Telemetría Actualizadas
+## 📦 Dependencias Android Actualizadas
 
-Se han alineado las versiones con el estándar de **Flash-EEPROM-Tool**:
-* **Google Play Services Ads:** `25.3.0` (`com.google.android.gms:play-services-ads:25.3.0`)
-* **Microsoft AppCenter Analytics & Crashes:** `5.0.6` (`com.microsoft.appcenter:appcenter-analytics:5.0.6`, `appcenter-crashes:5.0.6`)
-* **Android Gradle Plugin (AGP):** `9.2.1`
-* **Target SDK / Compile SDK:** `37` (Android 15+)
-* **Min SDK:** `23` (Android 6.0+)
+Versiones actuales del proyecto:
+
+* **Android Gradle Plugin (AGP):** `9.5.1`
+* **Gradle:** `9.9.1`
+* **Google Play Services Ads:** `25.5.0` (`com.google.android.gms:play-services-ads:25.5.0`)
+* **User Messaging Platform (UMP):** `4.0.0`
+* **Microsoft AppCenter Analytics & Crashes:** `5.0.6`
+* **Target SDK / Compile SDK:** `37`
+* **Min SDK:** `24`
+* **Build Tools:** `37.0.0`
 * **Java Compatibility:** `Java 17`
+* **libGDX:** `1.14.2` / **LWJGL:** `3.4.3`
+
+> **Nota:** Google Play Billing se mantiene intencionalmente en `8.3.0` en los proyectos que lo usan (C-PIC, PIC-k150-Programing y Flash-EEPROM-Tool). **Helicoptero no integra Billing.**
+
+---
+
+## ☕ Build Nativo con GraalVM (opcional)
+
+El build nativo está **desactivado por defecto** (`enableGraalNative=false` en [`gradle.properties`](./gradle.properties)); solo se activa para generar el ejecutable de escritorio.
+
+### Dependencias del build nativo
+* **construo:** `2.3.0` (empaquetado/jlink multiplataforma, resuelto desde el Gradle Plugin Portal).
+* **GraalVM native buildtools:** `1.1.18`.
+* **gdx-svmhelper:** `2.0.1` (última versión publicada).
+
+### Requisito de versión de GraalVM
+
+⚠️ **Se debe usar GraalVM CE 23.1 para JDK 21** (en este entorno, `/tmp/graalvm21`).
+
+* El build **no funciona con GraalVM 25**: `gdx-svmhelper 2.0.1` usa `org.graalvm.nativeimage.impl.ConfigurationCondition`, una API interna eliminada en las versiones nuevas, y `native-image` aborta con `NoClassDefFoundError`. No existe todavía una versión más reciente del helper.
+* El `requiredVersion = '23.0'` de [`nativeimage.gradle`](./lwjgl3/nativeimage.gradle) sigue siendo válido con GraalVM 23.1.
+* native-build-tools 1.x activa por defecto el **repositorio de metadatos de alcanzabilidad**, que exige GraalVM ≥ 24.2. Por eso [`nativeimage.gradle`](./lwjgl3/nativeimage.gradle) lo desactiva explícitamente:
+
+  ```groovy
+  metadataRepository {
+    enabled.set(false)
+  }
+  ```
+
+### Instalación de GraalVM 23.1 (JDK 21)
+
+```bash
+curl -fL -o /tmp/graalvm21.tar.gz \
+  "https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-21.0.2/graalvm-community-jdk-21.0.2_linux-x64_bin.tar.gz"
+mkdir -p /tmp/graalvm21
+tar -xzf /tmp/graalvm21.tar.gz -C /tmp/graalvm21 --strip-components=1
+rm -f /tmp/graalvm21.tar.gz
+/tmp/graalvm21/bin/native-image --version
+```
+
+### Compilar la imagen nativa
+
+```bash
+# 1. Activar temporalmente el modo nativo
+sed -i 's/^enableGraalNative=false/enableGraalNative=true/' gradle.properties
+
+# 2. Compilar con GraalVM 23.1
+JAVA_HOME=/tmp/graalvm21 \
+ANDROID_HOME=/tmp/android-sdk ANDROID_SDK_ROOT=/tmp/android-sdk \
+GRADLE_USER_HOME=/tmp/.gradle ANDROID_USER_HOME=/tmp/.android \
+./gradlew --no-daemon :lwjgl3:nativeCompile
+
+# 3. Restaurar el valor original
+sed -i 's/^enableGraalNative=true/enableGraalNative=false/' gradle.properties
+```
+
+> El ejecutable resultante requiere entorno gráfico (OpenGL/GLFW); en una sesión headless falla en `glfwInit`, lo cual es esperado.
+
+**Validado:** `:android:assembleDebug --rerun-tasks` y `:lwjgl3:nativeCompile` con `construo 2.3.0` + native buildtools `1.1.18` sobre GraalVM 23.1.2.
 
 ---
 
@@ -61,6 +125,17 @@ bash setup-sdk.sh
 # 2. Compilar APK y AAB de producción
 ./gradlew :android:bundleRelease :android:assembleRelease
 
-# 3. Limpiar salidas generadas en /tmp
+# 3. Compilar APK debug (verificación rápida)
+./gradlew :android:assembleDebug
+
+# 4. Limpiar salidas generadas en /tmp
 rm -rf /tmp/helicoptero/outputs/
 ```
+
+---
+
+## 🧹 Notas de Mantenimiento
+
+* `/tmp` es **volátil**: tras reiniciar hay que volver a ejecutar `setup-sdk.sh` y reinstalar GraalVM si se quiere repetir el build nativo.
+* Los artefactos de compilación (`/tmp/helicoptero`) y las cachés (`/tmp/.gradle`, `/tmp/.android`) se pueden borrar sin afectar al repositorio.
+* No se deben versionar `local.properties`, `keystore.properties` ni `token.json`.
