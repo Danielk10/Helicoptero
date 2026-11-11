@@ -3,6 +3,11 @@ project(":lwjgl3") {
   apply plugin: "org.graalvm.buildtools.native"
 
   graalvmNative {
+    // El repositorio de metadatos de alcanzabilidad de native-build-tools 1.x
+    // requiere GraalVM >= 24.2; este proyecto compila con GraalVM 23.1.
+    metadataRepository {
+      enabled.set(false)
+    }
     binaries {
       main {
         imageName = appName
